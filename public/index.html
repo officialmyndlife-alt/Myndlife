@@ -44,6 +44,18 @@
             padding: 0 20px;
         }
 
+        /* ANIMATIONS */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* HERO SECTION */
         .hero {
             min-height: 100vh;
@@ -903,22 +915,22 @@
     <section class="hero">
         <!-- LOGO COLOCADO EN LA ESQUINA SUPERIOR IZQUIERDA -->
         <div class="logo-container">
-            <img src="imagenes/myndlifelogo.jpg" alt="Logo Myndlife">
+            <img src="imagenes/myndlifelogo.jpg">
         </div>
 
         <div class="hero-content">
-            <h1>De Empleado a Emprendedor:<br>La Mentalidad que Nadie Te Enseñó</h1>
-            <h2>Deja de soñar y empieza a construir: Tu futuro emprendedor comienza hoy, no mañana.</h2>
+            <h1 class="fade-in">De Empleado a Emprendedor:<br>La Mentalidad que Nadie Te Enseñó</h1>
+            <h2 class="fade-in">Deja de soñar y empieza a construir: Tu futuro emprendedor comienza hoy, no mañana.</h2>
             
-            <div class="book-showcase">
+            <div class="book-showcase fade-in">
                 <!-- REEMPLAZA LA URL DE LA IMAGEN DEL PRODUCTO AQUÍ -->
-                <img src="imagenes/ebook1.png" alt="De Empleado a Emprendedor - Portada">
+                <img src="imagenes/ebook1.png">
             </div>
 
             <!-- OFERTA SECTION IN HERO -->
-            <div class="offer-badge">¡OFERTA LIMITADA!</div>
+            <div class="offer-badge fade-in">¡OFERTA LIMITADA!</div>
             
-            <div class="hero-oferta">
+            <div class="hero-oferta fade-in">
                 <h3>Oferta Especial de Lanzamiento</h3>
                 
                 <div class="valor-linea">
@@ -973,20 +985,13 @@
                 </div>
 
                 <div class="cta-container">
-  <a 
-    href="https://www.checkout-ds24.com/product/653803"
-    class="btn btn-primary"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    COMPRAR AHORA
-  </a>
-</div>
+                    <a href="https://www.checkout-ds24.com/product/653803" class="btn btn-primary">COMPRAR AHORA</a>
+                </div>
 
                 <div class="social-proof">
                     <span>Pago Seguro</span>
                     <span>Acceso Inmediato</span>
-                    <span>Garantía 14 Días</span>
+                    <span>Garantía 30 Días</span>
                 </div>
             </div>
         </div>
@@ -995,34 +1000,34 @@
     <!-- PROBLEMA SECTION -->
     <section class="problema">
         <div class="container">
-            <h2>¿Te Suena Familiar?</h2>
+            <h2 class="fade-in">¿Te Suena Familiar?</h2>
             <div class="dolor-grid">
-                <div class="dolor-card">
+                <div class="dolor-card fade-in">
                     <div class="dolor-icon">1</div>
                     <h3>Atrapado en la Mentalidad de Asalariado</h3>
                     <p>Esperas instrucciones, evitas riesgos, mides tu valor en horas trabajadas.</p>
                 </div>
-                <div class="dolor-card">
+                <div class="dolor-card fade-in">
                     <div class="dolor-icon">2</div>
                     <h3>Ingresos Limitados por Tiempo</h3>
                     <p>Tu salario tiene un techo. No importa cuánto trabajes, nunca llegarás a donde quieres.</p>
                 </div>
-                <div class="dolor-card">
+                <div class="dolor-card fade-in">
                     <div class="dolor-icon">3</div>
                     <h3>Miedo Paralizante</h3>
                     <p>La idea de dejar tu empleo te aterroriza más que quedarte donde estás.</p>
                 </div>
-                <div class="dolor-card">
+                <div class="dolor-card fade-in">
                     <div class="dolor-icon">4</div>
                     <h3>Ciclo de Autosabotaje</h3>
                     <p>Planificas, procrastinas, prometes "mañana empiezo". El ciclo nunca termina.</p>
                 </div>
-                <div class="dolor-card">
+                <div class="dolor-card fade-in">
                     <div class="dolor-icon">5</div>
                     <h3>Años Pasando Sin Acción</h3>
                     <p>Llevas 2, 3, 5 años "pensando en emprender". Pero sigues exactamente igual.</p>
                 </div>
-                <div class="dolor-card">
+                <div class="dolor-card fade-in">
                     <div class="dolor-icon">6</div>
                     <h3>Falta de Sistema Estructurado</h3>
                     <p>Tienes ideas pero no un método claro para convertirlas en resultados reales y sostenibles.</p>
@@ -1034,34 +1039,34 @@
     <!-- VISION SECTION - AHORA 3 A 3 EN ORDENADOR -->
     <section class="vision">
         <div class="container">
-            <h2>Imagina Despertar Así</h2>
+            <h2 class="fade-in">Imagina Despertar Así</h2>
             <div class="vision-grid">
-                <div class="vision-card">
+                <div class="vision-card fade-in">
                     <div class="vision-icon"></div>
                     <h3>Mentalidad de Creador</h3>
                     <p>No esperas oportunidades. Las construyes. Cada día es un experimento, no una rutina.</p>
                 </div>
-                <div class="vision-card">
+                <div class="vision-card fade-in">
                     <div class="vision-icon"></div>
                     <h3>Sistema de Monetización</h3>
                     <p>Sabes exactamente cómo convertir tu experiencia en ingresos predecibles.</p>
                 </div>
-                <div class="vision-card">
+                <div class="vision-card fade-in">
                     <div class="vision-icon"></div>
                     <h3>Confianza Inquebrantable</h3>
                     <p>Actúas con miedo, pero actúas. El rechazo ya no te paraliza.</p>
                 </div>
-                <div class="vision-card">
+                <div class="vision-card fade-in">
                     <div class="vision-icon"></div>
                     <h3>Progreso Medible</h3>
                     <p>Cada semana ves avance tangible. No más meses perdidos "preparándote".</p>
                 </div>
-                <div class="vision-card">
+                <div class="vision-card fade-in">
                     <div class="vision-icon"></div>
                     <h3>Claridad Absoluta</h3>
                     <p>Sabes exactamente cuál es tu siguiente paso. No hay ambigüedad.</p>
                 </div>
-                <div class="vision-card">
+                <div class="vision-card fade-in">
                     <div class="vision-icon"></div>
                     <h3>Libertad Financiera y Temporal</h3>
                     <p>Controlas tu tiempo y tus ingresos. Diseñas tu vida en lugar de adaptarte a la de otros.</p>
@@ -1073,9 +1078,9 @@
     <!-- SISTEMA SECTION - AHORA 2 A 2 -->
     <section class="sistema">
         <div class="container">
-            <h2>El Sistema de 90 Días</h2>
+            <h2 class="fade-in">El Sistema de 90 Días</h2>
             <div class="modulos">
-                <div class="modulo">
+                <div class="modulo fade-in">
                     <div class="modulo-header">
                         <div class="modulo-numero">1</div>
                         <h3>Ebook Transformacional</h3>
@@ -1087,7 +1092,7 @@
                     </ul>
                 </div>
 
-                <div class="modulo">
+                <div class="modulo fade-in">
                     <div class="modulo-header">
                         <div class="modulo-numero">2</div>
                         <h3>Tracker de 90 Días</h3>
@@ -1099,7 +1104,7 @@
                     </ul>
                 </div>
 
-                <div class="modulo">
+                <div class="modulo fade-in">
                     <div class="modulo-header">
                         <div class="modulo-numero">3</div>
                         <h3>Checklist de Acción</h3>
@@ -1111,7 +1116,7 @@
                     </ul>
                 </div>
 
-                <div class="modulo">
+                <div class="modulo fade-in">
                     <div class="modulo-header">
                         <div class="modulo-numero">4</div>
                         <h3>Dashboard de Progreso</h3>
@@ -1129,9 +1134,9 @@
     <!-- FAQ SECTION -->
     <section class="faq" id="faq">
         <div class="container">
-            <h2>Preguntas Frecuentes</h2>
+            <h2 class="fade-in">Preguntas Frecuentes</h2>
             <div class="faq-items">
-                <div class="faq-item">
+                <div class="faq-item fade-in">
                     <div class="faq-question">
                         <span>¿Funciona si nunca he emprendido antes?</span>
                         <span class="faq-toggle">+</span>
@@ -1143,7 +1148,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item fade-in">
                     <div class="faq-question">
                         <span>¿Cuánto tiempo necesito dedicar diariamente?</span>
                         <span class="faq-toggle">+</span>
@@ -1155,7 +1160,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item fade-in">
                     <div class="faq-question">
                         <span>¿Qué incluye exactamente la compra?</span>
                         <span class="faq-toggle">+</span>
@@ -1167,19 +1172,19 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item fade-in">
                     <div class="faq-question">
                         <span>¿Tiene garantía de devolución?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Sí, ofrecemos 14 días de garantía de satisfacción. Si no estás completamente satisfecho con el sistema, te devolvemos el 100% de tu inversión sin preguntas.
+                            Sí, ofrecemos 30 días de garantía de satisfacción. Si no estás completamente satisfecho con el sistema, te devolvemos el 100% de tu inversión sin preguntas.
                         </div>
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item fade-in">
                     <div class="faq-question">
                         <span>¿Es un pago único o mensual?</span>
                         <span class="faq-toggle">+</span>
@@ -1197,7 +1202,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© 2025 Myndlife. Todos los derechos reservados.</p>
+            <p class="fade-in">© 2025 Myndlife. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -1240,6 +1245,23 @@
                     toggle.textContent = '+';
                 }
             });
+        });
+        
+        // Scroll animation for fade-in elements
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
         });
         
         // Update immediately and then every second
