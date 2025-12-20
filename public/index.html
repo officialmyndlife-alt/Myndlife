@@ -7,52 +7,37 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
+    /* ...estilos existentes sin cambios... */
     body {
       box-sizing: border-box;
     }
-
     * {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-
     .gradient-dark {
       background: linear-gradient(165deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
     }
-
-    .text-silver {
-      color: #c0c0c0;
-    }
-
-    .border-silver {
-      border-color: #404040;
-    }
-
+    .text-silver { color: #c0c0c0; }
+    .border-silver { border-color: #404040; }
     .hover-lift {
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-
     .hover-lift:hover {
       transform: translateY(-4px);
     }
-
     .scroll-fade {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
-
     .scroll-fade.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     .product-card {
       background: rgba(255, 255, 255, 0.02);
       backdrop-filter: blur(10px);
@@ -60,13 +45,11 @@
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: 0 6px 20px rgba(192, 192, 192, 0.03);
     }
-
     .product-card:hover {
       background: rgba(255, 255, 255, 0.04);
       border-color: rgba(192, 192, 192, 0.3);
       box-shadow: 0 10px 30px rgba(192, 192, 192, 0.08);
     }
-
     .cta-button {
       background: transparent;
       border: 1px solid #c0c0c0;
@@ -79,11 +62,28 @@
       text-decoration: none;
       display: inline-block;
     }
-
     .cta-button:hover {
       background: #c0c0c0;
       color: #0a0a0a;
       transform: translateY(-3px);
+    }
+
+    /* ✅ Logo más premium */
+    .logo-container {
+      width: 64px;
+      height: 64px;
+      background: rgba(192, 192, 192, 0.08);
+      border: 1px solid rgba(192, 192, 192, 0.2);
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+    }
+    .logo-container svg {
+      width: 36px;
+      height: 36px;
     }
   </style>
 </head>
@@ -91,49 +91,32 @@
   <div id="app" class="w-full h-full overflow-auto">
     <!-- Hero Section -->
     <section class="gradient-dark min-h-screen flex flex-col items-center justify-center px-6 py-20 relative">
-      <!-- Logo SVG (centrado, como en tu diseño) -->
+      <!-- ✅ Logo mejorado -->
       <div class="scroll-fade mb-16">
-        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 5L50 15V45L30 55L10 45V15L30 5Z" stroke="#c0c0c0" stroke-width="1.5" fill="none" />
-          <path d="M30 20V40M20 30H40" stroke="#c0c0c0" stroke-width="1.5" stroke-linecap="round" />
-        </svg>
+        <div class="logo-container">
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 5L50 15V45L30 55L10 45V15L30 5Z" stroke="#c0c0c0" stroke-width="1.5" fill="none" />
+            <path d="M30 20V40M20 30H40" stroke="#c0c0c0" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </div>
       </div>
-      <!-- Brand Name -->
-      <h1 id="brand-name" class="text-silver text-2xl md:text-3xl font-light tracking-widest mb-20 scroll-fade">
-        MYNDLIFE
-      </h1>
-      <!-- Main Title -->
-      <h2 id="hero-title" class="text-white text-5xl md:text-6xl lg:text-7xl font-light text-center mb-6 scroll-fade">
-        Elevate Your Life
-      </h2>
-      <!-- Subtitle -->
-      <p id="hero-subtitle" class="text-silver text-lg md:text-xl font-light text-center mb-16 scroll-fade">
-        Mentalidad. Disciplina. Estándar.
-      </p>
-      <!-- CTA -->
-      <a id="hero-cta" href="#producto" class="cta-button scroll-fade">Explorar</a>
-      <!-- Scroll Indicator -->
+      <h1 class="text-silver text-2xl md:text-3xl font-light tracking-widest mb-20 scroll-fade">MYNDLIFE</h1>
+      <h2 class="text-white text-5xl md:text-6xl lg:text-7xl font-light text-center mb-6 scroll-fade">Elevate Your Life</h2>
+      <p class="text-silver text-lg md:text-xl font-light text-center mb-16 scroll-fade">Mentalidad. Disciplina. Estándar.</p>
+      <a href="#producto" class="cta-button scroll-fade">Explorar</a>
       <div class="absolute bottom-12 scroll-fade">
         <div class="w-px h-16 bg-gradient-to-b from-silver to-transparent"></div>
       </div>
     </section>
 
-    <!-- Manifesto Section -->
+    <!-- Manifesto -->
     <section class="bg-white py-32 px-6">
       <div class="max-w-4xl mx-auto">
         <div class="space-y-8 text-center">
-          <p id="manifesto-line-1" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            MyndLife no es motivación.
-          </p>
-          <p id="manifesto-line-2" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            Es estructura.
-          </p>
-          <p id="manifesto-line-3" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            Es claridad.
-          </p>
-          <p id="manifesto-line-4" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            Es vivir con intención.
-          </p>
+          <p class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">MyndLife no es motivación.</p>
+          <p class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">Es estructura.</p>
+          <p class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">Es claridad.</p>
+          <p class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">Es vivir con intención.</p>
         </div>
       </div>
     </section>
@@ -141,19 +124,15 @@
     <!-- Producto único -->
     <section class="gradient-dark py-32 px-6" id="producto">
       <div class="max-w-4xl mx-auto">
-        <h3 class="text-silver text-sm uppercase tracking-widest text-center mb-16 font-light scroll-fade">
-          Recurso Esencial
-        </h3>
-        <!-- ✅ Tarjeta clickeable que lleva a producto1.html -->
+        <h3 class="text-silver text-sm uppercase tracking-widest text-center mb-16 font-light scroll-fade">Recurso Esencial</h3>
         <a href="producto1.html" class="block no-underline">
-          <div class="product-card p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 hover-lift scroll-fade">
-            <!-- ✅ IMAGEN DEL PRODUCTO: reemplaza la URL por tu imagen real -->
-            <!-- Ejemplo: si tu imagen se llama "portada.jpg", pon src="portada.jpg" -->
+          <div class="product-card p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-8 hover-lift scroll-fade">
             <div class="flex-shrink-0">
+              <!-- ✅ Imagen ajustada -->
               <img
                 src="imagenes/ebook1.png"
                 alt="De Empleado a Emprendedor: la mentalidad que nadie te enseñó"
-                class="w-full max-w-[300px] rounded-sm drop-shadow-xl"
+                class="w-full max-w-[260px] max-h-[340px] object-contain rounded-sm drop-shadow-xl"
               />
             </div>
             <div class="text-center md:text-left">
@@ -169,51 +148,43 @@
       </div>
     </section>
 
-    <!-- Values Section -->
+    <!-- Values -->
     <section class="bg-black py-32 px-6">
       <div class="max-w-5xl mx-auto">
-        <h3 class="text-silver text-sm uppercase tracking-widest text-center mb-20 font-light scroll-fade">
-          Pilares Fundamentales
-        </h3>
+        <h3 class="text-silver text-sm uppercase tracking-widest text-center mb-20 font-light scroll-fade">Pilares Fundamentales</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div class="text-center scroll-fade">
             <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-1" class="text-white text-2xl font-light">Mentalidad clara</h4>
+            <h4 class="text-white text-2xl font-light">Mentalidad clara</h4>
           </div>
           <div class="text-center scroll-fade">
             <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-2" class="text-white text-2xl font-light">Disciplina diaria</h4>
+            <h4 class="text-white text-2xl font-light">Disciplina diaria</h4>
           </div>
           <div class="text-center scroll-fade">
             <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-3" class="text-white text-2xl font-light">Enfoque a largo plazo</h4>
+            <h4 class="text-white text-2xl font-light">Enfoque a largo plazo</h4>
           </div>
           <div class="text-center scroll-fade">
             <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-4" class="text-white text-2xl font-light">Estándares altos</h4>
+            <h4 class="text-white text-2xl font-light">Estándares altos</h4>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Closing Section -->
+    <!-- Closing -->
     <section class="gradient-dark min-h-screen flex flex-col items-center justify-center px-6 py-20">
       <div class="max-w-3xl text-center space-y-8">
-        <p id="closing-line-1" class="text-white text-4xl md:text-5xl font-light leading-relaxed scroll-fade">
-          Esto no es para todos.
-        </p>
-        <p id="closing-line-2" class="text-silver text-4xl md:text-5xl font-light leading-relaxed scroll-fade">
-          Es para quien está listo.
-        </p>
+        <p class="text-white text-4xl md:text-5xl font-light leading-relaxed scroll-fade">Esto no es para todos.</p>
+        <p class="text-silver text-4xl md:text-5xl font-light leading-relaxed scroll-fade">Es para quien está listo.</p>
       </div>
-      <!-- Footer -->
       <div class="absolute bottom-12 text-center">
         <p class="text-silver text-xs tracking-widest font-light">MYNDLIFE © 2025</p>
       </div>
     </section>
   </div>
 
-  <!-- Scroll-fade Observer -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -222,14 +193,8 @@
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.scroll-fade').forEach(el => {
-      observer.observe(el);
-    });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
