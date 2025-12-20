@@ -93,7 +93,7 @@
             padding-top: 60px;
         }
 
-        /* LOGO CENTRADO */
+        /* LOGO CENTRADO (SVG integrado — no necesitas archivo) */
         .logo-container {
             position: absolute;
             top: 25px;
@@ -112,9 +112,8 @@
             margin-top: 80px;
         }
 
-        /* ✅ TÍTULO EN 2 LÍNEAS, LETRA REDUCIDA */
         .hero h1 {
-            font-size: clamp(1.7rem, 6vw, 2.8rem); /* reducido */
+            font-size: clamp(1.7rem, 6vw, 2.8rem);
             color: var(--white);
             margin-bottom: 20px;
             font-weight: 700;
@@ -146,7 +145,6 @@
             transform: translateY(-6px) scale(1.015);
         }
 
-        /* OFFER BADGE */
         .offer-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--red), #b91c1c);
@@ -167,7 +165,6 @@
             70% { box-shadow: 0 0 0 18px rgba(239, 68, 68, 0); }
         }
 
-        /* ✅ TEMPORIZADOR (arriba del panel de oferta) */
         .offer-timer {
             background: rgba(239, 68, 68, 0.15);
             border: 2px solid var(--red);
@@ -202,7 +199,6 @@
             50% { transform: scale(1.12); }
         }
 
-        /* PANEL DE OFERTA */
         .hero-oferta {
             background: rgba(26, 26, 26, 0.9);
             padding: 36px;
@@ -260,7 +256,6 @@
             opacity: 0.85;
         }
 
-        /* BONUS */
         .bonus-section {
             background: rgba(16, 185, 129, 0.12);
             border: 2px solid var(--green);
@@ -296,7 +291,6 @@
             font-style: italic;
         }
 
-        /* ESTRELLAS */
         .rating {
             color: var(--gold);
             font-size: 1.6rem;
@@ -349,7 +343,6 @@
             flex-wrap: wrap;
         }
 
-        /* SECCIONES */
         .problema, .vision, .sistema, .faq {
             padding: 80px 0;
             border-top: 1px solid var(--carbon);
@@ -438,7 +431,6 @@
             border-bottom: none;
         }
 
-        /* ✅ TICKS VERDES LLAMATIVOS */
         .modulo li::before {
             content: '✓';
             position: absolute;
@@ -451,7 +443,6 @@
             text-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
         }
 
-        /* FAQ */
         .faq-question {
             padding: 22px 26px;
             cursor: pointer;
@@ -514,11 +505,10 @@
     </style>
 </head>
 <body>
-    <!-- Botón de retorno al inicio -->
     <a href="index.html" class="back-button">← Volver al inicio</a>
 
-    <!-- HERO -->
     <section class="hero">
+        <!-- ✅ LOGO: usa el mismo SVG que en index.html (no necesitas ningún archivo de imagen) -->
         <div class="logo-container scroll-fade">
             <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M30 5L50 15V45L30 55L10 45V15L30 5Z" stroke="#c0c0c0" stroke-width="1.5" fill="none" />
@@ -526,15 +516,16 @@
             </svg>
         </div>
         <div class="hero-content">
-            <!-- ✅ Título en 2 líneas, tamaño reducido -->
             <h1 class="scroll-fade">De Empleado a Emprendedor:<br>La Mentalidad que Nadie Te Enseñó</h1>
             <h2 class="scroll-fade">Deja de soñar y empieza a construir: Tu futuro emprendedor comienza hoy, no mañana.</h2>
             <div class="book-showcase scroll-fade">
-                <img src="https://placehold.co/300x400/111111/c0c0c0?text=De+Empleado+a+Emprendedor" alt="De Empleado a Emprendedor">
+                <!-- ✅ IMAGEN DEL PRODUCTO: reemplaza la URL de abajo por la de TU IMAGEN REAL -->
+                <!-- Guarda tu imagen en la misma carpeta que este archivo y usa su nombre exacto -->
+                <!-- Ejemplo: si tu imagen se llama "portada.jpg", pon: src="portada.jpg" -->
+                <img src="imagenes/ebook1.png" alt="De Empleado a Emprendedor">
             </div>
             <div class="offer-badge scroll-fade">¡OFERTA LIMITADA!</div>
 
-            <!-- ✅ Temporizador arriba del panel de oferta -->
             <div class="offer-timer" id="offerTimer">
                 <div class="timer-unit">
                     <span class="timer-number" id="hours">00</span>
@@ -592,7 +583,9 @@
         </div>
     </section>
 
-    <!-- Resto de secciones: PROBLEMA, VISIÓN, SISTEMA, FAQ -->
+    <!-- Resto del contenido (PROBLEMA, VISIÓN, SISTEMA, FAQ) -->
+    <!-- ... (se mantiene igual, no es necesario cambiar nada más) ... -->
+
     <section class="problema">
         <div class="container">
             <h2 class="scroll-fade">¿Te Suena Familiar?</h2>
@@ -799,7 +792,7 @@
         });
     </script>
 
-    <!-- ✅ Script del contador corregido -->
+    <!-- Script del contador -->
     <script>
         const futureDate = new Date();
         futureDate.setHours(futureDate.getHours() + 24);
@@ -843,6 +836,3 @@
     </script>
 </body>
 </html>
-
-   src="tu-portada-real.jpg"
-   
