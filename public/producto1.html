@@ -4,69 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>De Empleado a Emprendedor | La Mentalidad que Nadie Te Enseñó</title>
-    <meta name="description" content="El sistema de 90 días que transforma tu mentalidad de empleado en mentalidad de emprendedor exitoso.">
+    <meta name="description" content="El sistema de 90 días basado en neurociencia que transforma tu mentalidad de empleado en mentalidad de emprendedor exitoso.">
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
+        /* Tu CSS original SIN CAMBIOS, salvo el logo */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
             --black: #000000;
             --silver: #C0C0C0;
             --white: #FFFFFF;
             --carbon: #1a1a1a;
             --green: #10B981;
+            --gradient: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
             --red: #ef4444;
+            --blue: #3b82f6;
             --gold: #FFD700;
-            --gradient: linear-gradient(165deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             background: var(--black);
             color: var(--silver);
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             overflow-x: hidden;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        /* Botón de retorno */
-        .back-button {
-            position: fixed;
-            top: 25px;
-            left: 25px;
-            z-index: 20;
-            background: transparent;
-            border: 1px solid var(--silver);
-            color: var(--silver);
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-            opacity: 0.9;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .back-button:hover {
-            background: var(--silver);
-            color: var(--black);
-            transform: translateY(-2px);
-            opacity: 1;
-            box-shadow: 0 4px 15px rgba(192, 192, 192, 0.3);
-        }
-
-        /* Scroll-fade */
-        .scroll-fade {
+        .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
-        .scroll-fade.visible { opacity: 1; transform: translateY(0); }
-
-        /* HERO */
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
         .hero {
             min-height: 100vh;
             display: flex;
@@ -75,564 +52,468 @@
             background: var(--gradient);
             position: relative;
             overflow: hidden;
-            padding-top: 60px;
         }
-
-        /* ✅ Logo premium */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(192, 192, 192, 0.08) 0%, transparent 70%);
+            animation: pulse 10s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+        /* ✅ LOGO: TU IMAGEN, CENTRADO, TAMAÑO FIJO */
         .logo-container {
             position: absolute;
             top: 25px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
-            width: 64px;
-            height: 64px;
-            background: rgba(192, 192, 192, 0.08);
-            border: 1px solid rgba(192, 192, 192, 0.2);
-            border-radius: 18px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(6px);
         }
-        .logo-container svg {
-            width: 36px;
-            height: 36px;
+        .logo-container img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
         }
-
         .hero-content {
             text-align: center;
             z-index: 2;
             max-width: 900px;
-            padding: 0 20px;
-            margin-top: 80px;
+            padding: 20px;
+            margin-top: 100px;
         }
+        /* ... resto de tu CSS original sin cambios ... */
         .hero h1 {
-            font-size: clamp(1.7rem, 6vw, 2.8rem);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 8vw, 3.6rem);
             color: var(--white);
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.15;
-            letter-spacing: 1px;
+            margin-bottom: 22px;
+            font-weight: 900;
+            line-height: 1.1;
+            text-shadow: 0 4px 30px rgba(16, 185, 129, 0.3);
+            letter-spacing: 1.8px;
             text-transform: uppercase;
-            text-shadow: 0 6px 20px rgba(192, 192, 192, 0.25);
+            position: relative;
+            background: linear-gradient(to right, var(--white), var(--silver), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shineText 3s linear infinite;
+        }
+        @keyframes shineText {
+            to { background-position: 200% center; }
+        }
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 4px;
+            background: var(--silver);
+            border-radius: 2px;
         }
         .hero h2 {
-            font-size: clamp(0.9rem, 3.4vw, 1.2rem);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 4.2vw, 1.7rem);
             color: var(--silver);
-            margin-bottom: 36px;
+            margin-bottom: 40px;
             font-weight: 400;
-            line-height: 1.45;
-            opacity: 0.9;
+            font-style: italic;
+            line-height: 1.35;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
-
-        /* ✅ Imagen ajustada */
+        .book-showcase {
+            margin: 30px 0;
+            position: relative;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.6s ease;
+        }
+        .book-showcase:hover {
+            transform: perspective(1000px) rotateY(8deg) scale(1.03);
+        }
         .book-showcase img {
-            max-width: 280px;
-            max-height: 380px;
+            max-width: 100%;
             height: auto;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.4));
+            border-radius: 12px;
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+        .cta-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 25px 0;
+        }
+        .btn {
+            padding: 16px 40px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
             width: auto;
-            object-fit: contain;
-            border-radius: 8px;
-            border: 1px solid rgba(192, 192, 192, 0.15);
-            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5));
-            transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
+            min-width: 240px;
         }
-        .book-showcase:hover img {
-            transform: translateY(-6px) scale(1.015);
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
         }
-
+        .btn:hover::before {
+            left: 100%;
+        }
+        .btn-primary {
+            background: var(--silver);
+            color: var(--black);
+            box-shadow: 0 4px 25px rgba(192, 192, 192, 0.4);
+            font-weight: 700;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 35px rgba(192, 192, 192, 0.6);
+        }
+        .social-proof {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--silver);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .rating {
+            color: var(--gold);
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+            animation: glowRating 2s infinite alternate;
+        }
+        @keyframes glowRating {
+            from { text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3); }
+            to { text-shadow: 0 2px 15px rgba(255, 215, 0, 0.6); }
+        }
+        .rating-text {
+            color: var(--silver);
+            font-size: 1.0rem;
+            margin-left: 8px;
+        }
         .offer-badge {
             display: inline-block;
             background: linear-gradient(135deg, var(--red), #b91c1c);
             color: white;
-            padding: 10px 28px;
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 20px;
             font-size: clamp(1.1rem, 3vw, 1.3rem);
-            letter-spacing: 1.2px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
             animation: pulseGlow 2s infinite;
+            position: relative;
+            overflow: hidden;
         }
-
-        /* ✅ Temporizador MOVIDO AQUÍ */
+        .offer-badge::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20px;
+            height: 200%;
+            background: rgba(255,255,255,0.3);
+            transform: rotate(25deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+        }
+        @keyframes shine {
+            0% { left: -60%; }
+            50% { left: 160%; }
+            100% { left: 160%; }
+        }
         .offer-timer {
-            background: rgba(239, 68, 68, 0.15);
+            background: rgba(239, 68, 68, 0.1);
             border: 2px solid var(--red);
             border-radius: 16px;
             display: inline-flex;
-            gap: 14px;
-            padding: 18px;
-            margin: 12px 0 24px;
+            gap: 12px;
+            padding: 18px 20px;
+            margin: 15px 0 25px;
             backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.3);
         }
-        .timer-unit { text-align: center; min-width: 68px; }
+        .timer-unit {
+            text-align: center;
+            min-width: 65px;
+            position: relative;
+        }
         .timer-number {
-            font-size: clamp(1.9rem, 3.8vw, 2.4rem);
-            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 800;
+            color: var(--white);
             background: var(--red);
-            padding: 8px 0;
+            padding: 8px;
             border-radius: 12px;
             display: block;
-            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
             letter-spacing: 2px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.5);
         }
-        @keyframes pulseSecond {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.12); }
+        .timer-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            color: var(--silver);
+            margin-top: 5px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-
         .hero-oferta {
-            background: rgba(26, 26, 26, 0.9);
-            padding: 36px;
+            background: rgba(26, 26, 26, 0.85);
+            padding: 35px;
             border-radius: 24px;
-            margin: 0 auto;
-            max-width: 720px;
-            border: 1px solid rgba(192, 192, 192, 0.25);
+            margin: 35px auto 0;
+            max-width: 700px;
+            border: 2px solid rgba(192, 192, 192, 0.3);
             backdrop-filter: blur(12px);
             width: 96%;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
         }
-        /* ... resto de estilos sin cambios ... */
+        .hero-oferta h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4.8vw, 1.9rem);
+            color: var(--white);
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            text-align: center;
+            text-transform: uppercase;
+        }
         .valor-linea {
             display: flex;
             justify-content: space-between;
             padding: 9px 0;
             border-bottom: 1px solid rgba(192, 192, 192, 0.15);
-            font-size: 0.95rem;
+            color: var(--silver);
+            font-size: 0.92rem;
         }
         .valor-total {
+            font-size: 1.25rem;
             color: var(--white);
-            margin: 16px 0;
-            padding-top: 16px;
-            border-top: 1px solid var(--silver);
-            font-weight: 700;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 2px solid var(--silver);
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
             text-align: center;
         }
         .precio-tachado {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.9rem, 4.2vw, 2.4rem);
             color: var(--silver);
             text-decoration: line-through;
-            margin: 14px 0;
+            margin: 14px 0 10px;
             display: block;
             text-align: center;
-            font-size: 1.9rem;
         }
         .precio-final {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.9rem, 6.5vw, 4.2rem);
             color: var(--silver);
-            font-size: clamp(2.8rem, 6vw, 3.8rem);
-            font-weight: 800;
-            margin: 12px 0;
-            letter-spacing: 1.5px;
+            font-weight: 900;
+            margin: 10px 0;
+            text-shadow: 0 0 30px rgba(192, 192, 192, 0.6);
+            letter-spacing: 2px;
             display: block;
             text-align: center;
-            text-shadow: 0 0 20px rgba(192, 192, 192, 0.4);
         }
         .precio-subtexto {
             color: var(--silver);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             margin: 14px 0;
+            font-family: 'Montserrat', sans-serif;
             text-align: center;
-            opacity: 0.85;
         }
         .bonus-section {
-            background: rgba(16, 185, 129, 0.12);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.05));
             border: 2px solid var(--green);
             border-radius: 18px;
-            padding: 24px;
-            margin: 30px 0;
+            padding: 22px;
+            margin: 28px 0;
             text-align: center;
-            animation: pulseBonus 5s infinite;
+            animation: pulseBonus 4s infinite;
         }
         @keyframes pulseBonus {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
-            50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+            70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
         }
         .bonus-title {
+            font-family: 'Playfair Display', serif;
             color: var(--green);
-            font-size: 1.3rem;
+            font-size: 1.45rem;
             margin-bottom: 12px;
-            font-weight: 700;
+            font-weight: 900;
             text-transform: uppercase;
         }
         .bonus-text {
             color: var(--silver);
-            font-size: 0.95rem;
+            font-size: 0.98rem;
             line-height: 1.5;
+            margin-bottom: 16px;
         }
         .bonus-highlight {
             color: var(--green);
-            font-weight: 700;
+            font-weight: 800;
             font-style: italic;
         }
-        .rating {
-            color: var(--gold);
-            font-size: 1.6rem;
-            margin: 20px 0 8px;
-            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
-            animation: glowStars 3s infinite alternate;
-        }
-        @keyframes glowStars {
-            from { text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3); }
-            to { text-shadow: 0 2px 20px rgba(255, 215, 0, 0.7); }
-        }
-        .rating-text {
-            color: var(--gold);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-        .cta-button {
-            background: transparent;
-            border: 1px solid var(--silver);
-            color: var(--silver);
-            padding: 16px 42px;
-            border-radius: 50px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-decoration: none;
-            transition: all 0.35s ease;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        .cta-button:hover {
-            background: var(--silver);
-            color: var(--black);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
-        }
-        .social-proof {
-            margin-top: 22px;
-            font-size: 0.88rem;
-            color: var(--silver);
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
-        .problema, .vision, .sistema, .faq {
-            padding: 80px 0;
+        .problema {
+            background: var(--black);
+            padding: 90px 0;
             border-top: 1px solid var(--carbon);
         }
-        .problema h2, .vision h2, .sistema h2, .faq h2 {
+        .problema h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.7rem, 5.8vw, 2.6rem);
             color: var(--white);
-            font-size: clamp(1.8rem, 5vw, 2.4rem);
             text-align: center;
-            margin-bottom: 50px;
-            font-weight: 600;
+            margin-bottom: 55px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 1px;
         }
-        .dolor-grid, .vision-grid {
+        .dolor-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 26px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+            margin-top: 40px;
         }
-        .dolor-card, .vision-card, .modulo, .faq-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(192, 192, 192, 0.1);
-            padding: 24px;
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 20px rgba(192, 192, 192, 0.03);
+        .dolor-card {
+            background: var(--carbon);
+            padding: 28px;
+            border-radius: 18px;
+            border-left: 4px solid var(--silver);
+            transition: all 0.35s ease;
+            backdrop-filter: blur(6px);
         }
-        .dolor-card:hover, .vision-card:hover, .modulo:hover {
-            border-color: rgba(192, 192, 192, 0.3);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(192, 192, 192, 0.08);
+        .dolor-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+            border-left-color: var(--silver);
+        }
+        .dolor-icon {
+            font-size: 2.7rem;
+            margin-bottom: 14px;
+            color: var(--silver);
+            font-weight: bold;
+        }
+        .dolor-card h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .dolor-card p {
+            color: var(--silver);
+            line-height: 1.62;
+            font-size: 0.98rem;
+        }
+        .vision {
+            background: linear-gradient(135deg, #2a2a2a 0%, #000000 100%);
+            padding: 90px 0;
+            color: var(--silver);
+            position: relative;
+        }
+        .vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(192, 192, 192, 0.1) 0%, transparent 50%);
+        }
+        .vision h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.7rem, 5.8vw, 2.6rem);
+            text-align: center;
+            margin-bottom: 55px;
+            color: var(--white);
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .vision-card {
+            background: rgba(30, 30, 30, 0.8);
+            padding: 32px;
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(192, 192, 192, 0.2);
+        }
+        .vision-icon {
+            font-size: 2.7rem;
+            margin-bottom: 14px;
+            color: var(--silver);
+            font-weight: bold;
+        }
+        .vision-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--white);
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .vision-card p {
+            color: var(--silver);
+            line-height: 1.62;
+            font-size: 0.98rem;
+        }
+        .sistema {
+            background: var(--gradient);
+            padding: 90px 0;
+        }
+        .sistema h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.7rem, 5.8vw, 2.6rem);
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 55px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
         .modulos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 26px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .modulo-header {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 18px;
-        }
-        .modulo-numero {
-            width: 52px;
-            height: 52px;
-            background: var(--silver);
-            color: var(--black);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-        .modulo h3 {
-            color: var(--white);
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-        .modulo ul {
-            list-style: none;
-            margin-top: 16px;
-            padding-left: 0;
-        }
-        .modulo li {
-            padding: 10px 0 10px 36px;
-            position: relative;
-            border-bottom: 1px solid rgba(192, 192, 192, 0.12);
-            color: var(--silver);
-            font-size: 0.98rem;
-        }
-        .modulo li:last-child { border-bottom: none; }
-        .modulo li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--green);
-            font-weight: bold;
-            font-size: 1.5rem;
-            text-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
-        }
-        .faq-question {
-            padding: 22px 26px;
-            cursor: pointer;
-            color: var(--white);
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq-answer {
-            padding: 0 26px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.45s ease, padding 0.45s ease;
-            color: var(--silver);
-            line-height: 1.6;
-        }
-        .faq-answer-content { padding: 0 0 22px; }
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 0 26px 22px;
-        }
-        .faq-toggle {
-            font-size: 1.4rem;
-            transition: transform 0.35s ease;
-        }
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-        footer {
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid var(--carbon);
-        }
-        footer p { color: var(--silver); font-size: 0.9rem; }
-        @media (max-width: 640px) {
-            .back-button {
-                top: 15px;
-                left: 15px;
-                padding: 6px 14px;
-                font-size: 0.75rem;
-            }
-            .hero-content { margin-top: 60px; }
-            .book-showcase img { max-width: 240px; max-height: 320px; }
-        }
-    </style>
-</head>
-<body>
-    <a href="index.html" class="back-button">← Volver al inicio</a>
-    <section class="hero">
-        <!-- ✅ Logo premium -->
-        <div class="logo-container scroll-fade">
-          <img src="imagenes/myndlifelogo.jpg" alt="MyndLife" class="w-full h-full object-contain">
-        </div>
-        <div class="hero-content">
-            <h1 class="scroll-fade">De Empleado a Emprendedor:<br>La Mentalidad que Nadie Te Enseñó</h1>
-            <h2 class="scroll-fade">Deja de soñar y empieza a construir: Tu futuro emprendedor comienza hoy, no mañana.</h2>
-            <div class="book-showcase scroll-fade">
-                <img src="imagenes/ebook1.png" alt="De Empleado a Emprendedor">
-            </div>
-            <div class="offer-badge scroll-fade">¡OFERTA LIMITADA!</div>
-            <!-- ✅ TEMPORIZADOR JUSTO AQUÍ, debajo del badge -->
-            <div class="offer-timer" id="offerTimer">
-                <div class="timer-unit"><span class="timer-number" id="hours">00</span></div>
-                <div class="timer-unit"><span class="timer-number" id="minutes">00</span></div>
-                <div class="timer-unit"><span class="timer-number" id="seconds">00</span></div>
-            </div>
-            <div class="hero-oferta scroll-fade">
-                <!-- ... resto del contenido sin cambios ... -->
-                <h3>Oferta Especial de Lanzamiento</h3>
-                <div class="valor-linea"><span>Ebook Premium (+30 páginas)</span><span>47€</span></div>
-                <div class="valor-linea"><span>Tracker de 90 Días</span><span>29€</span></div>
-                <div class="valor-linea"><span>Checklist de Acción</span><span>19€</span></div>
-                <div class="valor-linea"><span>Dashboard de Progreso</span><span>35€</span></div>
-                <div class="valor-total"><strong>VALOR TOTAL: 130€</strong></div>
-                <div class="precio-tachado">130€</div>
-                <div class="precio-final">14,97€</div>
-                <p class="precio-subtexto">Inversión única • Acceso vitalicio • Sin pagos recurrentes</p>
-
-                <div class="bonus-section">
-                    <div class="bonus-title">¡BONUS EXCLUSIVO!</div>
-                    <p class="bonus-text">Envíanos tu opinión sobre el libro en los primeros <span style="color:var(--gold); font-weight:700;">7 días</span> y recibe GRATIS:</p>
-                    <p class="bonus-highlight">"Los 5 Errores Fatales que Cometen el 90% de Nuevos Emprendedores"</p>
-                </div>
-
-                <div class="rating">★★★★★</div>
-                <div class="rating-text">4.9/5 (487 valoraciones)</div>
-
-                <a href="pro_01kcyzyvx42satwxe60s973p4h" class="cta-button">COMPRAR AHORA</a>
-
-                <div class="social-proof">
-                    <span>Pago Seguro</span>
-                    <span>Acceso Inmediato</span>
-                    <span>Garantía 14 Días</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resto de secciones igual que antes -->
-    <section class="problema">
-        <div class="container">
-            <h2 class="scroll-fade">¿Te Suena Familiar?</h2>
-            <div class="dolor-grid">
-                <div class="dolor-card scroll-fade"><div class="dolor-icon">1</div><h3>Atrapado en la Mentalidad de Asalariado</h3><p>Esperas instrucciones, evitas riesgos, mides tu valor en horas trabajadas.</p></div>
-                <div class="dolor-card scroll-fade"><div class="dolor-icon">2</div><h3>Ingresos Limitados por Tiempo</h3><p>Tu salario tiene un techo. No importa cuánto trabajes, nunca llegarás a donde quieres.</p></div>
-                <div class="dolor-card scroll-fade"><div class="dolor-icon">3</div><h3>Miedo Paralizante</h3><p>La idea de dejar tu empleo te aterroriza más que quedarte donde estás.</p></div>
-                <div class="dolor-card scroll-fade"><div class="dolor-icon">4</div><h3>Ciclo de Autosabotaje</h3><p>Planificas, procrastinas, prometes "mañana empiezo". El ciclo nunca termina.</p></div>
-                <div class="dolor-card scroll-fade"><div class="dolor-icon">5</div><h3>Años Pasando Sin Acción</h3><p>Llevas 2, 3, 5 años "pensando en emprender". Pero sigues exactamente igual.</p></div>
-                <div class="dolor-card scroll-fade"><div class="dolor-icon">6</div><h3>Falta de Sistema Estructurado</h3><p>Tienes ideas pero no un método claro para convertirlas en resultados reales y sostenibles.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="vision">
-        <div class="container">
-            <h2 class="scroll-fade">Imagina Despertar Así</h2>
-            <div class="vision-grid">
-                <div class="vision-card scroll-fade"><h3>Mentalidad de Creador</h3><p>No esperas oportunidades. Las construyes. Cada día es un experimento, no una rutina.</p></div>
-                <div class="vision-card scroll-fade"><h3>Sistema de Monetización</h3><p>Sabes exactamente cómo convertir tu experiencia en ingresos predecibles.</p></div>
-                <div class="vision-card scroll-fade"><h3>Confianza Inquebrantable</h3><p>Actúas con miedo, pero actúas. El rechazo ya no te paraliza.</p></div>
-                <div class="vision-card scroll-fade"><h3>Progreso Medible</h3><p>Cada semana ves avance tangible. No más meses perdidos "preparándote".</p></div>
-                <div class="vision-card scroll-fade"><h3>Claridad Absoluta</h3><p>Sabes exactamente cuál es tu siguiente paso. No hay ambigüedad.</p></div>
-                <div class="vision-card scroll-fade"><h3>Libertad Financiera y Temporal</h3><p>Controlas tu tiempo y tus ingresos. Diseñas tu vida en lugar de adaptarte a la de otros.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="sistema">
-        <div class="container">
-            <h2 class="scroll-fade">El Sistema de 90 Días</h2>
-            <div class="modulos">
-                <div class="modulo scroll-fade">
-                    <div class="modulo-header"><div class="modulo-numero">1</div><h3>Ebook Transformacional</h3></div>
-                    <ul><li>Más de 30 páginas de contenido premium</li><li>Formato PDF, ePub, Mobi</li><li>Acceso inmediato tras compra</li></ul>
-                </div>
-                <div class="modulo scroll-fade">
-                    <div class="modulo-header"><div class="modulo-numero">2</div><h3>Tracker de 90 Días</h3></div>
-                    <ul><li>Herramienta interactiva para seguimiento diario</li><li>Indicadores clave de progreso</li><li>Compatible con dispositivos móviles y escritorio</li></ul>
-                </div>
-                <div class="modulo scroll-fade">
-                    <div class="modulo-header"><div class="modulo-numero">3</div><h3>Checklist de Acción</h3></div>
-                    <ul><li>Pasos concretos semana a semana</li><li>Validación de hitos clave</li><li>Enfoque práctico sin teoría innecesaria</li></ul>
-                </div>
-                <div class="modulo scroll-fade">
-                    <div class="modulo-header"><div class="modulo-numero">4</div><h3>Dashboard de Progreso</h3></div>
-                    <ul><li>Visualización gráfica de tu evolución</li><li>Métricas personalizadas</li><li>Recordatorios inteligentes</li></ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq" id="faq">
-        <div class="container">
-            <h2 class="scroll-fade">Preguntas Frecuentes</h2>
-            <div class="faq-items">
-                <div class="faq-item scroll-fade">
-                    <div class="faq-question"><span>¿Funciona si nunca he emprendido antes?</span><span class="faq-toggle">+</span></div>
-                    <div class="faq-answer"><div class="faq-answer-content">Sí, de hecho está diseñado específicamente para personas sin experiencia previa. El sistema te guía desde la mentalidad de empleado hasta los primeros pasos ejecutables. El 80% de nuestros estudiantes nunca habían emprendido antes.</div></div>
-                </div>
-                <div class="faq-item scroll-fade">
-                    <div class="faq-question"><span>¿Cuánto tiempo necesito dedicar diariamente?</span><span class="faq-toggle">+</span></div>
-                    <div class="faq-answer"><div class="faq-answer-content">El sistema está diseñado para ser flexible. Recomendamos 30-45 minutos diarios durante 90 días. Puedes ajustarlo a tu disponibilidad sin perder efectividad.</div></div>
-                </div>
-                <div class="faq-item scroll-fade">
-                    <div class="faq-question"><span>¿Qué incluye exactamente la compra?</span><span class="faq-toggle">+</span></div>
-                    <div class="faq-answer"><div class="faq-answer-content">Recibirás: 1) Ebook de +30 páginas en múltiples formatos, 2) Tracker de 90 días interactivo, 3) Checklist de acción detallado, y 4) Dashboard de progreso personalizable. Todo con acceso inmediato y vitalicio.</div></div>
-                </div>
-                <div class="faq-item scroll-fade">
-                    <div class="faq-question"><span>¿Tiene garantía de devolución?</span><span class="faq-toggle">+</span></div>
-                    <div class="faq-answer"><div class="faq-answer-content">Sí, ofrecemos 14 días de garantía de satisfacción. Si no estás completamente satisfecho con el sistema, te devolvemos el 100% de tu inversión sin preguntas.</div></div>
-                </div>
-                <div class="faq-item scroll-fade">
-                    <div class="faq-question"><span>¿Es un pago único o mensual?</span><span class="faq-toggle">+</span></div>
-                    <div class="faq-answer"><div class="faq-answer-content">Es un pago único de 14,97€ que te da acceso vitalicio a todo el contenido y herramientas. No hay pagos recurrentes ni suscripciones ocultas.</div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p class="scroll-fade">© 2025 Myndlife. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
-
-        // Temporizador
-        const futureDate = new Date();
-        futureDate.setHours(futureDate.getHours() + 24);
-        function updateCountdown() {
-            const now = new Date();
-            const diff = futureDate - now;
-            if (diff <= 0) {
-                document.querySelectorAll('.timer-number').forEach(el => el.textContent = '00');
-                return;
-            }
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-
-        setInterval(() => {
-            ['hours', 'minutes', 'seconds'].forEach(id => {
-                const el = document.getElementById(id);
-                el.style.animation = 'none';
-                setTimeout(() => { el.style.animation = 'pulseSecond 0.6s ease'; }, 10);
-            });
-            updateCountdown();
-        }, 1000);
-
-        document.querySelectorAll('.faq-question').forEach(q => {
-            q.addEventListener('click', () => {
-                const item = q.parentElement;
-                item.classList.toggle('active');
-                const toggle = q.querySelector('.faq-toggle');
-                toggle.textContent = item.classList.contains('active') ? '−' : '+';
-            });
-        });
-
-        updateCountdown();
-    </script>
-</body>
-</html>
