@@ -40,7 +40,7 @@
             padding: 0 20px;
         }
 
-        /* ✅ Botón volver al inicio */
+        /* Botón volver al inicio */
         .back-button {
             position: fixed;
             top: 25px;
@@ -63,7 +63,7 @@
             transform: translateY(-2px);
         }
 
-        /* ✅ Efecto de fade-in al hacer scroll */
+        /* Scroll-fade */
         .scroll-fade {
             opacity: 0;
             transform: translateY(30px);
@@ -86,7 +86,7 @@
             padding-top: 60px;
         }
 
-        /* ✅ Logo real, centrado */
+        /* Logo */
         .logo-container {
             position: absolute;
             top: 25px;
@@ -130,7 +130,6 @@
             opacity: 0.9;
         }
 
-        /* ✅ Imagen del producto más pequeña y sin efectos excesivos */
         .book-showcase img {
             max-width: 240px;
             max-height: 320px;
@@ -160,7 +159,6 @@
             box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
         }
 
-        /* ✅ TEMPORIZADOR debajo de la oferta */
         .offer-timer {
             background: rgba(239, 68, 68, 0.15);
             border: 2px solid var(--red);
@@ -192,7 +190,6 @@
             50% { transform: scale(1.12); }
         }
 
-        /* Panel de oferta */
         .hero-oferta {
             background: rgba(26, 26, 26, 0.9);
             padding: 36px;
@@ -245,7 +242,6 @@
             opacity: 0.85;
         }
 
-        /* Bonus y estrellas */
         .bonus-section {
             background: rgba(16, 185, 129, 0.12);
             border: 2px solid var(--green);
@@ -284,7 +280,6 @@
             margin-bottom: 18px;
         }
 
-        /* Botón de compra */
         .cta-button {
             background: transparent;
             border: 1px solid var(--silver);
@@ -306,7 +301,7 @@
             box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
         }
 
-        /* Resto del contenido (problema, visión, etc.) */
+        /* Secciones */
         .problema, .vision, .sistema, .faq {
             padding: 80px 0;
             border-top: 1px solid var(--carbon);
@@ -321,15 +316,141 @@
             letter-spacing: 1px;
         }
 
-        /* ... resto de estilos igual que en index.html ... */
+        .dolor-grid, .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .dolor-card, .vision-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(192, 192, 192, 0.1);
+            padding: 24px;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+        .dolor-card:hover, .vision-card:hover {
+            transform: translateY(-4px);
+        }
+        .dolor-card h3, .vision-card h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .modulos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .modulo {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(192, 192, 192, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+        }
+        .modulo-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .modulo-numero {
+            width: 50px;
+            height: 50px;
+            background: var(--silver);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .modulo h3 {
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .modulo ul {
+            list-style: none;
+            margin-top: 16px;
+            padding-left: 0;
+        }
+        .modulo li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+            font-size: 0.95rem;
+        }
+        .modulo li:last-child {
+            border-bottom: none;
+        }
+        .modulo li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(192, 192, 192, 0.1);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            color: var(--white);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--silver);
+            padding: 0 24px;
+        }
+        .faq-answer-content {
+            padding: 0 0 20px;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 24px 20px;
+        }
+        .faq-toggle {
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--carbon);
+        }
+        footer p {
+            color: var(--silver);
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
-    <!-- ✅ Botón volver al inicio -->
+    <!-- Botón volver al inicio -->
     <a href="index.html" class="back-button">← Volver al inicio</a>
 
     <section class="hero">
-        <!-- ✅ Tu logo real -->
+        <!-- Logo -->
         <div class="logo-container scroll-fade">
             <img src="imagenes/myndlifelogo.jpg" alt="MyndLife">
         </div>
@@ -337,15 +458,15 @@
             <h1 class="scroll-fade">De Empleado a Emprendedor:<br>La Mentalidad que Nadie Te Enseñó</h1>
             <h2 class="scroll-fade">Deja de soñar y empieza a construir: Tu futuro emprendedor comienza hoy, no mañana.</h2>
 
-            <!-- ✅ 1. Imagen del producto -->
+            <!-- 1. Imagen del producto -->
             <div class="book-showcase scroll-fade">
                 <img src="imagenes/ebook1.png" alt="De Empleado a Emprendedor">
             </div>
 
-            <!-- ✅ 2. Badge de oferta -->
+            <!-- 2. Badge de oferta -->
             <div class="offer-badge scroll-fade">¡OFERTA LIMITADA!</div>
 
-            <!-- ✅ 3. Panel de oferta -->
+            <!-- 3. Panel de oferta -->
             <div class="hero-oferta scroll-fade">
                 <h3>Oferta Especial de Lanzamiento</h3>
                 <div class="valor-linea"><span>Ebook Premium (+30 páginas)</span><span>47€</span></div>
@@ -378,44 +499,203 @@
         </div>
     </section>
 
-    <!-- Resto del contenido: problema, visión, sistema, FAQ -->
-    <!-- (igual que en tu archivo original, con scroll-fade) -->
-
+    <!-- PROBLEMA -->
     <section class="problema">
         <div class="container">
             <h2 class="scroll-fade">¿Te Suena Familiar?</h2>
-            <!-- ... items ... -->
+            <div class="dolor-grid">
+                <div class="dolor-card scroll-fade">
+                    <div class="dolor-icon">1</div>
+                    <h3>Atrapado en la Mentalidad de Asalariado</h3>
+                    <p>Esperas instrucciones, evitas riesgos, mides tu valor en horas trabajadas.</p>
+                </div>
+                <div class="dolor-card scroll-fade">
+                    <div class="dolor-icon">2</div>
+                    <h3>Ingresos Limitados por Tiempo</h3>
+                    <p>Tu salario tiene un techo. No importa cuánto trabajes, nunca llegarás a donde quieres.</p>
+                </div>
+                <div class="dolor-card scroll-fade">
+                    <div class="dolor-icon">3</div>
+                    <h3>Miedo Paralizante</h3>
+                    <p>La idea de dejar tu empleo te aterroriza más que quedarte donde estás.</p>
+                </div>
+                <div class="dolor-card scroll-fade">
+                    <div class="dolor-icon">4</div>
+                    <h3>Ciclo de Autosabotaje</h3>
+                    <p>Planificas, procrastinas, prometes "mañana empiezo". El ciclo nunca termina.</p>
+                </div>
+                <div class="dolor-card scroll-fade">
+                    <div class="dolor-icon">5</div>
+                    <h3>Años Pasando Sin Acción</h3>
+                    <p>Llevas 2, 3, 5 años "pensando en emprender". Pero sigues exactamente igual.</p>
+                </div>
+                <div class="dolor-card scroll-fade">
+                    <div class="dolor-icon">6</div>
+                    <h3>Falta de Sistema Estructurado</h3>
+                    <p>Tienes ideas pero no un método claro para convertirlas en resultados reales y sostenibles.</p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- VISIÓN -->
     <section class="vision">
         <div class="container">
             <h2 class="scroll-fade">Imagina Despertar Así</h2>
-            <!-- ... items ... -->
+            <div class="vision-grid">
+                <div class="vision-card scroll-fade">
+                    <h3>Mentalidad de Creador</h3>
+                    <p>No esperas oportunidades. Las construyes. Cada día es un experimento, no una rutina.</p>
+                </div>
+                <div class="vision-card scroll-fade">
+                    <h3>Sistema de Monetización</h3>
+                    <p>Sabes exactamente cómo convertir tu experiencia en ingresos predecibles.</p>
+                </div>
+                <div class="vision-card scroll-fade">
+                    <h3>Confianza Inquebrantable</h3>
+                    <p>Actúas con miedo, pero actúas. El rechazo ya no te paraliza.</p>
+                </div>
+                <div class="vision-card scroll-fade">
+                    <h3>Progreso Medible</h3>
+                    <p>Cada semana ves avance tangible. No más meses perdidos "preparándote".</p>
+                </div>
+                <div class="vision-card scroll-fade">
+                    <h3>Claridad Absoluta</h3>
+                    <p>Sabes exactamente cuál es tu siguiente paso. No hay ambigüedad.</p>
+                </div>
+                <div class="vision-card scroll-fade">
+                    <h3>Libertad Financiera y Temporal</h3>
+                    <p>Controlas tu tiempo y tus ingresos. Diseñas tu vida en lugar de adaptarte a la de otros.</p>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- SISTEMA -->
     <section class="sistema">
         <div class="container">
             <h2 class="scroll-fade">El Sistema de 90 Días</h2>
-            <!-- ... módulos ... -->
+            <div class="modulos">
+                <div class="modulo scroll-fade">
+                    <div class="modulo-header">
+                        <div class="modulo-numero">1</div>
+                        <h3>Ebook Transformacional</h3>
+                    </div>
+                    <ul>
+                        <li>Más de 30 páginas de contenido premium</li>
+                        <li>Formato PDF, ePub, Mobi</li>
+                        <li>Acceso inmediato tras compra</li>
+                    </ul>
+                </div>
+                <div class="modulo scroll-fade">
+                    <div class="modulo-header">
+                        <div class="modulo-numero">2</div>
+                        <h3>Tracker de 90 Días</h3>
+                    </div>
+                    <ul>
+                        <li>Herramienta interactiva para seguimiento diario</li>
+                        <li>Indicadores clave de progreso</li>
+                        <li>Compatible con dispositivos móviles y escritorio</li>
+                    </ul>
+                </div>
+                <div class="modulo scroll-fade">
+                    <div class="modulo-header">
+                        <div class="modulo-numero">3</div>
+                        <h3>Checklist de Acción</h3>
+                    </div>
+                    <ul>
+                        <li>Pasos concretos semana a semana</li>
+                        <li>Validación de hitos clave</li>
+                        <li>Enfoque práctico sin teoría innecesaria</li>
+                    </ul>
+                </div>
+                <div class="modulo scroll-fade">
+                    <div class="modulo-header">
+                        <div class="modulo-numero">4</div>
+                        <h3>Dashboard de Progreso</h3>
+                    </div>
+                    <ul>
+                        <li>Visualización gráfica de tu evolución</li>
+                        <li>Métricas personalizadas</li>
+                        <li>Recordatorios inteligentes</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="faq">
         <div class="container">
             <h2 class="scroll-fade">Preguntas Frecuentes</h2>
-            <!-- ... FAQ ... -->
+            <div class="faq-items">
+                <div class="faq-item scroll-fade">
+                    <div class="faq-question">
+                        <span>¿Funciona si nunca he emprendido antes?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sí, de hecho está diseñado específicamente para personas sin experiencia previa. El sistema te guía desde la mentalidad de empleado hasta los primeros pasos ejecutables. El 80% de nuestros estudiantes nunca habían emprendido antes.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item scroll-fade">
+                    <div class="faq-question">
+                        <span>¿Cuánto tiempo necesito dedicar diariamente?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            El sistema está diseñado para ser flexible. Recomendamos 30-45 minutos diarios durante 90 días. Puedes ajustarlo a tu disponibilidad sin perder efectividad.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item scroll-fade">
+                    <div class="faq-question">
+                        <span>¿Qué incluye exactamente la compra?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Recibirás: 1) Ebook de +30 páginas en múltiples formatos, 2) Tracker de 90 días interactivo, 3) Checklist de acción detallado, y 4) Dashboard de progreso personalizable. Todo con acceso inmediato y vitalicio.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item scroll-fade">
+                    <div class="faq-question">
+                        <span>¿Tiene garantía de devolución?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Sí, ofrecemos 14 días de garantía de satisfacción. Si no estás completamente satisfecho con el sistema, te devolvemos el 100% de tu inversión sin preguntas.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item scroll-fade">
+                    <div class="faq-question">
+                        <span>¿Es un pago único o mensual?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Es un pago único de 14,97€ que te da acceso vitalicio a todo el contenido y herramientas. No hay pagos recurrentes ni suscripciones ocultas.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p class="scroll-fade">© 2025 Myndlife. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- ✅ Scroll observer -->
+    <!-- Scroll Observer -->
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -427,7 +707,7 @@
         document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
     </script>
 
-    <!-- ✅ Temporizador con efecto de pulso -->
+    <!-- Temporizador con pulso -->
     <script>
         const futureDate = new Date();
         futureDate.setHours(futureDate.getHours() + 24);
@@ -457,6 +737,16 @@
             });
             updateCountdown();
         }, 1000);
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                const toggle = question.querySelector('.faq-toggle');
+                toggle.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
 
         updateCountdown();
     </script>
