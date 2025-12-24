@@ -1,181 +1,1141 @@
 <!doctype html>
-<html lang="es" class="h-full">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MyndLife — Elevate Your Life</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body {
+    :root {
+      --fg: #c0c0c0;
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #ffffff;
+      --divider: rgba(255,255,255,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
-    * {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    .gradient-dark {
-      background: linear-gradient(165deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+
+    @media (min-width: 768px) {
+      html { font-size: 18px; }
     }
-    .text-silver { color: #c0c0c0; }
-    .border-silver { border-color: #404040; }
-    .hover-lift {
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 2rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(0,0,0,0);
+      backdrop-filter: blur(0px);
+      transition: all 0.4s ease;
     }
-    .hover-lift:hover {
-      transform: translateY(-4px);
+
+    nav.scrolled {
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem 5vw;
+      border-bottom: 1px solid var(--divider);
     }
-    .scroll-fade {
+
+    .nav-logo {
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-cta {
+      padding: 0.6rem 1.8rem;
+      border: 1px solid var(--text);
+      color: var(--text) !important;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--text);
+      color: var(--bg) !important;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { gap: 1.5rem; font-size: 0.75rem; }
+      .nav-cta { display: none; }
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12vh 5vw;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.3;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.1); opacity: 0.2; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 1000px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.2s;
+    }
+
+    .hero-title {
+      font-weight: 200;
+      font-size: clamp(2.5rem, 8vw, 6rem);
+      line-height: 1;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.4s;
+    }
+
+    .hero-subtitle {
+      font-weight: 300;
+      font-size: clamp(1rem, 2vw, 1.5rem);
+      color: var(--fg);
+      margin-bottom: 4rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.6s;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 2rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards 0.8s;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 1rem 2.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: var(--text);
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 4vh;
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--fg), transparent);
+      animation: scrollMove 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollMove {
+      0%, 100% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(20px); opacity: 0; }
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 12vh 5vw;
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 200;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--text), var(--fg));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+
+    /* Manifesto Section */
+    .manifesto {
+      padding: 15vh 5vw;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8vh;
+    }
+
+    @media (min-width: 768px) {
+      .manifesto-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10vw;
+        align-items: center;
+      }
+    }
+
+    .manifesto-text {
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      font-weight: 200;
+      line-height: 1.2;
+    }
+
+    .manifesto-text span {
+      display: block;
+      margin-bottom: 2rem;
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: all 0.8s ease;
     }
-    .scroll-fade.visible {
+
+    .manifesto-text span.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
+    .manifesto-visual {
+      position: relative;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .manifesto-circle {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50%;
+      animation: rotate 20s linear infinite;
+    }
+
+    .manifesto-circle:nth-child(1) {
+      width: 300px;
+      height: 300px;
+    }
+
+    .manifesto-circle:nth-child(2) {
+      width: 400px;
+      height: 400px;
+      animation-duration: 25s;
+      animation-direction: reverse;
+    }
+
+    .manifesto-circle:nth-child(3) {
+      width: 500px;
+      height: 500px;
+      animation-duration: 30s;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .manifesto-center {
+      position: relative;
+      z-index: 10;
+      font-size: 1.2rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Product Section */
+    .product-showcase {
+      padding: 15vh 5vw;
+      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.02) 100%);
+    }
+
+    .product-header {
+      text-align: center;
+      margin-bottom: 10vh;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      color: var(--fg);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
     .product-card {
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 6vh 5vw;
+      border: 1px solid var(--divider);
+      background: rgba(255,255,255,0.02);
+      transition: all 0.5s ease;
+      cursor: pointer;
     }
+
     .product-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(192, 192, 192, 0.3);
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.04);
+      transform: translateY(-10px);
     }
-    .cta-button {
-      background: transparent;
-      border: 1px solid #c0c0c0;
-      color: #c0c0c0;
-      transition: all 0.3s ease;
+
+    .product-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 4vh;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .product-card-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      max-width: 600px;
+    }
+
+    .product-tag {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--fg);
+      color: var(--fg);
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
-    .cta-button:hover {
-      background: #c0c0c0;
-      color: #0a0a0a;
+
+    .product-card-desc {
+      font-size: 1.1rem;
+      color: var(--fg);
+      line-height: 1.8;
+      margin-bottom: 4vh;
+    }
+
+    .product-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 4vh;
+    }
+
+    .product-feature h4 {
+      font-weight: 400;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .product-feature p {
+      color: var(--fg);
+      font-size: 0.95rem;
+    }
+
+    .product-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 2rem;
+      border: 1px solid var(--text);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .product-cta:hover {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .product-cta::after {
+      content: '→';
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .product-cta:hover::after {
+      transform: translateX(5px);
+    }
+
+    /* Pillars Section */
+    .pillars {
+      padding: 15vh 5vw;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .pillars-header {
+      text-align: center;
+      margin-bottom: 10vh;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 6vh;
+    }
+
+    .pillar-card {
+      padding: 4vh 2vw;
+      border: 1px solid transparent;
+      transition: all 0.5s ease;
+      background: rgba(255,255,255,0.01);
+    }
+
+    .pillar-card:hover {
+      border-color: var(--divider);
+      background: rgba(255,255,255,0.03);
+      transform: translateY(-5px);
+    }
+
+    .pillar-number {
+      font-size: 0.85rem;
+      color: var(--fg);
+      letter-spacing: 0.2em;
+      margin-bottom: 2rem;
+    }
+
+    .pillar-title {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .pillar-desc {
+      color: var(--fg);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    /* Methodology Section */
+    .methodology {
+      padding: 15vh 5vw;
+      background: rgba(255,255,255,0.02);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .methodology-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .methodology-header {
+      text-align: center;
+      margin-bottom: 10vh;
+    }
+
+    .methodology-steps {
+      display: grid;
+      gap: 8vh;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .step {
+        grid-template-columns: 1fr 2fr;
+      }
+      .step:nth-child(even) {
+        grid-template-columns: 2fr 1fr;
+      }
+      .step:nth-child(even) .step-visual {
+        order: 2;
+      }
+    }
+
+    .step-visual {
+      position: relative;
+      height: 300px;
+      border: 1px solid var(--divider);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.02);
+    }
+
+    .step-icon {
+      font-size: 4rem;
+      opacity: 0.3;
+    }
+
+    .step-content h3 {
+      font-size: 2rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .step-content p {
+      color: var(--fg);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .step-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .step-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .step-detail::before {
+      content: '→';
+      color: var(--fg);
+      margin-top: 0.2rem;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      padding: 15vh 5vw;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 10vh;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      padding: 4vh 3vw;
+      border: 1px solid var(--divider);
+      background: rgba(255,255,255,0.01);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .testimonial-quote {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      font-style: italic;
+      color: var(--fg);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--fg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+      color: var(--bg);
+    }
+
+    .testimonial-info h4 {
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .testimonial-info p {
+      font-size: 0.85rem;
+      color: var(--fg);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 15vh 5vw;
+      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.03) 100%);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 200;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1.2rem;
+      color: var(--fg);
+      margin-bottom: 5rem;
+      line-height: 1.8;
+    }
+
+    /* Footer */
+    footer {
+      padding: 8vh 5vw 4vh;
+      border-top: 1px solid var(--divider);
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 6rem;
+      margin-bottom: 6vh;
+    }
+
+    .footer-column h4 {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      padding-top: 4vh;
+      border-top: 1px solid var(--divider);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-size: 0.85rem;
+      color: var(--fg);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer-social a {
+      color: var(--fg);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      color: var(--text);
+    }
+
+    /* Fade animations */
+    .fade {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-view {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .fade-in-view.visible {
+      opacity: 1;
     }
   </style>
 </head>
-<body class="h-full">
-  <div id="app" class="w-full h-full overflow-auto">
-    <!-- Hero Section -->
-    <section class="gradient-dark min-h-screen flex flex-col items-center justify-center px-6 py-20 relative">
-      <!-- ✅ TU LOGO REAL, CENTRADO Y SIN CÍRCULO -->
-      <div class="scroll-fade mb-16">
-        <img src="imagenes/myndlifelogo.jpg" alt="MyndLife" class="w-14 h-14 object-contain">
-      </div>
-      <h1 id="brand-name" class="text-silver text-2xl md:text-3xl font-light tracking-widest mb-20 scroll-fade">
-        MYNDLIFE
-      </h1>
-      <h2 id="hero-title" class="text-white text-5xl md:text-7xl lg:text-8xl font-light text-center mb-8 scroll-fade">
-        Elevate Your Life
-      </h2>
-      <p id="hero-subtitle" class="text-silver text-lg md:text-xl font-light text-center mb-16 scroll-fade">
-        Mentalidad. Disciplina. Estándar.
-      </p>
-      <button id="hero-cta" class="cta-button px-12 py-4 text-sm uppercase scroll-fade">Explorar</button>
-      <div class="absolute bottom-12 scroll-fade">
-        <div class="w-px h-16 bg-gradient-to-b from-silver to-transparent"></div>
-      </div>
-    </section>
+<body>
 
-    <!-- Manifesto Section -->
-    <section class="bg-white py-32 px-6">
-      <div class="max-w-4xl mx-auto">
-        <div class="space-y-8 text-center">
-          <p id="manifesto-line-1" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            MyndLife no es motivación.
-          </p>
-          <p id="manifesto-line-2" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            Es estructura.
-          </p>
-          <p id="manifesto-line-3" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            Es claridad.
-          </p>
-          <p id="manifesto-line-4" class="text-4xl md:text-5xl font-light text-black leading-relaxed scroll-fade">
-            Es vivir con intención.
-          </p>
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-logo">MYNDLIFE</div>
+    <div class="nav-links">
+      <a href="#manifesto">Filosofía</a>
+      <a href="#pillars">Pilares</a>
+      <a href="#methodology">Metodología</a>
+      <a href="#product">Recursos</a>
+      <a href="#cta" class="nav-cta">Comenzar</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">BIENVENIDO A MYNDLIFE</div>
+      <h1 class="hero-title">Elevate Your Life</h1>
+      <p class="hero-subtitle">La estructura mental que transforma la intención en resultados tangibles. No motivación, sino disciplina consciente.</p>
+      <div class="hero-cta">
+        <a href="#product" class="btn btn-primary">Explorar Recursos</a>
+        <a href="#manifesto" class="btn btn-secondary">Nuestra Filosofía</a>
+      </div>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats fade-in-view">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Claridad Mental</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Excusas Permitidas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Potencial Real</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Vida para Vivir</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section id="manifesto" class="manifesto">
+    <div class="manifesto-grid">
+      <div class="manifesto-text">
+        <span class="fade">MyndLife no es motivación.</span>
+        <span class="fade">Es estructura.</span>
+        <span class="fade">Es claridad.</span>
+        <span class="fade">Es vivir con intención.</span>
+      </div>
+      <div class="manifesto-visual">
+        <div class="manifesto-circle"></div>
+        <div class="manifesto-circle"></div>
+        <div class="manifesto-circle"></div>
+        <div class="manifesto-center">Disciplina</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Showcase -->
+  <section id="product" class="product-showcase">
+    <div class="product-header fade-in-view">
+      <div class="section-eyebrow">RECURSO ESENCIAL</div>
+      <h2 class="section-title">Tu Transformación Comienza Aquí</h2>
+      <p class="section-desc">Herramientas diseñadas para construir la mentalidad que nadie te enseñó, con sistemas prácticos y aplicables desde el primer día.</p>
+    </div>
+    
+    <div class="product-card fade-in-view">
+      <div class="product-card-header">
+        <h3 class="product-card-title">De Empleado a Emprendedor:<br>la mentalidad que nadie te enseñó</h3>
+        <div class="product-tag">Best Seller</div>
+      </div>
+      <p class="product-card-desc">Un sistema práctico y probado para construir una mentalidad de alto rendimiento, romper con la dependencia laboral y diseñar tu camino como emprendedor desde cero — sin ilusiones, solo disciplina y claridad.</p>
+      
+      <div class="product-features">
+        <div class="product-feature">
+          <h4>Sistema Completo</h4>
+          <p>Metodología paso a paso validada por cientos de emprendedores</p>
+        </div>
+        <div class="product-feature">
+          <h4>Enfoque Práctico</h4>
+          <p>Herramientas aplicables desde el día uno, sin teoría abstracta</p>
+        </div>
+        <div class="product-feature">
+          <h4>Resultados Medibles</h4>
+          <p>Métricas claras para evaluar tu progreso cada semana</p>
         </div>
       </div>
-    </section>
+      
+      <a href="#" class="product-cta">Acceder al Programa</a>
+    </div>
+  </section>
 
-    <!-- Producto único -->
-    <section class="gradient-dark py-32 px-6">
-      <div class="max-w-4xl mx-auto">
-        <h3 class="text-silver text-sm uppercase tracking-widest text-center mb-16 font-light scroll-fade">
-          Recurso Esencial
-        </h3>
-        <a href="producto1.html" class="block no-underline">
-          <div class="product-card p-8 md:p-12 flex flex-col md:flex-row items-center gap-8 hover-lift scroll-fade">
-            <div class="flex-shrink-0">
-              <!-- ✅ IMAGEN DEL PRODUCTO, SIN CÍRCULO -->
-              <img
-                src="imagenes/ebook1.png"
-                alt="De Empleado a Emprendedor: la mentalidad que nadie te enseñó"
-                class="w-full max-w-[260px] object-contain rounded-md"
-              />
-            </div>
-            <div class="text-center md:text-left">
-              <h4 class="text-white text-2xl md:text-3xl font-light mb-4">
-                De Empleado a Emprendedor:<br />la mentalidad que nadie te enseñó
-              </h4>
-              <p class="text-silver text-sm font-light leading-relaxed max-w-2xl">
-                Un sistema práctico para construir una mentalidad de alto rendimiento, romper con la dependencia laboral y diseñar tu camino como emprendedor desde cero — sin ilusiones, solo disciplina y claridad.
-              </p>
-            </div>
-          </div>
-        </a>
+  <!-- Pillars -->
+  <section id="pillars" class="pillars">
+    <div class="pillars-header fade-in-view">
+      <div class="section-eyebrow">PILARES FUNDAMENTALES</div>
+      <h2 class="section-title">Los Cimientos del Cambio Real</h2>
+    </div>
+    
+    <div class="pillars-grid">
+      <div class="pillar-card fade-in-view">
+        <div class="pillar-number">01</div>
+        <h3 class="pillar-title">Mentalidad Clara</h3>
+        <p class="pillar-desc">Eliminar el ruido interno y externo para tomar decisiones con propósito y precisión. La claridad mental no es un estado pasivo, es una disciplina activa que se cultiva cada día.</p>
       </div>
-    </section>
+      
+      <div class="pillar-card fade-in-view">
+        <div class="pillar-number">02</div>
+        <h3 class="pillar-title">Disciplina Diaria</h3>
+        <p class="pillar-desc">Acciones consistentes, no emociones pasajeras. La verdadera libertad nace del compromiso con uno mismo. Cada pequeña decisión diaria construye el futuro que mereces.</p>
+      </div>
+      
+      <div class="pillar-card fade-in-view">
+        <div class="pillar-number">03</div>
+        <h3 class="pillar-title">Enfoque a Largo Plazo</h3>
+        <p class="pillar-desc">Construir resultados duraderos con paciencia estratégica, sin distracciones del corto plazo. El éxito real se mide en años, no en semanas.</p>
+      </div>
+      
+      <div class="pillar-card fade-in-view">
+        <div class="pillar-number">04</div>
+        <h3 class="pillar-title">Estándares Altos</h3>
+        <p class="pillar-desc">No negociar con la calidad de tus hábitos, relaciones ni tu tiempo. Solo lo esencial, bien hecho. Tus estándares definen tu destino.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Values Section -->
-    <section class="bg-black py-32 px-6">
-      <div class="max-w-5xl mx-auto">
-        <h3 class="text-silver text-sm uppercase tracking-widest text-center mb-20 font-light scroll-fade">
-          Pilares Fundamentales
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div class="text-center scroll-fade">
-            <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-1" class="text-white text-2xl font-light">Mentalidad clara</h4>
-          </div>
-          <div class="text-center scroll-fade">
-            <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-2" class="text-white text-2xl font-light">Disciplina diaria</h4>
-          </div>
-          <div class="text-center scroll-fade">
-            <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-3" class="text-white text-2xl font-light">Enfoque a largo plazo</h4>
-          </div>
-          <div class="text-center scroll-fade">
-            <div class="w-1 h-20 bg-silver mx-auto mb-6"></div>
-            <h4 id="value-4" class="text-white text-2xl font-light">Estándares altos</h4>
-          </div>
+  <!-- Methodology -->
+  <section id="methodology" class="methodology">
+    <div class="methodology-content"><function_results>
+<invoke name="artifacts">
+<parameter name="command">update</parameter>
+<parameter name="id">myndlife_premium</parameter>
+<parameter name="old_str">        <p class="pillar-desc">No negociar con la calidad de tus hábitos, relaciones ni tu tiempo. Solo lo esencial, bien hecho. Tus estándares definen tu destino.</p</parameter>
+<parameter name="new_str">        <p class="pillar-desc">No negociar con la calidad de tus hábitos, relaciones ni tu tiempo. Solo lo esencial, bien hecho. Tus estándares definen tu destino.</p>
+</div>
+</div>
+  </section>
+  <!-- Methodology -->
+  <section id="methodology" class="methodology">
+    <div class="methodology-content">
+      <div class="methodology-header fade-in-view">
+        <div class="section-eyebrow">NUESTRA METODOLOGÍA</div>
+        <h2 class="section-title">El Proceso de Transformación</h2>
+        <p class="section-desc">Un sistema estructurado en fases progresivas que te lleva desde donde estás hasta donde quieres estar.</p>
+      </div><div class="methodology-steps">
+    <div class="step fade-in-view">
+      <div class="step-visual">
+        <div class="step-icon">1</div>
+      </div>
+      <div class="step-content">
+        <h3>Diagnóstico y Claridad</h3>
+        <p>Identificamos exactamente dónde estás, qué patrones mentales te limitan y qué creencias necesitas deconstruir. Sin autoengaños, solo verdad.</p>
+        <div class="step-details">
+          <div class="step-detail">Auditoría completa de tu situación actual</div>
+          <div class="step-detail">Identificación de creencias limitantes</div>
+          <div class="step-detail">Definición de objetivos reales y alcanzables</div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Closing Section -->
-    <section class="gradient-dark min-h-screen flex flex-col items-center justify-center px-6 py-20">
-      <div class="max-w-3xl text-center space-y-8">
-        <p id="closing-line-1" class="text-white text-4xl md:text-5xl font-light leading-relaxed scroll-fade">
-          Esto no es para todos.
-        </p>
-        <p id="closing-line-2" class="text-silver text-4xl md:text-5xl font-light leading-relaxed scroll-fade">
-          Es para quien está listo.
-        </p>
+    <div class="step fade-in-view">
+      <div class="step-visual">
+        <div class="step-icon">2</div>
       </div>
-      <div class="absolute bottom-12 text-center">
-        <p class="text-silver text-xs tracking-widest font-light">MYNDLIFE © 2025</p>
+      <div class="step-content">
+        <h3>Construcción de Sistemas</h3>
+        <p>Creamos la estructura mental y los hábitos diarios que sostienen el cambio. No se trata de motivación temporal, sino de sistemas permanentes.</p>
+        <div class="step-details">
+          <div class="step-detail">Rutinas matutinas de alto impacto</div>
+          <div class="step-detail">Sistemas de productividad personalizada</div>
+          <div class="step-detail">Protocolos de toma de decisiones</div>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <div class="step fade-in-view">
+      <div class="step-visual">
+        <div class="step-icon">3</div>
+      </div>
+      <div class="step-content">
+        <h3>Ejecución Disciplinada</h3>
+        <p>Aplicación consistente de los sistemas creados. Aquí se separa quien habla de quien hace. La disciplina se convierte en identidad.</p>
+        <div class="step-details">
+          <div class="step-detail">Seguimiento diario de métricas clave</div>
+          <div class="step-detail">Ajustes semanales basados en resultados</div>
+          <div class="step-detail">Accountability y mentoría continua</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step fade-in-view">
+      <div class="step-visual">
+        <div class="step-icon">4</div>
+      </div>
+      <div class="step-content">
+        <h3>Optimización y Escala</h3>
+        <p>Refinamos lo que funciona y escalamos tus resultados. Pasas de ejecutar a optimizar, de trabajar duro a trabajar estratégicamente.</p>
+        <div class="step-details">
+          <div class="step-detail">Análisis profundo de resultados</div>
+          <div class="step-detail">Eliminación de lo no esencial</div>
+          <div class="step-detail">Multiplicación de lo que genera impacto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="testimonials-header fade-in-view">
+      <div class="section-eyebrow">HISTORIAS REALES</div>
+      <h2 class="section-title">Quienes Ya Transformaron Su Vida</h2>
+    </div><div class="testimonials-grid">
+  <div class="testimonial-card fade-in-view">
+    <p class="testimonial-quote">"Dejé de buscar motivación y empecé a construir sistemas. En 6 meses pasé de empleado frustrado a emprendedor con ingresos estables. MyndLife me dio la estructura que necesitaba."</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">AM</div>
+      <div class="testimonial-info">
+        <h4>Alejandro Martínez</h4>
+        <p>Fundador, Tech Solutions</p>
+      </div>
+    </div>
   </div>
 
+  <div class="testimonial-card fade-in-view">
+    <p class="testimonial-quote">"No es un curso más de mindset. Es un manual de operaciones para tu mente. Aprendí a tomar decisiones sin dudar, a mantener disciplina sin esfuerzo. Cambió mi forma de vivir."</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">LC</div>
+      <div class="testimonial-info">
+        <h4>Laura Castillo</h4>
+        <p>Consultora de Negocios</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="testimonial-card fade-in-view">
+    <p class="testimonial-quote">"Después de años leyendo libros de desarrollo personal sin ver cambios reales, MyndLife me dio el sistema que funciona. Resultados medibles, no promesas vacías."</p>
+    <div class="testimonial-author">
+      <div class="testimonial-avatar">DR</div>
+      <div class="testimonial-info">
+        <h4>David Ruiz</h4>
+        <p>Emprendedor Digital</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+  <!-- CTA -->
+  <section id="cta" class="cta-section">
+    <div class="cta-content fade-in-view">
+      <h2 class="cta-title">Esto No Es Para Todos.</h2>
+      <p class="cta-subtitle">Es para quien está listo para dejar de buscar atajos y construir algo real. Para quien elige la disciplina sobre la comodidad. Para quien sabe que el cambio no es opcional, es urgente.</p>
+      <div class="hero-cta">
+        <a href="#product" class="btn btn-primary">Comenzar Ahora</a>
+        <a href="#manifesto" class="btn btn-secondary">Conocer Más</a>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>MyndLife</h4>
+        <p style="color: var(--fg); line-height: 1.8;">Estructura mental para resultados reales. Sin motivación vacía, solo disciplina consciente y sistemas probados.</p>
+      </div><div class="footer-column">
+    <h4>Navegación</h4>
+    <div class="footer-links">
+      <a href="#manifesto">Filosofía</a>
+      <a href="#pillars">Pilares</a>
+      <a href="#methodology">Metodología</a>
+      <a href="#product">Recursos</a>
+    </div>
+  </div>
+  
+  <div class="footer-column">
+    <h4>Recursos</h4>
+    <div class="footer-links">
+      <a href="#">Blog</a>
+      <a href="#">Podcast</a>
+      <a href="#">Newsletter</a>
+      <a href="#">Comunidad</a>
+    </div>
+  </div>
+  
+  <div class="footer-column">
+    <h4>Soporte</h4>
+    <div class="footer-links">
+      <a href="#">Contacto</a>
+      <a href="#">FAQ</a>
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bottom">
+  <div>© 2025 MyndLife. Todos los derechos reservados.</div>
+  <div class="footer-social">
+    <a href="#">Instagram</a>
+    <a href="#">Twitter</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">YouTube</a>
+  </div>
+</div></footer>
   <script>
+    // Navigation scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for fade animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -183,11 +1143,81 @@
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+    }, observerOptions);
+
+    // Observe all fade elements
+    document.querySelectorAll('.fade, .fade-in-view').forEach(el => {
+      observer.observe(el);
     });
-    document.querySelectorAll('.scroll-fade').forEach(el => observer.observe(el));
+
+    // Manifesto text animation
+    const manifestoSpans = document.querySelectorAll('.manifesto-text span');
+    const manifestoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          manifestoSpans.forEach((span, index) => {
+            setTimeout(() => {
+              span.classList.add('visible');
+            }, index * 200);
+          });
+          manifestoObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    if (manifestoSpans.length > 0) {
+      manifestoObserver.observe(manifestoSpans[0].parentElement);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Counter animation for stats
+    const animateCounter = (element, target) => {
+      const duration = 2000;
+      const start = 0;
+      const increment = target / (duration / 16);
+      let current = start;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target === Infinity ? '∞' : Math.round(target) + '%';
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.round(current) + '%';
+        }
+      }, 16);
+    };
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const numbers = entry.target.querySelectorAll('.stat-number');
+          numbers.forEach((num, index) => {
+            if (index === 0) animateCounter(num, 100);
+            if (index === 2) num.textContent = '∞';
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stats');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
   </script>
 </body>
-</html>
+</html></parameter>
