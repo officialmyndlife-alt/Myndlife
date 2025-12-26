@@ -753,5 +753,16 @@
 
         updateCountdown();
     </script>
+    <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+<script>
+  Paddle.Setup({ vendor: 273864 }); // reemplaza YOUR_VENDOR_ID
+
+  function checkout() {
+    Paddle.Checkout.open({
+      product: pri_01kd0qy53dhpvfk9s7645w9a54, // reemplaza con tu product/price ID de Paddle
+      quantity: 1
+    });
+  }
+</script>
 </body>
 </html>
