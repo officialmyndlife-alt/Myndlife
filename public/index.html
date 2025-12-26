@@ -126,6 +126,14 @@
       background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 0%, transparent 70%);
       animation: pulse 8s ease-in-out infinite;
     }
+    .hero-svg-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+}
     .hero-particles {
   position: absolute;
   width: 100%;
@@ -341,54 +349,27 @@
       justify-content: center;
     }
 
-    .manifesto-circle {
-      position: absolute;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 50%;
-      animation: rotate 20s linear infinite;
-    }
-
-    .manifesto-circle:nth-child(1) {
-      width: 300px;
-      height: 300px;
-    }
-
-    .manifesto-circle:nth-child(2) {
-      width: 400px;
-      height: 400px;
-      animation-duration: 25s;
-      animation-direction: reverse;
-    }
-
-    .manifesto-circle:nth-child(3) {
-      width: 500px;
-      height: 500px;
-      animation-duration: 30s;
-    }
-
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .manifesto-center {
-      position: relative;
-      z-index: 10;
-      font-size: 1.2rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      text-align: center;
-    }
-    .manifesto-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  opacity: 0.8;
+    .manifesto-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
 }
 
-.manifesto-label {
-  font-size: 0.9rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
+.svg-circle-pulse {
+  animation: pulse-circle 3s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse-circle {
+  0%, 100% { 
+    opacity: 0.5;
+    stroke-width: 2;
+  }
+  50% { 
+    opacity: 0.8;
+    stroke-width: 3;
+  }
 }
 
     /* Product Section */
@@ -438,6 +419,19 @@
       background: rgba(255,255,255,0.04);
       transform: translateY(-10px);
     }
+    .product-svg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.product-card:hover .product-line {
+  stroke: rgba(255,255,255,0.3);
+}
 
     .product-card-header {
       display: flex;
@@ -532,10 +526,19 @@
     }
 
     .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 6vh;
-    }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
 
     .pillar-card {
       padding: 4vh 2vw;
@@ -855,7 +858,13 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+  <svg class="hero-svg-lines" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+    <path class="hero-line hero-line-1" d="M 0,200 Q 480,250 960,200 T 1920,200" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none" stroke-dasharray="2000" stroke-dashoffset="2000"/>
+    <path class="hero-line hero-line-2" d="M 0,400 Q 480,350 960,400 T 1920,400" stroke="rgba(255,255,255,0.08)" stroke-width="1" fill="none" stroke-dasharray="2000" stroke-dashoffset="2000"/>
+    <path class="hero-line hero-line-3" d="M 0,600 Q 480,650 960,600 T 1920,600" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none" stroke-dasharray="2000" stroke-dashoffset="2000"/>
+  </svg>
+</div>
     <div class="hero-particles">
   <div class="particle"></div>
   <div class="particle"></div>
@@ -907,12 +916,14 @@
         <span class="fade">Es vivir con intención.</span>
       </div>
       <div class="manifesto-visual">
-        <div class="manifesto-circle"></div>
-        <div class="manifesto-circle"></div>
-        <div class="manifesto-circle"></div>
-        <div class="manifesto-center">
-  <div class="manifesto-icon">⚡</div>
-  <div class="manifesto-label">Transformación</div>
+  <svg class="manifesto-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+    <path class="svg-path svg-path-1" d="M 50,200 L 350,200" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="300" stroke-dashoffset="300"/>
+    <path class="svg-path svg-path-2" d="M 200,50 L 200,350" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="300" stroke-dashoffset="300"/>
+    <path class="svg-path svg-path-3" d="M 100,100 L 300,300" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="280" stroke-dashoffset="280"/>
+    <path class="svg-path svg-path-4" d="M 300,100 L 100,300" stroke="rgba(255,255,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="280" stroke-dashoffset="280"/>
+    <circle class="svg-circle" cx="200" cy="200" r="60" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none" stroke-dasharray="377" stroke-dashoffset="377"/>
+    <circle class="svg-circle-pulse" cx="200" cy="200" r="40" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
+  </svg>
 </div>
       </div>
     </div>
@@ -927,6 +938,9 @@
     </div>
     
     <div class="product-card fade-in-view">
+      <svg class="product-svg-decoration" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+  <path class="product-line" d="M 0,200 Q 250,150 500,200 T 1000,200" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none" stroke-dasharray="1200" stroke-dashoffset="1200"/>
+</svg>
       <div class="product-card-header">
         <h3 class="product-card-title">De Empleado a Emprendedor:<br>la mentalidad que nadie te enseñó</h3>
         <div class="product-tag">Best Seller</div>
@@ -1234,14 +1248,46 @@
     easing: 'easeInOutSine'
   });
 
-  // Manifesto circles rotation
-  anime({
-    targets: '.manifesto-circle',
-    rotate: 360,
-    duration: 20000,
-    easing: 'linear',
-    loop: true
-  });
+  // Hero SVG Lines - Draw Animation
+anime({
+  targets: '.hero-line',
+  strokeDashoffset: [2000, 0],
+  duration: 3000,
+  delay: anime.stagger(400, {start: 800}),
+  easing: 'easeInOutQuad'
+});
+
+// Manifesto SVG Paths - Sequential Draw
+const manifestoSVG = document.querySelector('.manifesto-svg');
+if (manifestoSVG) {
+  const manifestoSVGObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Draw cross lines
+        anime({
+          targets: '.svg-path',
+          strokeDashoffset: [anime.setDashoffset, 0],
+          duration: 1500,
+          delay: anime.stagger(200),
+          easing: 'easeInOutQuad'
+        });
+        
+        // Draw circle
+        anime({
+          targets: '.svg-circle',
+          strokeDashoffset: [377, 0],
+          duration: 2000,
+          delay: 1200,
+          easing: 'easeInOutQuad'
+        });
+        
+        manifestoSVGObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  
+  manifestoSVGObserver.observe(manifestoSVG);
+}
 
   // Intersection Observer for fade animations
   const observerOptions = {
@@ -1305,22 +1351,22 @@
   });
 
   // Stats counter animation
-  const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const numbers = entry.target.querySelectorAll('.stat-number');
-        
-        // Animate 100%
-        anime({
-          targets: numbers[0],
-          innerHTML: [0, 100],
-          duration: 2000,
-          round: 1,
-          easing: 'easeOutExpo',
-          update: function(anim) {
-            numbers[0].innerHTML = Math.round(anim.animations[0].currentValue) + '%';
-          }
-        });
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const numbers = entry.target.querySelectorAll('.stat-number');
+      
+      // Animate 100%
+      const obj = { value: 0 };
+      anime({
+        targets: obj,
+        value: 100,
+        duration: 2000,
+        easing: 'easeOutExpo',
+        update: function() {
+          numbers[0].textContent = Math.round(obj.value) + '%';
+        }
+      });
 
         // Keep 0 static
         numbers[1].textContent = '0';
@@ -1341,7 +1387,26 @@
     statsObserver.observe(statsSection);
   }
 
-  // Product card hover animation
+  // Product SVG Line Animation on View
+const productObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      anime({
+        targets: entry.target.querySelector('.product-line'),
+        strokeDashoffset: [1200, 0],
+        duration: 2000,
+        easing: 'easeInOutQuad',
+        delay: 300
+      });
+      productObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.product-card').forEach(card => {
+  productObserver.observe(card);
+});
+    // Product card hover animation
   document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
       anime({
