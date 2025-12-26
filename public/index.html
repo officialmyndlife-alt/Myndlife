@@ -1544,5 +1544,16 @@ document.querySelectorAll('.product-card').forEach(card => {
     pillarsObserver.observe(pillarsGrid);
   }
 </script>
+  <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
+<script>
+  Paddle.Setup({ vendor: YOUR_VENDOR_ID }); // reemplaza con tu Vendor ID
+
+  function checkout() {
+    Paddle.Checkout.open({
+      product: "YOUR_PRODUCT_ID", // reemplaza con tu product/price ID de Paddle
+      quantity: 1
+    });
+  }
+</script>
 </body>
 </html></parameter>
