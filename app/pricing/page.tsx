@@ -1,7 +1,6 @@
 "use client";
 
-import { getPaddle } from "@/lib/paddle";
-
+import { getPaddle } from "../../lib/paddle";
 export default function PricingPage() {
   const handleCheckout = async () => {
     const paddle = await getPaddle();
