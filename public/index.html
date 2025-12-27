@@ -61,12 +61,29 @@
       border-bottom: 1px solid var(--divider);
     }
 
-    .nav-logo {
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.2em;
-      color: var(--text);
-    }
+    .nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-logo-img {
+  height: 35px;
+  width: auto;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.nav-logo {
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--text);
+}
 
     .nav-links {
       display: flex;
@@ -186,25 +203,7 @@
       animation: fadeInUp 1s ease forwards 0.4s;
     }
 
-    .hero-logo {
-  margin: 2rem auto;
-  max-width: 200px;
-  opacity: 0;
-  animation: fadeInUp 1s ease forwards 0.5s;
-}
-
-.hero-logo-img {
-  width: 100%;
-  height: auto;
-  filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
-  transition: transform 0.3s ease;
-}
-
-.hero-logo-img:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 30px rgba(255,255,255,0.4));
-}
-
+  
     .hero-subtitle {
       font-weight: 300;
       font-size: clamp(1rem, 2vw, 1.5rem);
@@ -319,7 +318,90 @@
       text-transform: uppercase;
       color: var(--fg);
     }
+/* Identification Section */
+.identification {
+  padding: 15vh 5vw;
+  background: rgba(255,255,255,0.01);
+}
 
+.identification-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.identification-header {
+  text-align: center;
+  margin-bottom: 8vh;
+}
+
+.identification-table {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.identification-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  padding: 3rem;
+  border: 1px solid var(--divider);
+  background: rgba(255,255,255,0.02);
+  transition: all 0.4s ease;
+  align-items: center;
+}
+
+.identification-row:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.04);
+  transform: translateX(10px);
+}
+
+.identification-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.row-icon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  text-align: center;
+  filter: grayscale(0.3);
+}
+
+.identification-left p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.identification-right p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--fg);
+}
+
+.identification-right strong {
+  color: var(--text);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 968px) {
+  .identification-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .identification-left {
+    flex-direction: column;
+    text-align: center;
+  }
+}
     /* Manifesto Section */
     .manifesto {
       padding: 15vh 5vw;
@@ -858,16 +940,19 @@
 <body>
 
   <!-- Navigation -->
-  <nav id="nav">
+<nav id="nav">
+  <div class="nav-brand">
+    <img src="imagenes/myndlifelogo.jpg" alt="MyndLife Logo" class="nav-logo-img">
     <div class="nav-logo">MYNDLIFE</div>
-    <div class="nav-links">
-      <a href="#manifesto">Filosofía</a>
-      <a href="#pillars">Pilares</a>
-      <a href="#methodology">Metodología</a>
-      <a href="#product">Recursos</a>
-      <a href="#cta" class="nav-cta">Iniciar Sesión</a>
-    </div>
-  </nav>
+  </div>
+  <div class="nav-links">
+    <a href="#manifesto">Filosofía</a>
+    <a href="#pillars">Pilares</a>
+    <a href="#methodology">Metodología</a>
+    <a href="#product">Recursos</a>
+    <a href="#cta" class="nav-cta">Iniciar Sesión</a>
+  </div>
+</nav>
 
   <!-- Hero -->
   <section class="hero">
@@ -888,9 +973,6 @@
     <div class="hero-content">
       <div class="hero-eyebrow">BIENVENIDO A MYNDLIFE</div>
       <h1 class="hero-title">Elevate Your Life</h1>
-      <div class="hero-logo">
-    <img src="imagenes/myndlifelogo.jpg" alt="MyndLife" class="hero-logo-img">
-  </div>
       <p class="hero-subtitle">MyndLife es una marca que ayuda a las personas a elevar su identidad, ordenar su mente y vivir con estándares más altos en un mundo cada vez más ruidoso</p>
       <div class="hero-cta">
         <a href="#product" class="btn btn-primary">Explorar Recursos</a>
@@ -922,6 +1004,71 @@
     </div>
   </section>
 
+  
+
+  <!-- Identification Table -->
+  <section class="identification">
+    <div class="identification-content">
+      <div class="identification-header fade-in-view">
+        <h2 class="section-title">¿Te Identificas?</h2>
+        <p class="section-desc">Si alguna de estas situaciones resuena contigo, estás en el lugar correcto.</p>
+      </div>
+      
+      <div class="identification-table fade-in-view">
+        <div class="identification-row">
+          <div class="identification-left">
+            <div class="row-icon">💭</div>
+            <p>Te sientes cansado, pero sabes que puedes dar más.</p>
+          </div>
+          <div class="identification-right">
+            <p><strong>MyndLife es para ti porque</strong> no se trata de forzarte más, sino de aprender a gestionar tu energía con inteligencia. Aquí descubrirás cómo recuperar tu claridad mental y convertir el cansancio en momentum dirigido hacia lo que realmente importa.</p>
+          </div>
+        </div>
+
+        <div class="identification-row">
+          <div class="identification-left">
+            <div class="row-icon">⚡</div>
+            <p>Sabes que tienes potencial, aunque aún no lo estés usando.</p>
+          </div>
+          <div class="identification-right">
+            <p><strong>MyndLife es para ti porque</strong> te ayudamos a cerrar la brecha entre quien eres y quien podrías ser. No con promesas vacías, sino con sistemas concretos que activan tu capacidad latente y la transforman en resultados tangibles.</p>
+          </div>
+        </div>
+
+        <div class="identification-row">
+          <div class="identification-left">
+            <div class="row-icon">🎯</div>
+            <p>Te importa tu futuro y en quién te estás convirtiendo.</p>
+          </div>
+          <div class="identification-right">
+            <p><strong>MyndLife es para ti porque</strong> aquí encontrarás las herramientas para diseñar intencionalmente tu evolución. No dejamos tu crecimiento al azar: construimos contigo el mapa exacto de quién quieres ser y cómo llegar ahí, decisión tras decisión.</p>
+          </div>
+        </div>
+
+        <div class="identification-row">
+          <div class="identification-left">
+            <div class="row-icon">🔓</div>
+            <p>Quieres romper con la rutina y dejar de estancarte.</p>
+          </div>
+          <div class="identification-right">
+            <p><strong>MyndLife es para ti porque</strong> te enseñamos a identificar los patrones que te mantienen atrapado y a reemplazarlos con estructuras que generan progreso constante. Aquí no hay espacio para el estancamiento, solo para la acción inteligente y el movimiento real.</p>
+          </div>
+        </div>
+
+        <div class="identification-row">
+          <div class="identification-left">
+            <div class="row-icon">🚀</div>
+            <p>Deseas vivir con disciplina, libertad y propósito.</p>
+          </div>
+          <div class="identification-right">
+            <p><strong>MyndLife es para ti porque</strong> entendemos que la verdadera libertad nace de la disciplina consciente. Te guiamos para construir una vida donde tus días tengan significado, tus acciones estén alineadas con tus valores y tu existencia refleje exactamente quién decidiste ser.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
   <!-- Manifesto -->
   <section id="manifesto" class="manifesto">
     <div class="manifesto-centered">
