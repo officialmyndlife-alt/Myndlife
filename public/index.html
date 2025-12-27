@@ -186,6 +186,25 @@
       animation: fadeInUp 1s ease forwards 0.4s;
     }
 
+    .hero-logo {
+  margin: 2rem auto;
+  max-width: 200px;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards 0.5s;
+}
+
+.hero-logo-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(255,255,255,0.2));
+  transition: transform 0.3s ease;
+}
+
+.hero-logo-img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 30px rgba(255,255,255,0.4));
+}
+
     .hero-subtitle {
       font-weight: 300;
       font-size: clamp(1rem, 2vw, 1.5rem);
@@ -846,7 +865,7 @@
       <a href="#pillars">Pilares</a>
       <a href="#methodology">Metodología</a>
       <a href="#product">Recursos</a>
-      <a href="#cta" class="nav-cta">Comenzar</a>
+      <a href="#cta" class="nav-cta">Iniciar Sesión</a>
     </div>
   </nav>
 
@@ -869,6 +888,9 @@
     <div class="hero-content">
       <div class="hero-eyebrow">BIENVENIDO A MYNDLIFE</div>
       <h1 class="hero-title">Elevate Your Life</h1>
+      <div class="hero-logo">
+    <img src="imagenes/myndlifelogo.jpg" alt="MyndLife" class="hero-logo-img">
+  </div>
       <p class="hero-subtitle">MyndLife es una marca que ayuda a las personas a elevar su identidad, ordenar su mente y vivir con estándares más altos en un mundo cada vez más ruidoso</p>
       <div class="hero-cta">
         <a href="#product" class="btn btn-primary">Explorar Recursos</a>
