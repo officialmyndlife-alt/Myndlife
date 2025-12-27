@@ -318,10 +318,11 @@
       text-transform: uppercase;
       color: var(--fg);
     }
-/* Identification Section */
+/* Identification Table */
 .identification {
-  padding: 15vh 5vw;
+  padding: 12vh 5vw;
   background: rgba(255,255,255,0.01);
+  border-top: 1px solid var(--divider);
 }
 
 .identification-content {
@@ -331,75 +332,98 @@
 
 .identification-header {
   text-align: center;
-  margin-bottom: 8vh;
+  margin-bottom: 6vh;
 }
 
 .identification-table {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.identification-row {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 4rem;
-  padding: 3rem;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
   border: 1px solid var(--divider);
   background: rgba(255,255,255,0.02);
-  transition: all 0.4s ease;
-  align-items: center;
 }
 
-.identification-row:hover {
-  border-color: rgba(255,255,255,0.3);
-  background: rgba(255,255,255,0.04);
-  transform: translateX(10px);
-}
-
-.identification-left {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.row-icon {
-  font-size: 2.5rem;
-  min-width: 60px;
-  text-align: center;
-  filter: grayscale(0.3);
-}
-
-.identification-left p {
-  font-size: 1.1rem;
-  font-weight: 400;
-  line-height: 1.6;
-  color: var(--text);
-}
-
-.identification-right p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: var(--fg);
-}
-
-.identification-right strong {
-  color: var(--text);
+.identification-table thead th {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem 2rem;
+  text-align: left;
   font-weight: 500;
-  display: block;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  border-bottom: 1px solid var(--divider);
+}
+
+.identification-table thead th:first-child {
+  width: 35%;
+  border-right: 1px solid var(--divider);
+}
+
+.identification-table tbody td {
+  padding: 1.5rem 2rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--fg);
+  border-bottom: 1px solid var(--divider);
+  vertical-align: top;
+}
+
+.identification-table tbody td:first-child {
+  font-weight: 400;
+  color: var(--text);
+  border-right: 1px solid var(--divider);
+}
+
+.identification-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.identification-table tbody tr {
+  transition: background 0.3s ease;
+}
+
+.identification-table tbody tr:hover {
+  background: rgba(255,255,255,0.04);
 }
 
 @media (max-width: 968px) {
-  .identification-row {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 2rem;
+  .identification-table {
+    display: block;
+    border: none;
   }
   
-  .identification-left {
-    flex-direction: column;
-    text-align: center;
+  .identification-table thead {
+    display: none;
+  }
+  
+  .identification-table tbody,
+  .identification-table tr,
+  .identification-table td {
+    display: block;
+    width: 100%;
+    border: none;
+  }
+  
+  .identification-table tbody tr {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--divider);
+    background: rgba(255,255,255,0.02);
+  }
+  
+  .identification-table tbody td:first-child {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    padding: 0;
+    border: none;
+    color: var(--text);
+  }
+  
+  .identification-table tbody td:last-child {
+    padding: 0;
+    font-size: 0.9rem;
   }
 }
     /* Manifesto Section */
@@ -1004,71 +1028,46 @@
     </div>
   </section>
 
-  
-
   <!-- Identification Table -->
   <section class="identification">
-    <div class="identification-content">
-      <div class="identification-header fade-in-view">
+    <div class="identification-content fade-in-view">
+      <div class="identification-header">
         <h2 class="section-title">¿Te Identificas?</h2>
-        <p class="section-desc">Si alguna de estas situaciones resuena contigo, estás en el lugar correcto.</p>
       </div>
       
-      <div class="identification-table fade-in-view">
-        <div class="identification-row">
-          <div class="identification-left">
-            <div class="row-icon">💭</div>
-            <p>Te sientes cansado, pero sabes que puedes dar más.</p>
-          </div>
-          <div class="identification-right">
-            <p><strong>MyndLife es para ti porque</strong> no se trata de forzarte más, sino de aprender a gestionar tu energía con inteligencia. Aquí descubrirás cómo recuperar tu claridad mental y convertir el cansancio en momentum dirigido hacia lo que realmente importa.</p>
-          </div>
-        </div>
-
-        <div class="identification-row">
-          <div class="identification-left">
-            <div class="row-icon">⚡</div>
-            <p>Sabes que tienes potencial, aunque aún no lo estés usando.</p>
-          </div>
-          <div class="identification-right">
-            <p><strong>MyndLife es para ti porque</strong> te ayudamos a cerrar la brecha entre quien eres y quien podrías ser. No con promesas vacías, sino con sistemas concretos que activan tu capacidad latente y la transforman en resultados tangibles.</p>
-          </div>
-        </div>
-
-        <div class="identification-row">
-          <div class="identification-left">
-            <div class="row-icon">🎯</div>
-            <p>Te importa tu futuro y en quién te estás convirtiendo.</p>
-          </div>
-          <div class="identification-right">
-            <p><strong>MyndLife es para ti porque</strong> aquí encontrarás las herramientas para diseñar intencionalmente tu evolución. No dejamos tu crecimiento al azar: construimos contigo el mapa exacto de quién quieres ser y cómo llegar ahí, decisión tras decisión.</p>
-          </div>
-        </div>
-
-        <div class="identification-row">
-          <div class="identification-left">
-            <div class="row-icon">🔓</div>
-            <p>Quieres romper con la rutina y dejar de estancarte.</p>
-          </div>
-          <div class="identification-right">
-            <p><strong>MyndLife es para ti porque</strong> te enseñamos a identificar los patrones que te mantienen atrapado y a reemplazarlos con estructuras que generan progreso constante. Aquí no hay espacio para el estancamiento, solo para la acción inteligente y el movimiento real.</p>
-          </div>
-        </div>
-
-        <div class="identification-row">
-          <div class="identification-left">
-            <div class="row-icon">🚀</div>
-            <p>Deseas vivir con disciplina, libertad y propósito.</p>
-          </div>
-          <div class="identification-right">
-            <p><strong>MyndLife es para ti porque</strong> entendemos que la verdadera libertad nace de la disciplina consciente. Te guiamos para construir una vida donde tus días tengan significado, tus acciones estén alineadas con tus valores y tu existencia refleje exactamente quién decidiste ser.</p>
-          </div>
-        </div>
-      </div>
+      <table class="identification-table">
+        <thead>
+          <tr>
+            <th>Si este eres tú...</th>
+            <th>MyndLife es para ti porque...</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Te sientes cansado, pero sabes que puedes dar más.</td>
+            <td>No se trata de forzarte más, sino de aprender a gestionar tu energía con inteligencia. Recupera tu claridad mental y convierte el cansancio en momentum dirigido.</td>
+          </tr>
+          <tr>
+            <td>Sabes que tienes potencial, aunque aún no lo estés usando.</td>
+            <td>Te ayudamos a cerrar la brecha entre quien eres y quien podrías ser con sistemas concretos que activan tu capacidad latente y la transforman en resultados tangibles.</td>
+          </tr>
+          <tr>
+            <td>Te importa tu futuro y en quién te estás convirtiendo.</td>
+            <td>Encontrarás las herramientas para diseñar intencionalmente tu evolución. Construimos contigo el mapa exacto de quién quieres ser y cómo llegar ahí, decisión tras decisión.</td>
+          </tr>
+          <tr>
+            <td>Quieres romper con la rutina y dejar de estancarte.</td>
+            <td>Te enseñamos a identificar los patrones que te mantienen atrapado y a reemplazarlos con estructuras que generan progreso constante. Solo acción inteligente y movimiento real.</td>
+          </tr>
+          <tr>
+            <td>Deseas vivir libertad y propósito.</td>
+            <td>La verdadera libertad nace de la disciplina consciente. Te guiamos para construir una vida donde tus acciones estén alineadas con tus valores y tu existencia refleje quién decidiste ser.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
-  
   <!-- Manifesto -->
   <section id="manifesto" class="manifesto">
     <div class="manifesto-centered">
