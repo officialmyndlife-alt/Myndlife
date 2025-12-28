@@ -318,14 +318,13 @@
       text-transform: uppercase;
       color: var(--fg);
     }
-/* Identification Section */
+/* Identification Table */
 .identification {
   padding: 15vh 5vw;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
   border-top: 1px solid var(--divider);
   border-bottom: 1px solid var(--divider);
   position: relative;
-  overflow: hidden;
 }
 
 .identification::before {
@@ -333,15 +332,15 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
 
 .identification-content {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 10;
@@ -352,40 +351,183 @@
   margin-bottom: 8vh;
 }
 
-.identification-grid {
-  display: grid;
-  gap: 2rem;
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 0;
 }
 
-.identification-card {
+.identification-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(0,0,0,0.4);
+  border: 2px solid var(--divider);
+  backdrop-filter: blur(10px);
+}
+
+.identification-table thead {
+  background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  border-bottom: 2px solid var(--divider);
+}
+
+.identification-table thead th {
+  padding: 2rem 3rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
   position: relative;
-  padding: 3rem;
-  background: rgba(0,0,0,0.5);
-  border: 1px solid var(--divider);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
 }
 
-.identification-card::before {
+.identification-table thead th:first-child {
+  width: 40%;
+  border-right: 2px solid var(--divider);
+}
+
+.th-label {
+  position: relative;
+  display: inline-block;
+}
+
+.th-label::after {
   content: '';
   position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--text);
+}
+
+.identification-table tbody td {
+  padding: 2.5rem 3rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--fg);
+  border-bottom: 1px solid var(--divider);
+  vertical-align: top;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.identification-table tbody td:first-child {
+  font-weight: 400;
+  color: var(--text);
+  border-right: 2px solid var(--divider);
+  background: rgba(255,255,255,0.02);
+}
+
+.identification-table tbody td:first-child p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  padding-left: 3.5rem;
+}
+
+.td-number {
+  position: absolute;
+  left: 1rem;
+  top: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: rgba(255,255,255,0.15);
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.identification-table tbody td strong {
+  color: var(--text);
+  font-weight: 500;
+  position: relative;
+}
+
+.identification-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.identification-table tbody tr {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.identification-table tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
   top: 0;
-  left: -100%;
-  width: 100%;
+  width: 0;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-  transition: left 0.6s ease;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+  transition: width 0.4s ease;
+  pointer-events: none;
 }
 
-.identification-card:hover::before {
-  left: 100%;
+.identification-table tbody tr:hover::before {
+  width: 100%;
 }
 
-.identification-card:hover {
-  border-color: rgba(255,255,255,0.4);
-  background: rgba(255,255,255,0.08);
-  transform: translateX(10px);
-  box-shadow: -5px 0 20px rgba(255,255,255,0.1);
+.identification-table tbody tr:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.identification-table tbody tr:hover .td-number {
+  color: rgba(255,255,255,0.3);
+  transform: scale(1.1);
+}
+
+.identification-table tbody tr:hover td {
+  padding-left: 3.5rem;
+}
+
+@media (max-width: 968px) {
+  .identification-table {
+    display: block;
+    border: 1px solid var(--divider);
+  }
+  
+  .identification-table thead {
+    display: none;
+  }
+  
+  .identification-table tbody {
+    display: block;
+  }
+  
+  .identification-table tbody tr {
+    display: block;
+    margin-bottom: 2rem;
+    border: 1px solid var(--divider);
+    background: rgba(0,0,0,0.4);
+  }
+  
+  .identification-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+  
+  .identification-table tbody td {
+    display: block;
+    width: 100%;
+    border: none;
+    padding: 1.5rem !important;
+  }
+  
+  .identification-table tbody td:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--divider);
+    background: rgba(255,255,255,0.05);
+  }
+  
+  .identification-table tbody td:first-child p {
+    padding-left: 3rem;
+    font-size: 1.1rem;
+  }
+  
+  .td-number {
+    left: 0.5rem;
+    top: 1.5rem;
+    font-size: 2rem;
+  }
 }
 
 .card-number {
@@ -1097,63 +1239,73 @@
 
 <!-- Identification Table -->
 <section id="identification" class="identification">
-  <div class="identification-content">
-    <div class="identification-header fade-in-view">
+  <div class="identification-content fade-in-view">
+    <div class="identification-header">
       <div class="section-eyebrow">DESCUBRE SI ESTO ES PARA TI</div>
       <h2 class="section-title">¿Te Identificas Con Esto?</h2>
-      <p class="section-desc">Si al menos una de estas situaciones resuena contigo, MyndLife puede cambiar tu vida.</p>
+      <p class="section-desc">Si al menos una de estas situaciones resuena contigo, MyndLife puede transformar tu vida.</p>
     </div>
     
-    <div class="identification-grid">
-      <div class="identification-card fade-in-view">
-        <div class="card-number">01</div>
-        <div class="card-content">
-          <h3 class="card-question">Te sientes cansado, pero sabes que puedes dar más.</h3>
-          <div class="card-divider"></div>
-          <p class="card-answer"><span class="highlight">MyndLife</span> no se trata de forzarte más, sino de gestionar tu energía con inteligencia. Recupera claridad mental y convierte el cansancio en momentum dirigido.</p>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-
-      <div class="identification-card fade-in-view">
-        <div class="card-number">02</div>
-        <div class="card-content">
-          <h3 class="card-question">Sabes que tienes potencial, aunque aún no lo estés usando.</h3>
-          <div class="card-divider"></div>
-          <p class="card-answer"><span class="highlight">MyndLife</span> cierra la brecha entre quien eres y quien podrías ser con sistemas concretos que transforman tu capacidad latente en resultados tangibles.</p>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-
-      <div class="identification-card fade-in-view">
-        <div class="card-number">03</div>
-        <div class="card-content">
-          <h3 class="card-question">Te importa tu futuro y en quién te estás convirtiendo.</h3>
-          <div class="card-divider"></div>
-          <p class="card-answer"><span class="highlight">MyndLife</span> te da las herramientas para diseñar intencionalmente tu evolución. Construimos el mapa exacto de quién quieres ser y cómo llegar ahí.</p>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-
-      <div class="identification-card fade-in-view">
-        <div class="card-number">04</div>
-        <div class="card-content">
-          <h3 class="card-question">Buscas generar ingresos reales y construir independencia financiera.</h3>
-          <div class="card-divider"></div>
-          <p class="card-answer"><span class="highlight">MyndLife</span> transforma tu mentalidad sobre el dinero y crea sistemas para ingresos consistentes. No atajos, sino estrategias probadas para monetizar tu valor.</p>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
-
-      <div class="identification-card fade-in-view">
-        <div class="card-number">05</div>
-        <div class="card-content">
-          <h3 class="card-question">Deseas vivir con disciplina, libertad y propósito.</h3>
-          <div class="card-divider"></div>
-          <p class="card-answer"><span class="highlight">MyndLife</span> te guía para construir una vida donde tus acciones estén alineadas con tus valores y tu existencia refleje exactamente quién decidiste ser.</p>
-        </div>
-        <div class="card-arrow">→</div>
-      </div>
+    <div class="table-wrapper">
+      <table class="identification-table">
+        <thead>
+          <tr>
+            <th>
+              <span class="th-label">Si este eres tú...</span>
+            </th>
+            <th>
+              <span class="th-label">MyndLife es para ti porque...</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="td-number">01</div>
+              <p>Te sientes cansado, pero sabes que puedes dar más.</p>
+            </td>
+            <td>
+              <p>No se trata de forzarte más, sino de gestionar tu energía con inteligencia. <strong>Recupera claridad mental</strong> y convierte el cansancio en momentum dirigido hacia lo que realmente importa.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-number">02</div>
+              <p>Sabes que tienes potencial, aunque aún no lo estés usando.</p>
+            </td>
+            <td>
+              <p>Cerramos la brecha entre quien eres y quien podrías ser con <strong>sistemas concretos</strong> que activan tu capacidad latente y la transforman en resultados tangibles.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-number">03</div>
+              <p>Te importa tu futuro y en quién te estás convirtiendo.</p>
+            </td>
+            <td>
+              <p>Encontrarás las herramientas para <strong>diseñar intencionalmente tu evolución</strong>. Construimos el mapa exacto de quién quieres ser y cómo llegar ahí, decisión tras decisión.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-number">04</div>
+              <p>Buscas generar ingresos reales y construir independencia financiera.</p>
+            </td>
+            <td>
+              <p>Transformamos tu mentalidad sobre el dinero y creamos <strong>sistemas para ingresos consistentes</strong>. No atajos mágicos, sino estrategias probadas para monetizar tu valor y construir libertad económica.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="td-number">05</div>
+              <p>Deseas vivir con disciplina, libertad y propósito.</p>
+            </td>
+            <td>
+              <p>Te guiamos para construir una vida donde tus acciones estén <strong>alineadas con tus valores</strong> y tu existencia refleje exactamente quién decidiste ser. La verdadera libertad nace de la disciplina consciente.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
