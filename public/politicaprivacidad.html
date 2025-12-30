@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — MyndLife</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --fg: #c0c0c0;
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #ffffff;
+      --divider: rgba(255,255,255,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 768px) {
+      html { font-size: 18px; }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 2rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-logo-img {
+      height: 35px;
+      width: auto;
+      filter: brightness(1.2);
+    }
+
+    .nav-logo {
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+    }
+
+    /* Page Container */
+    .page-container {
+      min-height: 100vh;
+      padding: 15vh 5vw 10vh;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 8vh;
+      padding-bottom: 4vh;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .page-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 2rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 200;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .last-updated {
+      font-size: 0.9rem;
+      color: var(--fg);
+    }
+
+    /* Content */
+    .content {
+      color: var(--fg);
+      line-height: 1.9;
+    }
+
+    .content h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-top: 4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .content h3 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      margin-bottom: 1.5rem;
+    }
+
+    .content ul, .content ol {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .content li {
+      margin-bottom: 0.8rem;
+    }
+
+    .content strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .highlight-box {
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid var(--text);
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .content h2 {
+        font-size: 1.5rem;
+      }
+
+      .content h3 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="imagenes/myndlifelogo.jpg" alt="MyndLife Logo" class="nav-logo-img">
+      <div class="nav-logo">MYNDLIFE</div>
+    </a>
+    <a href="index.html" class="nav-back">← Volver</a>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="page-container">
+    <div class="page-header">
+      <div class="page-eyebrow">PROTECCIÓN DE DATOS</div>
+      <h1 class="page-title">Política de Privacidad</h1>
+      <p class="last-updated">Última actualización: Enero 2025</p>
+    </div>
+
+    <div class="content">
+      <div class="highlight-box">
+        <p><strong>Tu privacidad es importante para nosotros.</strong> Esta política explica cómo MyndLife recopila, utiliza y protege tu información personal de acuerdo con el Reglamento General de Protección de Datos (RGPD).</p>
+      </div>
+
+      <h2>1. Información que Recopilamos</h2>
+      
+      <h3>1.1. Información que Proporcionas Directamente</h3>
+      <ul>
+        <li><strong>Datos de registro:</strong> Nombre, email, contraseña</li>
+        <li><strong>Información de pago:</strong> Datos de facturación (procesados de forma segura por terceros)</li>
+        <li><strong>Comunicaciones:</strong> Mensajes que nos envías, comentarios en la comunidad</li>
+        <li><strong>Perfil:</strong> Información adicional que decides compartir</li>
+      </ul>
+
+      <h3>1.2. Información Recopilada Automáticamente</h3>
+      <ul>
+        <li><strong>Datos de uso:</strong> Páginas visitadas, tiempo en el sitio, progreso en cursos</li>
+        <li><strong>Información técnica:</strong> Dirección IP, tipo de navegador, dispositivo</li>
+        <li><strong>Cookies:</strong> Utilizamos cookies para mejorar tu experiencia (ver sección de cookies)</li>
+      </ul>
+
+      <h2>2. Cómo Utilizamos tu Información</h2>
+      <p>Utilizamos tu información para:</p>
+      <ul>
+        <li>Proporcionar y mejorar nuestros servicios</li>
+        <li>Procesar tus pagos y gestionar tu cuenta</li>
+        <li>Comunicarnos contigo sobre tu cuenta y servicios</li>
+        <li>Enviarte contenido educativo y actualizaciones (con tu consentimiento)</li>
+        <li>Personalizar tu experiencia de aprendizaje</li>
+        <li>Analizar el uso de la plataforma para mejoras</li>
+        <li>Prevenir fraudes y garantizar la seguridad</li>
+        <li>Cumplir con obligaciones legales</li>
+      </ul>
+
+      <h2>3. Base Legal para el Procesamiento</h2>
+      <p>Procesamos tus datos personales bajo las siguientes bases legales:</p>
+      <ul>
+        <li><strong>Ejecución de contrato:</strong> Para proporcionarte los servicios que has contratado</li>
+        <li><strong>Consentimiento:</strong> Para enviarte comunicaciones de marketing</li>
+        <li><strong>Interés legítimo:</strong> Para mejorar nuestros servicios y prevenir fraudes</li>
+        <li><strong>Obligación legal:</strong> Para cum
