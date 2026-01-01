@@ -598,319 +598,7 @@ nav.scrolled {
     }
 
     
-    /* Product Section */
-    .product-showcase {
-      padding: 15vh 5vw;
-      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.02) 100%);
-    }
-
-    .product-header {
-      text-align: center;
-      margin-bottom: 10vh;
-    }
-
-    .section-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--fg);
-      margin-bottom: 2rem;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 300;
-      margin-bottom: 2rem;
-    }
-
-    .section-desc {
-      font-size: 1.1rem;
-      color: var(--fg);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .product-card {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 6vh 5vw;
-      border: 1px solid var(--divider);
-      background: rgba(255,255,255,0.02);
-      transition: all 0.5s ease;
-      cursor: pointer;
-    }
-
-    .product-card:hover {
-      border-color: rgba(255,255,255,0.3);
-      background: rgba(255,255,255,0.04);
-      transform: translateY(-10px);
-    }
-    .product-svg-decoration {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.product-card:hover .product-line {
-  stroke: rgba(255,255,255,0.3);
-}
-
-    .product-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 4vh;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .product-card-title {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 400;
-      line-height: 1.3;
-      max-width: 600px;
-    }
-
-    .product-tag {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--fg);
-  color: var(--fg);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.bestseller-badge {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  border: 2px solid #FFD700;
-  color: #000000;
-  font-weight: 600;
-  padding: 0.7rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  animation: glow-pulse 2s ease-in-out infinite;
-}
-
-.badge-icon {
-  font-size: 1.2rem;
-  animation: rotate-star 3s linear infinite;
-}
-
-@keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  }
-  50% {
-    box-shadow: 0 4px 25px rgba(255, 215, 0, 0.6);
-  }
-}
-
-@keyframes rotate-star {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-    .product-card-desc {
-      font-size: 1.1rem;
-      color: var(--fg);
-      line-height: 1.8;
-      margin-bottom: 4vh;
-    }
-
-    .product-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-bottom: 4vh;
-    }
-
-    .product-feature h4 {
-      font-weight: 400;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.05em;
-    }
-
-    .product-feature p {
-      color: var(--fg);
-      font-size: 0.95rem;
-    }
-
-    .product-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 2rem;
-      border: 1px solid var(--text);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-
-    .product-cta:hover {
-      background: var(--text);
-      color: var(--bg);
-    }
-
-    .product-cta::after {
-      content: '→';
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
-    }
-
-    .product-cta:hover::after {
-      transform: translateX(5px);
-    }
-    @media (max-width: 768px) {
-  .product-showcase {
-    padding: 10vh 5vw;
-  }
-  
-  .product-header {
-    margin-bottom: 6vh;
-  }
-  
-  .section-eyebrow {
-    font-size: 0.7rem;
-  }
-  
-  .section-desc {
-    font-size: 1rem;
-  }
-  
-  .product-card {
-    padding: 4vh 5vw;
-  }
-  
-  .product-card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
-  }
-  
-  .product-card-title {
-    font-size: 1.3rem;
-  }
-  
-  .bestseller-badge {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.7rem;
-  }
-  
-  .badge-icon {
-    font-size: 1rem;
-  }
-  
-  .product-card-desc {
-    font-size: 1rem;
-  }
-  
-  .product-features {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-  
-  .product-feature h4 {
-    font-size: 0.95rem;
-  }
-  
-  .product-feature p {
-    font-size: 0.9rem;
-  }
-}
-
-    /* Pillars Section */
-    .pillars {
-      padding: 15vh 5vw;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .pillars-header {
-      text-align: center;
-      margin-bottom: 10vh;
-    }
-
-    .pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem 6rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .pillars {
-    padding: 10vh 4vw;
-  }
-  
-  .pillars-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem 2rem;
-  }
-  
-  .pillar-card {
-    padding: 3vh 3vw;
-  }
-  
-  .pillar-number {
-    font-size: 0.75rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .pillar-title {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .pillar-desc {
-    font-size: 0.85rem;
-    line-height: 1.6;
-  }
-}
-
-    .pillar-card {
-      padding: 4vh 2vw;
-      border: 1px solid transparent;
-      transition: all 0.5s ease;
-      background: rgba(255,255,255,0.01);
-    }
-
-    .pillar-card:hover {
-      border-color: var(--divider);
-      background: rgba(255,255,255,0.03);
-      transform: translateY(-5px);
-    }
-
-    .pillar-number {
-      font-size: 0.85rem;
-      color: var(--fg);
-      letter-spacing: 0.2em;
-      margin-bottom: 2rem;
-    }
-
-    .pillar-title {
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .pillar-desc {
-      color: var(--fg);
-      line-height: 1.8;
-      font-size: 1rem;
-    }
-
+   
     /* Methodology Section */
     .methodology {
       padding: 15vh 5vw;
@@ -1526,45 +1214,6 @@ nav.scrolled {
     </div>
   </section>
 
-  <!-- Product Showcase -->
-  <section id="product" class="product-showcase">
-    <div class="product-header fade-in-view">
-      <div class="section-eyebrow">RECURSO ESENCIAL</div>
-      <h2 class="section-title">Tu Transformación Comienza Aquí</h2>
-      <p class="section-desc">Herramientas diseñadas para construir la mentalidad que nadie te enseñó, con sistemas prácticos y aplicables desde el primer día.</p>
-    </div>
-    
-    <div class="product-card fade-in-view">
-      <svg class="product-svg-decoration" viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
-  <path class="product-line" d="M 0,200 Q 250,150 500,200 T 1000,200" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none" stroke-dasharray="1200" stroke-dashoffset="1200"/>
-</svg>
-      <div class="product-card-header">
-  <h3 class="product-card-title">De Empleado a Emprendedor:<br>la mentalidad que nadie te enseñó</h3>
-  <div class="product-tag bestseller-badge">
-    <span class="badge-icon">⭐</span>
-    <span>Best Seller</span>
-  </div>
-</div>
-      <p class="product-card-desc">Un sistema práctico y probado para construir una mentalidad de alto rendimiento, romper con la dependencia laboral y diseñar tu camino como emprendedor desde cero — sin ilusiones, solo disciplina y claridad.</p>
-      
-      <div class="product-features">
-        <div class="product-feature">
-          <h4>Sistema Completo</h4>
-          <p>Metodología paso a paso validada por cientos de emprendedores</p>
-        </div>
-        <div class="product-feature">
-          <h4>Enfoque Práctico</h4>
-          <p>Herramientas aplicables desde el día uno, sin teoría abstracta</p>
-        </div>
-        <div class="product-feature">
-          <h4>Resultados Medibles</h4>
-          <p>Métricas claras para evaluar tu progreso cada semana</p>
-        </div>
-      </div>
-      
-      <a href="producto1.html" class="product-cta">Acceder al Programa</a>
-    </div>
-  </section>
 
   <!-- Pillars -->
   <section id="pillars" class="pillars">
@@ -1577,25 +1226,30 @@ nav.scrolled {
       <div class="pillar-card fade-in-view">
         <div class="pillar-number">01</div>
         <h3 class="pillar-title">Mentalidad Clara</h3>
-        <p class="pillar-desc">Eliminar el ruido interno y externo para tomar decisiones con propósito y precisión. La claridad mental no es un estado pasivo, es una disciplina activa que se cultiva cada día.</p>
+        <p class="pillar-desc">Decide con precisión.<br>
+        Filtra el ruido, identifica lo que importa y toma decisiones que realmente te acerquen a tus metas.</p>
       </div>
       
       <div class="pillar-card fade-in-view">
         <div class="pillar-number">02</div>
         <h3 class="pillar-title">Disciplina Diaria</h3>
-        <p class="pillar-desc">Acciones consistentes, no emociones pasajeras. La verdadera libertad nace del compromiso con uno mismo. Cada pequeña decisión diaria construye el futuro que mereces.</p>
+        <p class="pillar-desc">La consistencia es libertad.<br>
+        Cada hábito cuenta. Construye tu día a día con disciplina y transforma pequeños esfuerzos en grandes resultados.
+        </p>
       </div>
       
       <div class="pillar-card fade-in-view">
         <div class="pillar-number">03</div>
         <h3 class="pillar-title">Enfoque a Largo Plazo</h3>
-        <p class="pillar-desc">Construir resultados duraderos con paciencia estratégica, sin distracciones del corto plazo. El éxito real se mide en años, no en semanas.</p>
+        <p class="pillar-desc">Piensa en años, no en días.<br>
+        Crea sistemas sostenibles que funcionen semana tras semana y deja atrás soluciones rápidas y temporales.</p>
       </div>
       
       <div class="pillar-card fade-in-view">
         <div class="pillar-number">04</div>
         <h3 class="pillar-title">Estándares Altos</h3>
-        <p class="pillar-desc">No negociar con la calidad de tus hábitos, relaciones ni tu tiempo. Solo lo esencial, bien hecho. Tus estándares definen tu destino.</p>
+        <p class="pillar-desc">No aceptes menos de lo que mereces.<br>
+        Eleva tus expectativas en hábitos, decisiones y relaciones. Haz cada acción con excelencia; tus estándares definen tu destino.</p>
       </div>
     </div>
   </section>
