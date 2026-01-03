@@ -1243,7 +1243,7 @@ nav.scrolled {
     .footer-social a:hover {
       color: var(--text);
     }
-@@media (max-width: 768px) {
+@media (max-width: 768px) {
   .cta-section {
     padding: 10vh 5vw;
   }
@@ -1254,10 +1254,29 @@ nav.scrolled {
   }
   
   .cta-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 3rem;
-    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
   }
+  .cta-final-quote {
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text);
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--divider);
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .cta-final-quote {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+}
   
   footer {
     padding: 6vh 4vw 3vh;
@@ -1373,8 +1392,8 @@ nav.scrolled {
       <h1 class="hero-title">Elevate Your Life</h1>
       <p class="hero-subtitle">MyndLife es una marca creada para quienes buscan claridad y estructura mental en un mundo saturado de ruido, ayudándoles a construir disciplina, pensamiento a largo plazo y una vida con intención.</p>
       <div class="hero-cta">
-  <a href="#product" class="btn btn-primary">Explorar</a>
-  <a href="#identification" class="btn btn-secondary">¿Es MyndLife Para Ti?</a>
+  <a href="#pillars" class="btn btn-primary">Explorar</a>
+  <a href="#cta" class="btn btn-secondary">¿Es MyndLife Para Ti?</a>
 </div>
     </div>
     <div class="scroll-indicator"></div>
@@ -1676,17 +1695,28 @@ Eleva tus expectativas en hábitos, decisiones y relaciones. Haz cada acción co
     </div>
   </div>
 </div></section>
-  <!-- CTA -->
-  <section id="cta" class="cta-section">
-    <div class="cta-content fade-in-view">
-      <h2 class="cta-title">Esto No Es Para Todos.</h2>
-      <p class="cta-subtitle">Es para quien está listo para dejar de buscar atajos y construir algo real. Para quien elige la disciplina sobre la comodidad. Para quien sabe que el cambio no es opcional, es urgente.</p>
-      <div class="hero-cta">
-        <a href="#product" class="btn btn-primary">Comenzar Ahora</a>
-        <a href="#manifesto" class="btn btn-secondary">Conocer Más</a>
-      </div>
+ <!-- CTA -->
+<section id="cta" class="cta-section">
+  <div class="cta-content fade-in-view">
+    <h2 class="cta-title">Esto No Es Para Todos</h2>
+    <p class="cta-subtitle">MyndLife no es motivación rápida.<br>
+    No es contenido para consumir y olvidar.</p>
+    
+    <p class="cta-subtitle">Es para quien se niega a vivir en automático, repitiendo un guion impuesto.<br>
+    Para quien quiere decidir qué hacer con su tiempo, su energía y su vida.<br>
+    Para quien entiende que la libertad no es un lujo, es una condición para vivir con sentido.</p>
+    
+    <p class="cta-subtitle">Si buscas comodidad, este no es tu lugar.<br>
+    Si buscas control, dirección y una vida construida con intención, bienvenido.</p>
+    
+    <div class="hero-cta">
+      <a href="#product" class="btn btn-primary">Comenzar Ahora</a>
+      <a href="#manifesto" class="btn btn-secondary">Conocer Más</a>
     </div>
-  </section>
+    
+    <p class="cta-final-quote">Cuando recuperas el control de tu mente, recuperas el control de tu vida.</p>
+  </div>
+</section>
   <!-- Footer -->
   <footer>
     <div class="footer-content">
