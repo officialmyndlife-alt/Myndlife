@@ -351,19 +351,7 @@ nav.scrolled {
       }
     }
 
-    .scroll-indicator {
-      position: absolute;
-      bottom: 4vh;
-      width: 1px;
-      height: 60px;
-      background: linear-gradient(to bottom, var(--fg), transparent);
-      animation: scrollMove 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollMove {
-      0%, 100% { transform: translateY(0); opacity: 1; }
-      50% { transform: translateY(20px); opacity: 0; }
-    }
+    
 @media (max-width: 768px) {
   .hero {
     min-height: 90vh;
@@ -1387,7 +1375,6 @@ nav.scrolled {
     <a href="#manifesto">Filosofía</a>
     <a href="#pillars">Pilares</a>
     <a href="#methodology">Metodología</a>
-    <a href="#product">Recursos</a>
     <a href="#cta" class="nav-cta">Iniciar Sesión</a>
   </div>
 </nav>
@@ -1416,7 +1403,6 @@ nav.scrolled {
   <a href="#cta" class="btn btn-secondary">¿Es MyndLife Para Ti?</a>
 </div>
     </div>
-    <div class="scroll-indicator"></div>
   </section>
 
   <!-- Stats -->
