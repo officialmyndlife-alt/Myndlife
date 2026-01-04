@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — MyndLife | Artículos sobre Crecimiento Personal y Mentalidad</title>
+  <meta name="description" content="Artículos sobre desarrollo personal, mentalidad clara, disciplina y libertad consciente. Contenido profundo para quienes buscan cambio real.">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --fg: #c0c0c0;
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #ffffff;
+      --divider: rgba(255,255,255,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 768px) {
+      html { font-size: 18px; }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 2rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-logo-img {
+      height: 35px;
+      width: auto;
+      filter: brightness(1.2);
+    }
+
+    .nav-logo {
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+    }
+
+    /* Page Container */
+    .page-container {
+      min-height: 100vh;
+      padding: 15vh 5vw 10vh;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 8vh;
+      padding-bottom: 4vh;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .page-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--fg);
+      margin-bottom: 2rem;
+    }
+
+    .page-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 200;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .page-subtitle {
+      font-size: 1.2rem;
+      color: var(--fg);
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 3rem;
+      margin-top: 6vh;
+    }
+
+    .blog-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--divider);
+      padding: 3rem;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: block;
+    }
+
+    .blog-card:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-5px);
+    }
+
+    .blog-date {
+      font-size: 0.8rem;
+      color: var(--fg);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-card-title {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .blog-card-excerpt {
+      font-size: 1rem;
+      color: var(--fg);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .blog-read-more {
+      font-size: 0.85rem;
+      color: var(--text);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: opacity 0.3s ease;
+    }
+
+    .blog-card:hover .blog-read-more {
+      opacity: 0.7;
+    }
+
+    .blog-read-more::after {
+      content: ' →';
+    }
+
+    /* Empty State */
+    .blog-empty {
+      text-align: center;
+      padding: 8vh 2rem;
+      color: var(--fg);
+    }
+
+    .blog-empty h3 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .blog-card {
+        padding: 2rem;
+      }
+
+      .blog-card-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="imagenes/myndlifelogo.jpg" alt="MyndLife Logo" class="nav-logo-img">
+      <div class="nav-logo">MYNDLIFE</div>
+    </a>
+    <a href="index.html" class="nav-back">← Volver</a>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="page-container">
+    <div class="page-header">
+      <div class="page-eyebrow">CONTENIDO DE VALOR</div>
+      <h1 class="page-title">Blog</h1>
+      <p class="page-subtitle">Artículos sobre mentalidad, disciplina y libertad consciente. Contenido sin fluff, directo al punto.</p>
+    </div>
+
+    <!-- Blog Articles Grid -->
+    <div class="blog-grid">
+      
+      <!-- Artículo 1 -->
+      <a href="blog/claridad-mental.html" class="blog-card">
+        <div class="blog-date">15 Enero 2025</div>
+        <h2 class="blog-card-title">Claridad Mental: El Primer Paso Hacia el Control</h2>
+        <p class="blog-card-excerpt">No puedes cambiar lo que no puedes ver. La claridad mental no es un lujo, es el fundamento de toda transformación real.</p>
+        <span class="blog-read-more">Leer artículo</span>
+      </a>
+
+      <!-- Artículo 2 -->
+      <a href="blog/disciplina-diaria.html" class="blog-card">
+        <div class="blog-date">12 Enero 2025</div>
+        <h2 class="blog-card-title">Por Qué La Disciplina Diaria Supera a la Motivación</h2>
+        <p class="blog-card-excerpt">La motivación es emocional. La disciplina es estructural. Aprende a construir sistemas que funcionen incluso cuando no tengas ganas.</p>
+        <span class="blog-read-more">Leer artículo</span>
+      </a>
+
+      <!-- Artículo 3 -->
+      <a href="blog/enfoque-largo-plazo.html" class="blog-card">
+        <div class="blog-date">8 Enero 2025</div>
+        <h2 class="blog-card-title">Enfoque a Largo Plazo: Piensa en Años, No en Días</h2>
+        <p class="blog-card-excerpt">El éxito sostenible no viene de sprints, viene de maratones bien ejecutados. Cómo pensar y actuar para resultados duraderos.</p>
+        <span class="blog-read-more">Leer artículo</span>
+      </a>
+
+    </div>
+
+    <!-- Si no hay artículos, mostrar esto:
+    <div class="blog-empty">
+      <h3>Próximamente</h3>
+      <p>Estamos preparando contenido de valor. Vuelve pronto.</p>
+    </div>
+    -->
+
+  </div>
+
+</body>
+</html>
