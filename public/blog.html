@@ -3,11 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog — MyndLife | Artículos sobre Crecimiento Personal y Mentalidad</title>
-  <meta name="description" content="Artículos sobre desarrollo personal, mentalidad clara, disciplina y libertad consciente. Contenido profundo para quienes buscan cambio real.">
+  
+  <!-- SEO Meta Tags -->
+  <title>Blog — MyndLife | Artículos sobre Mentalidad, Disciplina y Crecimiento Personal</title>
+  <meta name="description" content="Contenido profundo sobre claridad mental, disciplina diaria y libertad consciente. Artículos sin fluff para quienes buscan cambio real, no motivación temporal.">
+  <meta name="keywords" content="desarrollo personal, mentalidad, disciplina, crecimiento personal, libertad consciente, claridad mental">
+  <meta name="author" content="MyndLife">
+  
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:title" content="Blog — MyndLife">
+  <meta property="og:description" content="Artículos sobre mentalidad, disciplina y libertad consciente. Contenido directo para transformación real.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://myndlife.com/blog.html">
+  <meta property="og:image" content="https://myndlife.com/imagenes/myndlifelogo.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog — MyndLife">
+  <meta name="twitter:description" content="Artículos sobre mentalidad, disciplina y libertad consciente.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://myndlife.com/blog.html">
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Schema.org JSON-LD para SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "MyndLife Blog",
+    "description": "Artículos sobre desarrollo personal, mentalidad y libertad consciente",
+    "url": "https://myndlife.com/blog.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MyndLife",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://myndlife.com/imagenes/myndlifelogo.jpg"
+      }
+    }
+  }
+  </script>
+  
   <style>
     :root {
       --fg: #c0c0c0;
@@ -57,6 +97,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      text-decoration: none;
     }
 
     .nav-logo-img {
@@ -70,7 +111,6 @@
       font-size: 1rem;
       letter-spacing: 0.2em;
       color: var(--text);
-      text-decoration: none;
     }
 
     .nav-back {
@@ -94,6 +134,7 @@
       margin: 0 auto;
     }
 
+    /* Header */
     .page-header {
       text-align: center;
       margin-bottom: 8vh;
@@ -129,16 +170,18 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
       gap: 3rem;
-      margin-top: 6vh;
+      margin-bottom: 10vh;
     }
 
+    /* Article Card */
     .blog-card {
       background: rgba(255,255,255,0.02);
       border: 1px solid var(--divider);
       padding: 3rem;
       transition: all 0.4s ease;
       text-decoration: none;
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
     .blog-card:hover {
@@ -148,7 +191,7 @@
     }
 
     .blog-date {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--fg);
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -156,7 +199,7 @@
     }
 
     .blog-card-title {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 400;
       color: var(--text);
       margin-bottom: 1rem;
@@ -164,10 +207,11 @@
     }
 
     .blog-card-excerpt {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--fg);
-      line-height: 1.7;
+      line-height: 1.8;
       margin-bottom: 2rem;
+      flex-grow: 1;
     }
 
     .blog-read-more {
@@ -176,6 +220,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: opacity 0.3s ease;
+      align-self: flex-start;
     }
 
     .blog-card:hover .blog-read-more {
@@ -186,21 +231,95 @@
       content: ' →';
     }
 
-    /* Empty State */
-    .blog-empty {
+    /* Newsletter CTA */
+    .newsletter-section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--divider);
+      padding: 5rem 4rem;
       text-align: center;
-      padding: 8vh 2rem;
-      color: var(--fg);
+      margin-top: 10vh;
     }
 
-    .blog-empty h3 {
-      font-size: 1.5rem;
+    .newsletter-title {
+      font-size: 2rem;
       font-weight: 300;
       margin-bottom: 1rem;
       color: var(--text);
     }
 
+    .newsletter-subtitle {
+      font-size: 1.1rem;
+      color: var(--fg);
+      margin-bottom: 3rem;
+      line-height: 1.7;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      min-width: 250px;
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--divider);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--text);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .newsletter-input::placeholder {
+      color: var(--fg);
+    }
+
+    .newsletter-button {
+      padding: 1rem 2.5rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .newsletter-button:hover {
+      background: var(--fg);
+      transform: translateY(-2px);
+    }
+
+    .newsletter-note {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--fg);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
+      nav {
+        padding: 1.5rem 4vw;
+      }
+
+      .page-container {
+        padding: 12vh 5vw 8vh;
+      }
+
       .blog-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -211,7 +330,54 @@
       }
 
       .blog-card-title {
+        font-size: 1.4rem;
+      }
+
+      .blog-card-excerpt {
+        font-size: 0.9rem;
+      }
+
+      .newsletter-section {
+        padding: 3rem 2rem;
+      }
+
+      .newsletter-title {
         font-size: 1.5rem;
+      }
+
+      .newsletter-subtitle {
+        font-size: 1rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .newsletter-input {
+        min-width: 100%;
+      }
+
+      .newsletter-button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo-img {
+        height: 25px;
+      }
+
+      .nav-logo {
+        font-size: 0.85rem;
+      }
+
+      .page-title {
+        font-size: 2rem;
+      }
+
+      .page-subtitle {
+        font-size: 1rem;
       }
     }
   </style>
@@ -219,7 +385,7 @@
 <body>
 
   <!-- Navigation -->
-  <nav>
+  <nav role="navigation" aria-label="Navegación principal">
     <a href="index.html" class="nav-brand">
       <img src="imagenes/myndlifelogo.jpg" alt="MyndLife Logo" class="nav-logo-img">
       <div class="nav-logo">MYNDLIFE</div>
@@ -227,51 +393,72 @@
     <a href="index.html" class="nav-back">← Volver</a>
   </nav>
 
-  <!-- Page Content -->
-  <div class="page-container">
-    <div class="page-header">
+  <!-- Main Content -->
+  <main class="page-container">
+    
+    <!-- Header -->
+    <header class="page-header">
       <div class="page-eyebrow">CONTENIDO DE VALOR</div>
       <h1 class="page-title">Blog</h1>
       <p class="page-subtitle">Artículos sobre mentalidad, disciplina y libertad consciente. Contenido sin fluff, directo al punto.</p>
-    </div>
+    </header>
 
     <!-- Blog Articles Grid -->
-    <div class="blog-grid">
+    <section class="blog-grid" aria-label="Artículos del blog">
       
       <!-- Artículo 1 -->
-      <a href="blog/claridad_mental.html" class="blog-card">
-        <div class="blog-date">15 Enero 2025</div>
-        <h2 class="blog-card-title">Claridad Mental: El Primer Paso Hacia el Control</h2>
-        <p class="blog-card-excerpt">No puedes cambiar lo que no puedes ver. La claridad mental no es un lujo, es el fundamento de toda transformación real.</p>
-        <span class="blog-read-more">Leer artículo</span>
-      </a>
+      <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+        <a href="blog/claridad-mental.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+          <time class="blog-date" datetime="2025-01-15" itemprop="datePublished">15 Enero 2025</time>
+          <h2 class="blog-card-title" itemprop="headline">Claridad Mental: El Primer Paso Hacia el Control</h2>
+          <p class="blog-card-excerpt" itemprop="description">No puedes cambiar lo que no puedes ver. La claridad mental no es un lujo, es el fundamento de toda transformación real. Descubre por qué ordenar tu mente es el primer paso antes de actuar.</p>
+          <span class="blog-read-more">Leer artículo completo</span>
+        </a>
+      </article>
 
       <!-- Artículo 2 -->
-      <a href="blog/disciplina-diaria.html" class="blog-card">
-        <div class="blog-date">12 Enero 2025</div>
-        <h2 class="blog-card-title">Por Qué La Disciplina Diaria Supera a la Motivación</h2>
-        <p class="blog-card-excerpt">La motivación es emocional. La disciplina es estructural. Aprende a construir sistemas que funcionen incluso cuando no tengas ganas.</p>
-        <span class="blog-read-more">Leer artículo</span>
-      </a>
+      <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+        <a href="blog/disciplina-diaria.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+          <time class="blog-date" datetime="2025-01-12" itemprop="datePublished">12 Enero 2025</time>
+          <h2 class="blog-card-title" itemprop="headline">Por Qué La Disciplina Diaria Supera a la Motivación</h2>
+          <p class="blog-card-excerpt" itemprop="description">La motivación es emocional y temporal. La disciplina es estructural y permanente. Aprende a construir sistemas que funcionen incluso cuando no tengas ganas de seguir adelante.</p>
+          <span class="blog-read-more">Leer artículo completo</span>
+        </a>
+      </article>
 
       <!-- Artículo 3 -->
-      <a href="blog/enfoque-largo-plazo.html" class="blog-card">
-        <div class="blog-date">8 Enero 2025</div>
-        <h2 class="blog-card-title">Enfoque a Largo Plazo: Piensa en Años, No en Días</h2>
-        <p class="blog-card-excerpt">El éxito sostenible no viene de sprints, viene de maratones bien ejecutados. Cómo pensar y actuar para resultados duraderos.</p>
-        <span class="blog-read-more">Leer artículo</span>
-      </a>
+      <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+        <a href="blog/enfoque-largo-plazo.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%;">
+          <time class="blog-date" datetime="2025-01-08" itemprop="datePublished">8 Enero 2025</time>
+          <h2 class="blog-card-title" itemprop="headline">Enfoque a Largo Plazo: Piensa en Años, No en Días</h2>
+          <p class="blog-card-excerpt" itemprop="description">El éxito sostenible no viene de sprints intensos, viene de maratones bien ejecutados. Cómo pensar estratégicamente y actuar con paciencia para resultados duraderos que realmente importen.</p>
+          <span class="blog-read-more">Leer artículo completo</span>
+        </a>
+      </article>
 
-    </div>
+    </section>
 
-    <!-- Si no hay artículos, mostrar esto:
-    <div class="blog-empty">
-      <h3>Próximamente</h3>
-      <p>Estamos preparando contenido de valor. Vuelve pronto.</p>
-    </div>
-    -->
+    <!-- Newsletter CTA -->
+    <aside class="newsletter-section" role="complementary" aria-label="Suscripción al newsletter">
+      <h2 class="newsletter-title">Recibe Contenido Directo en tu Email</h2>
+      <p class="newsletter-subtitle">Sin spam. Sin contenido genérico. Solo ideas claras y accionables sobre mentalidad y crecimiento personal.</p>
+      
+      <form class="newsletter-form" action="#" method="post" aria-label="Formulario de suscripción">
+        <input 
+          type="email" 
+          name="email" 
+          class="newsletter-input" 
+          placeholder="tu@email.com" 
+          required 
+          aria-label="Correo electrónico"
+        >
+        <button type="submit" class="newsletter-button">Suscribirme</button>
+      </form>
+      
+      <p class="newsletter-note">Puedes darte de baja en cualquier momento.</p>
+    </aside>
 
-  </div>
+  </main>
 
 </body>
 </html>
