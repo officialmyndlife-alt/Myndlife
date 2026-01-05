@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Únete a MyndLife — Recibe Contenido Exclusivo sobre Mentalidad y Crecimiento</title>
+  <meta name="description" content="Suscríbete para recibir artículos, recursos y contenido exclusivo sobre desarrollo personal, claridad mental y disciplina. Sin spam, solo valor real.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --fg: #c0c0c0;
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #ffffff;
+      --divider: rgba(255,255,255,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 768px) {
+      html { font-size: 18px; }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 2rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      height: 35px;
+      width: auto;
+      filter: brightness(1.2);
+    }
+
+    .nav-logo {
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--text);
+    }
+
+    .nav-back {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+    }
+
+    /* Page Container */
+    .page-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15vh 5vw 10vh;
+    }
+
+    /* Subscription Section */
+    .subscription-section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--divider);
+      padding: 5rem 4rem;
+      text-align: center;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .subscription-title {
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .subscription-subtitle {
+      font-size: 1.2rem;
+      color: var(--fg);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .subscription-benefits {
+      text-align: left;
+      margin: 3rem auto;
+      max-width: 500px;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .benefit-icon {
+      font-size: 1.2rem;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .benefit-text {
+      color: var(--fg);
+      line-height: 1.7;
+    }
+
+    .subscription-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 500px;
+      margin: 3rem auto 0;
+    }
+
+    .subscription-input {
+      padding: 1.2rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--divider);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .subscription-input:focus {
+      outline: none;
+      border-color: var(--text);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .subscription-input::placeholder {
+      color: var(--fg);
+    }
+
+    .subscription-button {
+      padding: 1.2rem 2.5rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .subscription-button:hover {
+      background: var(--fg);
+      transform: translateY(-2px);
+    }
+
+    .subscription-note {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    .subscription-note a {
+      color: var(--text);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .subscription-note a:hover {
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .subscription-section {
+        padding: 3rem 2rem;
+      }
+
+      .subscription-title {
+        font-size: 2rem;
+      }
+
+      .subscription-subtitle {
+        font-size: 1rem;
+      }
+
+      .subscription-benefits {
+        margin: 2rem auto;
+      }
+
+      .benefit-item {
+        margin-bottom: 1rem;
+      }
+
+      .benefit-text {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .subscription-section {
+        padding: 2rem 1.5rem;
+      }
+
+      .subscription-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="imagenes/myndlifelogo.jpg" alt="MyndLife Logo" class="nav-logo-img">
+      <div class="nav-logo">MYNDLIFE</div>
+    </a>
+    <a href="index.html" class="nav-back">← Volver</a>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="page-container">
+    <section class="subscription-section">
+      <h1 class="subscription-title">Recibe Contenido que Transforma</h1>
+      <p class="subscription-subtitle">Únete a personas que eligen claridad sobre confusión, acción sobre excusas.</p>
+
+      <div class="subscription-benefits">
+        <div class="benefit-item">
+          <span class="benefit-icon">✓</span>
+          <p class="benefit-text"><strong>Artículos exclusivos</strong> sobre mentalidad, disciplina y crecimiento personal</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">✓</span>
+          <p class="benefit-text"><strong>Recursos prácticos</strong> que puedes aplicar inmediatamente</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">✓</span>
+          <p class="benefit-text"><strong>Sin spam ni contenido genérico.</strong> Solo valor real, directo al punto</p>
+        </div>
+      </div>
+
+      <form class="subscription-form" action="#" method="post">
+        <input 
+          type="text" 
+          name="name" 
+          class="subscription-input" 
+          placeholder="Tu nombre" 
+          required
+        >
+        <input 
+          type="email" 
+          name="email" 
+          class="subscription-input" 
+          placeholder="tu@email.com" 
+          required
+        >
+        <button type="submit" class="subscription-button">Suscribirme</button>
+      </form>
+
+      <p class="subscription-note">
+        Al suscribirte, aceptas nuestra <a href="privacidad.html">Política de Privacidad</a>.<br>
+        Puedes darte de baja en cualquier momento.
+      </p>
+    </section>
+  </div>
+
+</body>
+</html>
