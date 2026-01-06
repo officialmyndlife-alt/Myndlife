@@ -195,11 +195,14 @@
     }
 
     .subscription-note {
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: var(--fg);
-      line-height: 1.6;
-    }
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--divider);
+  font-size: 0.85rem;
+  color: var(--fg);
+  line-height: 1.6;
+  text-align: center;
+}
 
     .subscription-note a {
       color: var(--text);
@@ -213,30 +216,36 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .subscription-section {
-        padding: 3rem 2rem;
-      }
+  .subscription-section {
+    padding: 3rem 2rem;
+  }
 
-      .subscription-title {
-        font-size: 2rem;
-      }
+  .subscription-title {
+    font-size: 2rem;
+  }
 
-      .subscription-subtitle {
-        font-size: 1rem;
-      }
+  .subscription-subtitle {
+    font-size: 1rem;
+  }
 
-      .subscription-benefits {
-        margin: 2rem auto;
-      }
+  .subscription-benefits {
+    margin: 2rem auto;
+  }
 
-      .benefit-item {
-        margin-bottom: 1rem;
-      }
+  .benefit-item {
+    margin-bottom: 1rem;
+  }
 
-      .benefit-text {
-        font-size: 0.95rem;
-      }
-    }
+  .benefit-text {
+    font-size: 0.95rem;
+  }
+
+  .subscription-note {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    font-size: 0.8rem;
+  }
+}
 
     @media (max-width: 480px) {
       .subscription-section {
