@@ -11,10 +11,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
-  
-  <!-- MailerLite Styles - NO MODIFICAR -->
-  <style type="text/css">@import url("https://assets.mlcdn.com/fonts.css?version=1767787");</style>
-  
   <style>
     :root {
       --fg: #c0c0c0;
@@ -102,196 +98,153 @@
       padding: 15vh 5vw 10vh;
     }
 
-    /* MailerLite Form Override Styles */
-    #mlb2-35439412.ml-form-embedContainer {
-      max-width: 700px !important;
-      width: 100% !important;
-      margin: 0 auto !important;
+    /* Subscription Section */
+    .subscription-section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--divider);
+      padding: 5rem 4rem;
+      text-align: center;
+      max-width: 700px;
+      width: 100%;
     }
 
-    #mlb2-35439412 .ml-form-embedWrapper {
-      background-color: transparent !important;
-      border: 1px solid var(--divider) !important;
-      border-radius: 0 !important;
-      padding: 5rem 4rem !important;
+    .subscription-title {
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+      line-height: 1.2;
     }
 
-    #mlb2-35439412 .ml-form-embedBody {
-      padding: 0 !important;
+    .subscription-subtitle {
+      font-size: 1.2rem;
+      color: var(--fg);
+      margin-bottom: 1rem;
+      line-height: 1.7;
     }
 
-    /* Header Styles */
-    #mlb2-35439412 .ml-form-embedContent h4 {
-      font-family: 'Inter', sans-serif !important;
-      font-size: 2.5rem !important;
-      font-weight: 300 !important;
-      color: var(--text) !important;
-      text-align: center !important;
-      margin-bottom: 2rem !important;
-      line-height: 1.2 !important;
+    .subscription-benefits {
+      text-align: left;
+      margin: 3rem auto;
+      max-width: 500px;
     }
 
-    #mlb2-35439412 .ml-form-embedContent blockquote {
-      border-left: none !important;
-      padding: 0 !important;
-      margin: 0 0 3rem 0 !important;
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    #mlb2-35439412 .ml-form-embedContent blockquote em {
-      font-family: 'Inter', sans-serif !important;
-      font-size: 1.1rem !important;
-      font-weight: 300 !important;
-      color: var(--fg) !important;
-      line-height: 1.7 !important;
-      font-style: normal !important;
+    .benefit-icon {
+      font-size: 1.2rem;
+      color: var(--text);
+      flex-shrink: 0;
     }
 
-    /* Form Fields */
-    #mlb2-35439412 .ml-form-fieldRow {
-      margin-bottom: 1.5rem !important;
+    .benefit-text {
+      color: var(--fg);
+      line-height: 1.7;
     }
 
-    #mlb2-35439412 .ml-form-fieldRow input {
-      background-color: rgba(255,255,255,0.05) !important;
-      border: 1px solid var(--divider) !important;
-      border-radius: 0 !important;
-      color: var(--text) !important;
-      font-family: 'Inter', sans-serif !important;
-      font-size: 1rem !important;
-      padding: 1.2rem 1.5rem !important;
-      transition: all 0.3s ease !important;
+    .subscription-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 500px;
+      margin: 3rem auto 0;
     }
 
-    #mlb2-35439412 .ml-form-fieldRow input:focus {
-      background-color: rgba(255,255,255,0.08) !important;
-      border-color: var(--text) !important;
-      outline: none !important;
+    .subscription-input {
+      padding: 1.2rem 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--divider);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
     }
 
-    #mlb2-35439412 .ml-form-fieldRow input::placeholder {
-      color: var(--fg) !important;
-      opacity: 0.7 !important;
+    .subscription-input:focus {
+      outline: none;
+      border-color: var(--text);
+      background: rgba(255,255,255,0.08);
     }
 
-    /* Submit Button */
-    #mlb2-35439412 .ml-form-embedSubmit {
-      margin: 2rem 0 0 0 !important;
+    .subscription-input::placeholder {
+      color: var(--fg);
     }
 
-    #mlb2-35439412 .ml-form-embedSubmit button.primary {
-      background-color: var(--text) !important;
-      border: none !important;
-      border-radius: 0 !important;
-      color: var(--bg) !important;
-      font-family: 'Inter', sans-serif !important;
-      font-size: 0.9rem !important;
-      font-weight: 500 !important;
-      letter-spacing: 0.1em !important;
-      text-transform: uppercase !important;
-      padding: 1.2rem 3rem !important;
-      width: 100% !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
+    .subscription-button {
+      padding: 1.2rem 2.5rem;
+      background: var(--text);
+      color: var(--bg);
+      border: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Inter', sans-serif;
     }
 
-    #mlb2-35439412 .ml-form-embedSubmit button.primary:hover {
-      background-color: var(--fg) !important;
+    .subscription-button:hover {
+      background: var(--fg);
       transform: translateY(-2px);
     }
 
-    /* Privacy Policy */
-    #mlb2-35439412 .ml-form-embedPermissions {
-      margin-top: 3rem !important;
-      padding-top: 2rem !important;
-      border-top: 1px solid var(--divider) !important;
+    .subscription-note {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--fg);
+      line-height: 1.6;
     }
 
-    #mlb2-35439412 .ml-form-embedPermissions .privacy-policy p {
-      font-family: 'Inter', sans-serif !important;
-      font-size: 0.85rem !important;
-      color: var(--fg) !important;
-      text-align: center !important;
-      line-height: 1.6 !important;
-      margin: 0 !important;
+    .subscription-note a {
+      color: var(--text);
+      text-decoration: none;
+      transition: opacity 0.3s ease;
     }
 
-    #mlb2-35439412 .ml-form-embedPermissions .privacy-policy p a {
-      color: var(--text) !important;
-      text-decoration: none !important;
-      transition: opacity 0.3s ease !important;
-    }
-
-    #mlb2-35439412 .ml-form-embedPermissions .privacy-policy p a:hover {
-      opacity: 0.7 !important;
-    }
-
-    /* Success Message */
-    #mlb2-35439412 .ml-form-successBody {
-      padding: 5rem 4rem !important;
-    }
-
-    #mlb2-35439412 .ml-form-successContent h4 {
-      font-family: 'Inter', sans-serif !important;
-      font-size: 2.5rem !important;
-      font-weight: 300 !important;
-      color: var(--text) !important;
-      text-align: center !important;
-      margin-bottom: 1.5rem !important;
-    }
-
-    #mlb2-35439412 .ml-form-successContent p {
-      font-family: 'Inter', sans-serif !important;
-      font-size: 1.1rem !important;
-      color: var(--fg) !important;
-      text-align: center !important;
-      line-height: 1.7 !important;
-    }
-
-    /* Loader */
-    #mlb2-35439412 .ml-form-embedSubmitLoad {
-      border-color: var(--text) var(--text) var(--text) transparent !important;
-    }
-
-    /* Hide MailerLite branding elements if present */
-    #mlb2-35439412 .ml-form-embedMailerLite-GDPR {
-      display: none !important;
+    .subscription-note a:hover {
+      opacity: 0.7;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      #mlb2-35439412 .ml-form-embedWrapper {
-        padding: 3rem 2rem !important;
+      .subscription-section {
+        padding: 3rem 2rem;
       }
 
-      #mlb2-35439412 .ml-form-embedContent h4 {
-        font-size: 2rem !important;
+      .subscription-title {
+        font-size: 2rem;
       }
 
-      #mlb2-35439412 .ml-form-embedContent blockquote em {
-        font-size: 1rem !important;
+      .subscription-subtitle {
+        font-size: 1rem;
       }
 
-      #mlb2-35439412 .ml-form-successBody {
-        padding: 3rem 2rem !important;
+      .subscription-benefits {
+        margin: 2rem auto;
       }
 
-      #mlb2-35439412 .ml-form-successContent h4 {
-        font-size: 2rem !important;
+      .benefit-item {
+        margin-bottom: 1rem;
+      }
+
+      .benefit-text {
+        font-size: 0.95rem;
       }
     }
 
     @media (max-width: 480px) {
-      #mlb2-35439412 .ml-form-embedWrapper {
-        padding: 2rem 1.5rem !important;
+      .subscription-section {
+        padding: 2rem 1.5rem;
       }
 
-      #mlb2-35439412 .ml-form-embedContent h4 {
-        font-size: 1.7rem !important;
-      }
-
-      #mlb2-35439412 .ml-form-embedSubmit button.primary {
-        padding: 1rem 2rem !important;
-        font-size: 0.85rem !important;
+      .subscription-title {
+        font-size: 1.7rem;
       }
     }
   </style>
@@ -309,90 +262,58 @@
 
   <!-- Page Content -->
   <div class="page-container">
-    
-    <!-- MailerLite Form - NO MODIFICAR ESTRUCTURA -->
-    <div id="mlb2-35439412" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-35439412">
-      <div class="ml-form-align-center">
-        <div class="ml-form-embedWrapper embedForm">
-          
-          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+    <section class="subscription-section">
+      <h1 class="subscription-title">Recibe Contenido que Transforma</h1>
+      <p class="subscription-subtitle">Únete a personas que eligen claridad sobre confusión, acción sobre excusas.</p>
 
-            <div class="ml-form-embedContent">
-              <h4>Pensar Mejor. Vivir Mejor.</h4>
-              <blockquote style="text-align: center;">
-                <em>
-                  <span style="color: rgb(248, 249, 250);">
-                    Ideas, marcos mentales y principios prácticos para pensar con claridad, tomar mejores decisiones y construir la vida que buscas.
-                  </span>
-                </em>
-              </blockquote>
-            </div>
-
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1994549/forms/175943274400318847/subscribe" data-code="" method="post" target="_blank">
-              <div class="ml-form-formContent">
-                
-                <div class="ml-form-fieldRow">
-                  <div class="ml-field-group ml-field-name">
-                    <input aria-label="name" type="text" class="form-control" data-inputmask="" name="fields[name]" placeholder="Tu nombre" autocomplete="given-name">
-                  </div>
-                </div>
-                
-                <div class="ml-form-fieldRow ml-last-item">
-                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="tu@email.com" autocomplete="email">
-                  </div>
-                </div>
-                
-              </div>
-
-              <!-- Privacy policy -->
-              <div class="ml-form-embedPermissions">
-                <div class="ml-form-embedPermissionsContent default privacy-policy">
-                  <p>Al suscribirte, aceptas nuestra <a href="privacidad.html">Política de Privacidad</a>. Puedes darte de baja en cualquier momento.</p>
-                </div>
-              </div>
-              <!-- /Privacy policy -->
-
-              <input type="hidden" name="ml-submit" value="1">
-
-              <div class="ml-form-embedSubmit">
-                <button type="submit" class="primary">Unirme a MyndLife</button>
-                <button disabled="disabled" style="display: none;" type="button" class="loading">
-                  <div class="ml-form-embedSubmitLoad"></div>
-                  <span class="sr-only">Loading...</span>
-                </button>
-              </div>
-
-              <input type="hidden" name="anticsrf" value="true">
-            </form>
-          </div>
-
-          <div class="ml-form-successBody row-success" style="display: none">
-            <div class="ml-form-successContent">
-              <h4>Bienvenido a MyndLife</h4>
-              <p>Te has suscrito correctamente. Revisa tu email para confirmar tu suscripción.</p>
-            </div>
-          </div>
-          
+      <div class="subscription-benefits">
+        <div class="benefit-item">
+          <span class="benefit-icon">✓</span>
+          <p class="benefit-text"><strong>Artículos exclusivos</strong> sobre mentalidad, disciplina y crecimiento personal</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">✓</span>
+          <p class="benefit-text"><strong>Recursos prácticos</strong> que puedes aplicar inmediatamente</p>
+        </div>
+        <div class="benefit-item">
+          <span class="benefit-icon">✓</span>
+          <p class="benefit-text"><strong>Sin spam ni contenido genérico.</strong> Solo valor real, directo al punto</p>
         </div>
       </div>
-    </div>
-    <!-- /MailerLite Form -->
 
+      <form class="subscription-form" action="#" method="post">
+        <input 
+          type="text" 
+          name="name" 
+          class="subscription-input" 
+          placeholder="Tu nombre" 
+          required
+        >
+        <input 
+          type="email" 
+          name="email" 
+          class="subscription-input" 
+          placeholder="tu@email.com" 
+          required
+        >
+        <button type="submit" class="subscription-button">Suscribirme</button>
+      </form>
+
+      <p class="subscription-note">
+        Al suscribirte, aceptas nuestra <a href="politicaprivacidad.html">Política de Privacidad</a>.<br>
+        Puedes darte de baja en cualquier momento.
+      </p>
+    </section>
   </div>
-
-  <!-- MailerLite Scripts - NO MODIFICAR -->
-  <script>
-    function ml_webform_success_35439412() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-35439412 .row-success').show();
-      $('.ml-subscribe-form-35439412 .row-form').hide();
-    }
-  </script>
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024" type="text/javascript"></script>
-  <script>
-    fetch("https://assets.mailerlite.com/jsonp/1994549/forms/175943274400318847/takel")
-  </script>
 
 </body>
 </html>
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1994549');
+</script>
+<!-- End MailerLite Universal -->
