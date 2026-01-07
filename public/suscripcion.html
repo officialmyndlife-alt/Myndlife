@@ -423,7 +423,7 @@
 
       <div class="duplicate-message" id="duplicateMessage">
         ⚠️ Este email ya está suscrito a MyndLife.<br>
-        Si tienes algún problema, <a href="contacto.html">contacta a soporte</a>.
+        Si tienes algún problema, <a href="mailto:soporte@myndlife.com">contacta a soporte</a>.
       </div>
 
       <p class="subscription-note">
@@ -435,7 +435,7 @@
 
   <script>
     // IMPORTANTE: Reemplaza esta URL con tu Google Apps Script Web App URL
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxA6SH9K-B8ElocG-8T-Cq13FcvRr6MncYad6GVgpq1x31nT3hPOU6M7SmSuKSf4dA/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby90iLLLNpvSl1bOrOFdIDPcyl-BM7guHQrBIgHyFsWFJQLk8GXMCUaB4rGCORgNonl/exec';
 
     const form = document.getElementById('subscriptionForm');
     const submitButton = document.getElementById('submitButton');
@@ -499,29 +499,30 @@
       submitButton.classList.add('loading');
 
       console.log('Enviando datos a:', GOOGLE_SCRIPT_URL);
+      console.log('Nombre:', name);
+      console.log('Email:', email);
 
       try {
-        // Crear FormData para mejor compatibilidad
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('timestamp', new Date().toISOString());
+        // Construir URL con parámetros
+        const url = `${GOOGLE_SCRIPT_URL}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&timestamp=${encodeURIComponent(new Date().toISOString())}`;
+        
+        console.log('URL completa:', url);
 
         // Enviar datos a Google Sheets
-        const response = await fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          body: formData,
+        const response = await fetch(url, {
+          method: 'GET',
           redirect: 'follow'
         });
 
-        console.log('Respuesta recibida:', response);
+        console.log('Respuesta HTTP:', response.status);
 
-        // Intentar leer la respuesta
+        // Leer la respuesta
         const result = await response.json();
-        console.log('Resultado:', result);
+        console.log('Resultado parseado:', result);
 
         if (result.result === 'duplicate') {
           // Email duplicado
+          console.log('Email duplicado detectado');
           submitButton.disabled = false;
           submitButton.classList.remove('loading');
           successMessage.classList.remove('show');
@@ -534,6 +535,7 @@
 
         } else if (result.result === 'success') {
           // Suscripción exitosa
+          console.log('Suscripción exitosa');
           form.style.display = 'none';
           duplicateMessage.classList.remove('show');
           successMessage.classList.add('show');
@@ -548,13 +550,14 @@
           }, 5000);
 
         } else {
-          // Error desconocido
-          throw new Error('Respuesta inesperada del servidor');
+          // Error
+          console.error('Error en respuesta:', result);
+          throw new Error(result.message || 'Respuesta inesperada del servidor');
         }
 
       } catch (error) {
         console.error('Error completo:', error);
-        alert('Hubo un error al procesar tu suscripción. Por favor, verifica tu conexión e inténtalo de nuevo.');
+        alert('Hubo un error al procesar tu suscripción: ' + error.message);
         submitButton.disabled = false;
         submitButton.classList.remove('loading');
       }
