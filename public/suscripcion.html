@@ -503,21 +503,28 @@
       console.log('Email:', email);
 
       try {
-        // Construir URL con parámetros
-        const url = `${GOOGLE_SCRIPT_URL}?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}&timestamp=${encodeURIComponent(new Date().toISOString())}`;
-        
-        console.log('URL completa:', url);
-
-        // Enviar datos a Google Sheets
-        const response = await fetch(url, {
-          method: 'GET',
+        // Enviar como JSON en POST
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            timestamp: new Date().toISOString()
+          }),
           redirect: 'follow'
         });
 
         console.log('Respuesta HTTP:', response.status);
 
-        // Leer la respuesta
-        const result = await response.json();
+        // Leer la respuesta como texto primero
+        const textResponse = await response.text();
+        console.log('Respuesta texto:', textResponse);
+        
+        // Intentar parsear como JSON
+        const result = JSON.parse(textResponse);
         console.log('Resultado parseado:', result);
 
         if (result.result === 'duplicate') {
