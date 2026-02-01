@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO: Cambiar para cada artículo -->
+  <title>No te falta motivación, te falta estructura — MyndLife Blog</title>
+  <meta name="description" content="Descubre por qué la motivación no es suficiente y cómo una estructura simple puede transformar tu forma de vivir sin depender de la fuerza de voluntad.">
+  
+  <!-- Open Graph para redes sociales (opcional) -->
+  <meta property="og:title" content="No te falta motivación, te falta estructura — MyndLife">
+  <meta property="og:description" content="La motivación es inestable. La estructura es lo que realmente cambia vidas.">
+  <meta property="og:type" content="article">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --fg: #c0c0c0;
+      --bg: #000000;
+      --text: #ffffff;
+      --accent: #ffffff;
+      --divider: rgba(255,255,255,0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 768px) {
+      html { font-size: 18px; }
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 2rem 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(0,0,0,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-logo-img {
+      height: 35px;
+      width: auto;
+      filter: brightness(1.2);
+    }
+
+    .nav-logo {
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-back {
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--text);
+    }
+
+    /* Article Container */
+    .article-container {
+      min-height: 100vh;
+      padding: 15vh 5vw 10vh;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 6vh;
+    }
+
+    .article-date {
+      font-size: 0.8rem;
+      color: var(--fg);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .article-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .article-excerpt {
+      font-size: 1.3rem;
+      color: var(--fg);
+      line-height: 1.7;
+      font-weight: 300;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    /* Article Content */
+    .article-content {
+      color: var(--fg);
+      line-height: 1.9;
+      font-size: 1.05rem;
+    }
+
+    .article-content h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-top: 4rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .article-content h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .article-content p {
+      margin-bottom: 1.8rem;
+    }
+
+    .article-content strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .article-content em {
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin-left: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .article-content li {
+      margin-bottom: 0.8rem;
+    }
+
+    .article-content blockquote {
+      border-left: 3px solid var(--text);
+      padding-left: 2rem;
+      margin: 3rem 0;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--text);
+    }
+
+    /* Article Footer */
+    .article-footer {
+      margin-top: 8vh;
+      padding-top: 4vh;
+      border-top: 1px solid var(--divider);
+      text-align: center;
+    }
+
+    .article-footer-text {
+      color: var(--fg);
+      margin-bottom: 2rem;
+    }
+
+    .article-cta {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .article-cta:hover {
+      background: var(--fg);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .article-title {
+        font-size: 2rem;
+      }
+
+      .article-excerpt {
+        font-size: 1.1rem;
+      }
+
+      .article-content {
+        font-size: 1rem;
+      }
+
+      .article-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.3rem;
+      }
+
+      .article-content blockquote {
+        font-size: 1.1rem;
+        padding-left: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="../index.html" class="nav-brand">
+      <img src="../imagenes/myndlifelogo.jpg" alt="MyndLife Logo" class="nav-logo-img">
+      <div class="nav-logo">MYNDLIFE</div>
+    </a>
+    <a href="../blog.html" class="nav-back">← Volver al Blog</a>
+  </nav>
+
+  <!-- Article -->
+  <article class="article-container">
+    
+    <!-- Header -->
+    <header class="article-header">
+      <div class="article-date">31 Enero 2025</div>
+      <h1 class="article-title">No te falta motivación, te falta estructura</h1>
+      <p class="article-excerpt">La motivación es un estado emocional. La estructura es un sistema. Y los sistemas funcionan incluso cuando no tienes ganas.</p>
+    </header>
+
+    <!-- Content -->
+    <div class="article-content">
+      
+      <p>Has empezado a ir al gimnasio un lunes lleno de energía. Has comprado verduras. Has prometido leer más, meditar, dormir mejor. Y todo iba bien hasta que dejó de ir bien. Porque la motivación desapareció, y con ella, todo lo demás.</p>
+
+      <p>El problema no eres tú. El problema es que dependes de la motivación como si fuera combustible infinito. Y no lo es.</p>
+
+      <h2>No estás roto. Estás desordenado.</h2>
+      
+      <p>La mayoría de personas creen que les falta disciplina. Se culpan por no ser lo suficientemente fuertes, por abandonar, por rendirse. Pero la realidad es más simple: <strong>no tienen un sistema que les sostenga cuando la motivación se va</strong>.</p>
+
+      <p>Porque la motivación siempre se va. Es temporal, reactiva, impredecible. Aparece después de ver un vídeo inspirador, después de una conversación importante, después de un susto de salud. Y luego se evapora.</p>
+
+      <p>Cuando dependes de ella para hacer las cosas importantes, estás construyendo tu vida sobre arena.</p>
+
+      <h2>Por qué la motivación es inestable</h2>
+
+      <p>La motivación es una emoción. Y las emociones son volubles. Dependen de tu estado de ánimo, de cuánto dormiste, de lo que desayunaste, de si tuviste un mal día en el trabajo. No puedes controlarlas. No puedes invocarlas a voluntad.</p>
+
+      <p>Intentar vivir motivado todo el tiempo es como intentar estar feliz todo el tiempo. Es agotador. Es imposible. Y es innecesario.</p>
+
+      <blockquote>
+        "La motivación te pone en marcha. La estructura te mantiene en movimiento."
+      </blockquote>
+
+      <p>Lo que realmente cambia vidas no es la intensidad emocional con la que empiezas algo. Es la <em>consistencia</em> con la que lo mantienes. Y la consistencia no viene de la motivación. Viene de tener un entorno, unas rutinas y unas decisiones predeterminadas que funcionen aunque tú no estés en tu mejor versión.</p>
+
+      <h2>Qué es estructura (de verdad)</h2>
+
+      <p>Cuando hablamos de estructura, no hablamos de rigidez. No se trata de vivir encerrado en un horario militar ni de convertirte en un robot.</p>
+
+      <p>Estructura es <strong>reducir la cantidad de decisiones que tienes que tomar cada día</strong>. Es diseñar tu entorno para que las cosas importantes sean más fáciles de hacer que de evitar.</p>
+
+      <p>Por ejemplo:</p>
+
+      <ul>
+        <li>Si quieres leer más, deja el libro en la mesita de noche, no en la estantería del salón.</li>
+        <li>Si quieres comer mejor, no compres lo que no quieres comer.</li>
+        <li>Si quieres hacer ejercicio por la mañana, deja la ropa deportiva preparada la noche anterior.</li>
+      </ul>
+
+      <p>Estructura no es fuerza de voluntad. Es <strong>intención aplicada al diseño de tu día</strong>. Es hacer que lo correcto sea lo obvio.</p>
+
+      <h3>Menos hábitos, más intención</h3>
+
+      <p>La obsesión moderna con los hábitos nos ha hecho creer que necesitamos automatizarlo todo. Pero no todos los hábitos son iguales. Y no todas las áreas de tu vida se benefician de la repetición ciega.</p>
+
+      <p>La estructura real no se trata de acumular 47 micro-hábitos. Se trata de identificar las 3 o 4 cosas que realmente importan en tu vida ahora mismo, y construir un sistema sencillo alrededor de ellas.</p>
+
+      <p>Menos ruido. Más claridad. Más espacio para pensar.</p>
+
+      <h2>El error de intentar cambiar todo a la vez</h2>
+
+      <p>El lunes perfecto nunca llega. Ese día en el que vas a empezar a meditar, a entrenar, a comer bien, a dormir 8 horas, a trabajar enfocado y a ser la mejor versión de ti mismo. Porque cuando intentas cambiarlo todo a la vez, lo que realmente estás haciendo es prepararte para el fracaso.</p>
+
+      <p>Cada cambio consume energía. Cada nuevo hábito requiere atención. Y tu capacidad de cambio no es infinita. Cuando sobrecargas tu sistema, colapsa. Y vuelves al punto de partida.</p>
+
+      <p>La estructura funciona porque <strong>es pequeña</strong>. Empieza con una cosa. Una sola. Hazla tan fácil que no puedas fallar. Y cuando esa cosa esté integrada en tu vida, añade la siguiente.</p>
+
+      <h2>Cómo empezar con una estructura mínima</h2>
+
+      <p>No necesitas un plan de 30 días. Necesitas una decisión clara sobre lo que importa esta semana. Y un sistema simple para que ocurra.</p>
+
+      <p>Empieza por aquí:</p>
+
+      <ul>
+        <li><strong>Identifica una prioridad</strong>. No tres. Una. ¿Qué es lo que, si hicieras todos los días, mejoraría tu vida de forma tangible?</li>
+        <li><strong>Diseña el entorno</strong>. Elimina fricción. Haz que sea más fácil hacer lo correcto que evitarlo.</li>
+        <li><strong>Decide cuándo</strong>. No "cuando tenga tiempo". Cuándo exactamente. A qué hora. Después de qué.</li>
+        <li><strong>Reduce la escala</strong>. Si quieres entrenar una hora, empieza por 10 minutos. Si quieres escribir, empieza por 3 frases.</li>
+      </ul>
+
+      <p>La estructura no es sofisticación. Es simplicidad intencional. Es saber qué importa y eliminar todo lo que estorba.</p>
+
+      <p>Y cuando hayas hecho esto durante dos semanas, cuando esa pequeña acción forme parte de tu día sin esfuerzo, entonces puedes añadir la siguiente. Pero no antes.</p>
+
+      <h2>Pensar mejor antes de exigirte más</h2>
+
+      <p>Vivimos en una cultura que glorifica el esfuerzo constante. Que te dice que si no estás haciendo más, no eres suficiente. Pero la estructura real no se trata de hacer más. Se trata de <strong>pensar mejor</strong>.</p>
+
+      <p>Antes de exigirte más disciplina, pregúntate: ¿he diseñado mi vida para que las cosas importantes sean fáciles? ¿O estoy dependiendo de la fuerza de voluntad para compensar un mal diseño?</p>
+
+      <p>La motivación es un extra. Un bonus. Cuando aparece, genial. Pero no la necesitas para funcionar. Lo que necesitas es un sistema que funcione sin ella.</p>
+
+      <p>Porque al final, no se trata de cuántas ganas tienes de cambiar. Se trata de cuán bien has organizado tu vida para que el cambio sea inevitable.</p>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="article-footer">
+      <p class="article-footer-text">¿Listo para construir tu propia estructura?</p>
+      <a href="../index.html#pillars" class="article-cta">Explorar MyndLife</a>
+    </footer>
+
+  </article>
+
+</body>
+</html>
