@@ -1,7 +1,101 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Brain, Target, Compass, Crown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
+// ==================== STYLES (injected once) ====================
+const GlobalStyles = () => (
+  <style>{`
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #09090c;
+      --card: #0f0f14;
+      --border: #1a1a22;
+      --fg: #e8e7f0;
+      --muted: #64636e;
+      --primary: #9da8be;
+      --primary-light: #bec7d8;
+      --silver-start: #dde3ed;
+      --silver-mid: #a8b4c8;
+      --silver-end: #6b7a92;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-display { font-family: 'Cormorant Garamond', serif; }
+
+    .text-gold {
+      background: linear-gradient(135deg, var(--silver-start) 0%, var(--silver-mid) 50%, var(--silver-end) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-gold-filled {
+      background: linear-gradient(135deg, var(--silver-start) 0%, var(--silver-mid) 55%, var(--silver-end) 100%);
+      color: #09090c;
+      border: none;
+      padding: 14px 36px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.3s, transform 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 500;
+    }
+    .btn-gold-filled:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .btn-gold-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 13px 36px;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 400;
+    }
+    .btn-gold-outline:hover {
+      background: var(--primary);
+      color: #09090c;
+      transform: translateY(-1px);
+    }
+
+    .btn-gold-lg {
+      padding: 16px 44px;
+      font-size: 12px;
+    }
+    .btn-gold-xl {
+      padding: 18px 56px;
+      font-size: 13px;
+    }
+
+    .divider { width: 64px; height: 1px; background: var(--primary); margin: 0 auto; }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  `}</style>
+);
 
 // ==================== NAVBAR ====================
 const Navbar = () => {
@@ -19,40 +113,51 @@ const Navbar = () => {
     { label: "Blog", href: "#blog" },
   ];
 
+  const navStyle = {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 50,
+    transition: "all 0.5s",
+    background: scrolled ? "rgba(10,10,11,0.85)" : "transparent",
+    backdropFilter: scrolled ? "blur(20px)" : "none",
+    borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+  };
+
   return (
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border" : "bg-transparent"
-      }`}
+      style={navStyle}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16 lg:h-20">
-        <a href="#" className="flex items-center gap-2 group">
-          <span className="text-primary text-lg">◆</span>
-          <span className="font-body text-sm tracking-[0.3em] uppercase text-foreground group-hover:text-primary transition-colors duration-300">
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+        <a href="#" style={{ display: "flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
+          <span style={{ color: "var(--primary)", fontSize: 16 }}>◆</span>
+          <span style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--fg)" }}>
             MyndLife
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div style={{ display: "flex", alignItems: "center", gap: 32 }} className="desktop-nav">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
+              style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--muted)", textDecoration: "none", transition: "color 0.3s" }}
+              onMouseEnter={e => e.target.style.color = "var(--primary)"}
+              onMouseLeave={e => e.target.style.color = "var(--muted)"}
             >
               {link.label}
             </a>
           ))}
-          <Button variant="gold" size="default" asChild>
-            <a href="#cta">Únete</a>
-          </Button>
+          <a href="#cta" className="btn-gold-outline" style={{ padding: "10px 24px", fontSize: 10 }}>Únete</a>
         </div>
 
         <button
-          className="md:hidden text-foreground"
+          style={{ background: "none", border: "none", color: "var(--fg)", cursor: "pointer", display: "none" }}
+          className="mobile-menu-btn"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -65,114 +170,111 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border"
+            style={{ background: "rgba(10,10,11,0.97)", borderBottom: "1px solid var(--border)" }}
           >
-            <div className="px-6 py-6 flex flex-col gap-4">
+            <div style={{ padding: "24px", display: "flex", flexDirection: "column", gap: 16 }}>
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-body text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors"
+                  style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--muted)", textDecoration: "none" }}
                 >
                   {link.label}
                 </a>
               ))}
-              <Button variant="gold" size="default" asChild>
-                <a href="#cta" onClick={() => setMenuOpen(false)}>Únete</a>
-              </Button>
+              <a href="#cta" className="btn-gold-outline" onClick={() => setMenuOpen(false)} style={{ textAlign: "center" }}>Únete</a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .mobile-menu-btn { display: flex !important; }
+        }
+      `}</style>
     </motion.nav>
   );
 };
 
 // ==================== HERO ====================
-const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(220_10%_70%_/_0.04)_0%,_transparent_70%)]" />
+const HeroSection = () => (
+  <section style={{ position: "relative", minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+    <div style={{ position: "absolute", inset: 0, background: "var(--bg)" }} />
+    <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, rgba(157,168,190,0.05) 0%, transparent 70%)" }} />
 
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-1 h-1 rounded-full bg-primary/20"
-          style={{
-            left: `${15 + i * 15}%`,
-            top: `${20 + (i % 3) * 25}%`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.2, 0.6, 0.2],
-          }}
-          transition={{
-            duration: 4 + i,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 0.5,
-          }}
-        />
-      ))}
+    {[...Array(6)].map((_, i) => (
+      <motion.div
+        key={i}
+        style={{
+          position: "absolute",
+          width: 3,
+          height: 3,
+          borderRadius: "50%",
+          background: "rgba(157,168,190,0.35)",
+          left: `${15 + i * 15}%`,
+          top: `${20 + (i % 3) * 25}%`,
+        }}
+        animate={{ y: [0, -30, 0], opacity: [0.2, 0.7, 0.2] }}
+        transition={{ duration: 4 + i, repeat: Infinity, ease: "easeInOut", delay: i * 0.5 }}
+      />
+    ))}
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-body text-xs tracking-[0.4em] uppercase text-primary mb-8"
-        >
-          Bienvenido a MyndLife
-        </motion.p>
+    <div style={{ position: "relative", zIndex: 10, maxWidth: 900, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--primary)", marginBottom: 32 }}
+      >
+        Bienvenido a MyndLife
+      </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="font-display text-6xl md:text-8xl lg:text-9xl font-light tracking-tight leading-[0.9] mb-8"
-        >
-          Elevate
-          <br />
-          <span className="italic text-gradient-gold">Your Life</span>
-        </motion.h1>
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        className="font-display"
+        style={{ fontSize: "clamp(64px, 12vw, 120px)", fontWeight: 300, letterSpacing: "-0.02em", lineHeight: 0.9, marginBottom: 32 }}
+      >
+        Elevate
+        <br />
+        <span className="text-gold" style={{ fontStyle: "italic" }}>Your Life</span>
+      </motion.h1>
 
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="w-16 h-px bg-primary mx-auto mb-8"
-        />
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="divider"
+        style={{ marginBottom: 32 }}
+      />
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-          className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed mb-12"
-        >
-          No todo el mundo llega hasta aquí.
-          <br />
-          MyndLife es para quien sabe que hay otra forma de vivir.
-        </motion.p>
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        style={{ fontFamily: "'Jost', sans-serif", fontSize: 18, color: "var(--muted)", maxWidth: 480, margin: "0 auto 48px", lineHeight: 1.7 }}
+      >
+        No todo el mundo llega hasta aquí.
+        <br />
+        MyndLife es para quien sabe que hay otra forma de vivir.
+      </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button variant="goldFilled" size="lg" asChild>
-            <a href="#pillars">Explorar</a>
-          </Button>
-          <Button variant="gold" size="lg" asChild>
-            <a href="#cta">¿Es MyndLife Para Ti?</a>
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center", gap: 16 }}
+      >
+        <a href="#pillars" className="btn-gold-filled btn-gold-lg">Explorar</a>
+        <a href="#cta" className="btn-gold-outline btn-gold-lg">¿Es MyndLife Para Ti?</a>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // ==================== STATS ====================
 const stats = [
@@ -182,209 +284,190 @@ const stats = [
   { value: "1", label: "Vida para Vivir" },
 ];
 
-const StatsSection = () => {
-  return (
-    <section className="relative py-24 border-y border-border">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="text-center"
-            >
-              <p className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-gradient-gold mb-3">
-                {stat.value}
-              </p>
-              <p className="font-body text-xs tracking-[0.2em] uppercase text-muted-foreground">
-                {stat.label}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+const StatsSection = () => (
+  <section style={{ padding: "96px 0", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
+    <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }} className="stats-grid">
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.15 }}
+            style={{ textAlign: "center" }}
+          >
+            <p className="font-display text-gold" style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 300, marginBottom: 12 }}>
+              {stat.value}
+            </p>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--muted)" }}>
+              {stat.label}
+            </p>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+    <style>{`
+      @media (max-width: 640px) { .stats-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    `}</style>
+  </section>
+);
 
 // ==================== PHILOSOPHY ====================
-const PhilosophySection = () => {
-  return (
-    <section className="py-32 relative">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2 }}
-        >
-          <p className="font-display text-2xl md:text-3xl lg:text-4xl font-light leading-relaxed text-foreground">
-            MyndLife no es motivación.
-            <br />
-            <span className="text-gradient-gold italic">Es estructura.</span>
-            <br />
-            <span className="text-muted-foreground">Es claridad.</span>
-            <br />
-            Es vivir con <span className="text-gradient-gold italic">intención.</span>
-          </p>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+const PhilosophySection = () => (
+  <section style={{ padding: "128px 0" }}>
+    <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2 }}
+      >
+        <p className="font-display" style={{ fontSize: "clamp(22px, 3.5vw, 40px)", fontWeight: 300, lineHeight: 1.6, color: "var(--fg)" }}>
+          MyndLife no es motivación.
+          <br />
+          <span className="text-gold" style={{ fontStyle: "italic" }}>Es estructura.</span>
+          <br />
+          <span style={{ color: "var(--muted)" }}>Es claridad.</span>
+          <br />
+          Es vivir con <span className="text-gold" style={{ fontStyle: "italic" }}>intención.</span>
+        </p>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // ==================== PILLARS ====================
 const pillars = [
   {
-    num: "01",
-    icon: Brain,
-    title: "Mentalidad Clara",
-    subtitle: "Decide con precisión.",
+    num: "01", icon: Brain, title: "Mentalidad Clara", subtitle: "Decide con precisión.",
     description: "Filtra el ruido, identifica lo que importa y toma decisiones que realmente te acerquen a tus metas.",
   },
   {
-    num: "02",
-    icon: Target,
-    title: "Disciplina Diaria",
-    subtitle: "La consistencia es libertad.",
+    num: "02", icon: Target, title: "Disciplina Diaria", subtitle: "La consistencia es libertad.",
     description: "Cada hábito cuenta. Construye tu día a día con disciplina y transforma pequeños esfuerzos en grandes resultados.",
   },
   {
-    num: "03",
-    icon: Compass,
-    title: "Enfoque a Largo Plazo",
-    subtitle: "Piensa en años, no en días.",
+    num: "03", icon: Compass, title: "Enfoque a Largo Plazo", subtitle: "Piensa en años, no en días.",
     description: "Crea sistemas sostenibles que funcionen semana tras semana y deja atrás soluciones rápidas y temporales.",
   },
   {
-    num: "04",
-    icon: Crown,
-    title: "Estándares Altos",
-    subtitle: "No aceptes menos de lo que mereces.",
+    num: "04", icon: Crown, title: "Estándares Altos", subtitle: "No aceptes menos de lo que mereces.",
     description: "Eleva tus expectativas en hábitos, decisiones y relaciones. Tus estándares definen tu destino.",
   },
 ];
 
-const PillarsSection = () => {
-  return (
-    <section id="pillars" className="py-32 relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <p className="font-body text-xs tracking-[0.4em] uppercase text-primary mb-4">
-            Pilares Fundamentales
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light">
-            Los Cimientos del
-            <br />
-            <span className="italic text-gradient-gold">Cambio Real</span>
-          </h2>
-        </motion.div>
+const PillarsSection = () => (
+  <section id="pillars" style={{ padding: "128px 0" }}>
+    <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        style={{ textAlign: "center", marginBottom: 80 }}
+      >
+        <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, letterSpacing: "0.4em", textTransform: "uppercase", color: "var(--primary)", marginBottom: 16 }}>
+          Pilares Fundamentales
+        </p>
+        <h2 className="font-display" style={{ fontSize: "clamp(36px, 5vw, 64px)", fontWeight: 300, lineHeight: 1.1 }}>
+          Los Cimientos del
+          <br />
+          <span className="text-gold" style={{ fontStyle: "italic" }}>Cambio Real</span>
+        </h2>
+      </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {pillars.map((pillar, i) => (
-            <motion.div
-              key={pillar.num}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: i * 0.15 }}
-              className="group relative bg-card border border-border rounded-xl p-8 lg:p-10 hover:border-primary/30 transition-all duration-500 overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_hsl(220_10%_70%_/_0.03)_0%,_transparent_60%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-6">
-                  <span className="font-display text-5xl font-light text-border group-hover:text-primary/20 transition-colors duration-500">
-                    {pillar.num}
-                  </span>
-                  <pillar.icon className="w-5 h-5 text-primary/60 group-hover:text-primary transition-colors duration-500" />
-                </div>
-
-                <h3 className="font-display text-2xl font-medium mb-2 group-hover:text-gradient-gold transition-colors duration-300">
-                  {pillar.title}
-                </h3>
-                <p className="font-body text-sm italic text-primary/70 mb-4">
-                  {pillar.subtitle}
-                </p>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  {pillar.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }} className="pillars-grid">
+        {pillars.map((pillar, i) => (
+          <motion.div
+            key={pillar.num}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: i * 0.15 }}
+            style={{
+              background: "var(--card)",
+              border: "1px solid var(--border)",
+              borderRadius: 12,
+              padding: 40,
+              transition: "border-color 0.5s",
+              cursor: "default",
+            }}
+            whileHover={{ borderColor: "rgba(157,168,190,0.35)" }}
+          >
+            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 24 }}>
+              <span className="font-display" style={{ fontSize: 56, fontWeight: 300, color: "var(--border)", lineHeight: 1 }}>
+                {pillar.num}
+              </span>
+              <pillar.icon size={20} style={{ color: "var(--primary)", opacity: 0.7 }} />
+            </div>
+            <h3 className="font-display" style={{ fontSize: 24, fontWeight: 500, marginBottom: 8 }}>{pillar.title}</h3>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 13, fontStyle: "italic", color: "var(--primary)", opacity: 0.8, marginBottom: 16 }}>
+              {pillar.subtitle}
+            </p>
+            <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 14, color: "var(--muted)", lineHeight: 1.7 }}>
+              {pillar.description}
+            </p>
+          </motion.div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+    <style>{`
+      @media (max-width: 768px) { .pillars-grid { grid-template-columns: 1fr !important; } }
+    `}</style>
+  </section>
+);
 
 // ==================== CTA ====================
-const CTASection = () => {
-  return (
-    <section id="cta" className="py-32 relative">
-      <div className="max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <div className="w-16 h-px bg-primary mx-auto mb-12" />
-
-          <h2 className="font-display text-3xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight">
-            Cuando recuperas el control
-            <br />
-            de tu <span className="italic text-gradient-gold">mente</span>,
-            <br />
-            recuperas el control de tu{" "}
-            <span className="italic text-gradient-gold">vida.</span>
-          </h2>
-
-          <p className="font-body text-muted-foreground text-lg mb-12 max-w-lg mx-auto">
-            Da el primer paso. El cambio real comienza con una decisión.
-          </p>
-
-          <Button variant="goldFilled" size="xl">
-            Comienza Ahora
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
+const CTASection = () => (
+  <section id="cta" style={{ padding: "128px 0" }}>
+    <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 24px", textAlign: "center" }}>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
+      >
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <h2 className="font-display" style={{ fontSize: "clamp(28px, 4.5vw, 64px)", fontWeight: 300, marginBottom: 32, lineHeight: 1.15 }}>
+          Cuando recuperas el control
+          <br />
+          de tu <span className="text-gold" style={{ fontStyle: "italic" }}>mente</span>,
+          <br />
+          recuperas el control de tu{" "}
+          <span className="text-gold" style={{ fontStyle: "italic" }}>vida.</span>
+        </h2>
+        <p style={{ fontFamily: "'Jost', sans-serif", color: "var(--muted)", fontSize: 17, marginBottom: 48, maxWidth: 480, margin: "0 auto 48px" }}>
+          Da el primer paso. El cambio real comienza con una decisión.
+        </p>
+        <a href="#" className="btn-gold-filled btn-gold-xl">Comienza Ahora</a>
+      </motion.div>
+    </div>
+  </section>
+);
 
 // ==================== FOOTER ====================
-const Footer = () => {
-  return (
-    <footer className="border-t border-border py-12">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-2">
-          <span className="text-primary text-sm">◆</span>
-          <span className="font-body text-xs tracking-[0.3em] uppercase text-muted-foreground">
-            MyndLife
-          </span>
-        </div>
-        <p className="font-body text-xs text-muted-foreground">
-          © {new Date().getFullYear()} MyndLife. Todos los derechos reservados.
-        </p>
+const Footer = () => (
+  <footer style={{ borderTop: "1px solid var(--border)", padding: "48px 24px" }}>
+    <div style={{ maxWidth: 1280, margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <span style={{ color: "var(--primary)", fontSize: 14 }}>◆</span>
+        <span style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, letterSpacing: "0.3em", textTransform: "uppercase", color: "var(--muted)" }}>
+          MyndLife
+        </span>
       </div>
-    </footer>
-  );
-};
+      <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 11, color: "var(--muted)" }}>
+        © {new Date().getFullYear()} MyndLife. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+);
 
 // ==================== PAGE ====================
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
+const Index = () => (
+  <>
+    <GlobalStyles />
+    <div style={{ minHeight: "100vh", background: "var(--bg)" }}>
       <Navbar />
       <HeroSection />
       <StatsSection />
@@ -393,7 +476,7 @@ const Index = () => {
       <CTASection />
       <Footer />
     </div>
-  );
-};
+  </>
+);
 
 export default Index;
