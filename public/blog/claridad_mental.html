@@ -1,323 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Claridad Mental: El Primer Paso Hacia el Control — MyndLife Blog</title>
   <meta name="description" content="No puedes cambiar lo que no puedes ver. Descubre por qué la claridad mental es el fundamento de toda transformación real y cómo conseguirla.">
-  
   <meta property="og:title" content="Claridad Mental: El Primer Paso Hacia el Control — MyndLife">
   <meta property="og:description" content="No puedes cambiar lo que no puedes ver. La claridad mental no es un lujo, es el fundamento de toda transformación real.">
   <meta property="og:type" content="article">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --fg: #c0c0c0;
-      --bg: #000000;
-      --text: #ffffff;
-      --accent: #ffffff;
-      --divider: rgba(255,255,255,0.1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
-    }
-
-    @media (min-width: 768px) {
-      html { font-size: 18px; }
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 2rem 5vw;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      background: rgba(0,0,0,0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .nav-logo-img {
-      height: 35px;
-      width: auto;
-      filter: brightness(1.2);
-    }
-
-    .nav-logo {
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.2em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-back {
-      color: var(--fg);
-      text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-
-    .nav-back:hover {
-      color: var(--text);
-    }
-
-    .article-container {
-      min-height: 100vh;
-      padding: 15vh 5vw 10vh;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .article-header {
-      margin-bottom: 6vh;
-    }
-
-    .article-date {
-      font-size: 0.8rem;
-      color: var(--fg);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-    }
-
-    .article-title {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 300;
-      line-height: 1.2;
-      margin-bottom: 2rem;
-    }
-
-    .article-excerpt {
-      font-size: 1.3rem;
-      color: var(--fg);
-      line-height: 1.7;
-      font-weight: 300;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--divider);
-    }
-
-    .article-content {
-      color: var(--fg);
-      line-height: 1.9;
-      font-size: 1.05rem;
-    }
-
-    .article-content h2 {
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--text);
-      margin-top: 4rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.3;
-    }
-
-    .article-content h3 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--text);
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .article-content p {
-      margin-bottom: 1.8rem;
-    }
-
-    .article-content strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .article-content em {
-      font-style: italic;
-      color: var(--text);
-    }
-
-    .article-content ul,
-    .article-content ol {
-      margin-left: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .article-content li {
-      margin-bottom: 0.8rem;
-    }
-
-    .article-content blockquote {
-      border-left: 3px solid var(--text);
-      padding-left: 2rem;
-      margin: 3rem 0;
-      font-size: 1.2rem;
-      font-style: italic;
-      color: var(--text);
-    }
-
-    .article-footer {
-      margin-top: 8vh;
-      padding-top: 4vh;
-      border-top: 1px solid var(--divider);
-      text-align: center;
-    }
-
-    .article-footer-text {
-      color: var(--fg);
-      margin-bottom: 2rem;
-    }
-
-    .article-cta {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--text);
-      color: var(--bg);
-      text-decoration: none;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 500;
-      transition: all 0.3s ease;
-    }
-
-    .article-cta:hover {
-      background: var(--fg);
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .article-title {
-        font-size: 2rem;
-      }
-
-      .article-excerpt {
-        font-size: 1.1rem;
-      }
-
-      .article-content {
-        font-size: 1rem;
-      }
-
-      .article-content h2 {
-        font-size: 1.6rem;
-      }
-
-      .article-content h3 {
-        font-size: 1.3rem;
-      }
-
-      .article-content blockquote {
-        font-size: 1.1rem;
-        padding-left: 1.5rem;
-      }
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #09090c; --card: #0f0f14; --border: #1e1e26; --fg: #e8e7f0; --muted: #62616c; --primary: #9da8be; --silver-start: #dde3ed; --silver-mid: #a8b4c8; --silver-end: #6b7a92; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--fg); font-family: 'Jost', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 3px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(9,9,12,0.88); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1300px; margin: 0 auto; padding: 0 clamp(1.25rem,5vw,4rem); height: clamp(3.5rem,5vw,4.5rem); display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+    .nav-logo img { height: clamp(26px,3vw,38px); width: auto; object-fit: contain; }
+    .nav-logo-text { font-family: 'Jost', sans-serif; font-size: clamp(0.6rem,1.2vw,0.72rem); letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg); }
+    .nav-back { font-family: 'Jost', sans-serif; font-size: clamp(0.6rem,1.1vw,0.7rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    .nav-back:hover { color: var(--primary); }
+    .article-wrap { min-height: 100vh; padding: clamp(6rem,12vw,9rem) clamp(1.25rem,5vw,4rem) clamp(4rem,8vw,7rem); max-width: 780px; margin: 0 auto; }
+    .article-date { font-family: 'Jost', sans-serif; font-size: clamp(0.58rem,1vw,0.68rem); letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); margin-bottom: clamp(1rem,2vw,1.5rem); }
+    .article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,5.5vw,3.8rem); font-weight: 300; line-height: 1.15; margin-bottom: clamp(1.25rem,2.5vw,2rem); }
+    .article-excerpt { font-family: 'Jost', sans-serif; font-size: clamp(1rem,2vw,1.15rem); color: var(--muted); line-height: 1.85; padding-bottom: clamp(1.5rem,3vw,2.5rem); border-bottom: 1px solid var(--border); margin-bottom: clamp(2rem,4vw,3.5rem); }
+    .article-body { color: var(--muted); line-height: 1.95; font-family: 'Jost', sans-serif; font-size: clamp(0.875rem,1.6vw,1rem); }
+    .article-body p { margin-bottom: 1.8em; }
+    .article-body h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem,3.5vw,2.4rem); font-weight: 300; color: var(--fg); margin-top: clamp(2.5rem,5vw,4rem); margin-bottom: 1em; line-height: 1.2; }
+    .article-body h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.2rem,2.5vw,1.7rem); font-weight: 400; color: var(--fg); margin-top: clamp(1.75rem,3.5vw,3rem); margin-bottom: 0.75em; }
+    .article-body strong { color: var(--fg); font-weight: 500; }
+    .article-body em { font-style: italic; color: var(--fg); }
+    .article-body ul, .article-body ol { margin-left: 1.5rem; margin-bottom: 2em; }
+    .article-body li { margin-bottom: 0.7em; }
+    .article-body blockquote { border-left: 1px solid var(--primary); padding: 0.5em 0 0.5em 1.75rem; margin: clamp(1.5rem,3vw,2.5rem) 0; font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem,2.5vw,1.5rem); font-style: italic; color: var(--fg); }
+    .article-footer { margin-top: clamp(3rem,6vw,5rem); padding-top: clamp(2rem,4vw,3rem); border-top: 1px solid var(--border); text-align: center; }
+    .article-footer p { font-family: 'Jost', sans-serif; font-size: clamp(0.8rem,1.5vw,0.9rem); color: var(--muted); margin-bottom: clamp(1.25rem,2.5vw,2rem); }
+    .btn-filled { display: inline-block; background: linear-gradient(135deg, var(--silver-start) 0%, var(--silver-mid) 55%, var(--silver-end) 100%); color: #09090c; font-family: 'Jost', sans-serif; font-size: clamp(0.6rem,1.1vw,0.72rem); font-weight: 500; letter-spacing: 0.25em; text-transform: uppercase; text-decoration: none; padding: 0.95em 2.8em; transition: opacity 0.3s, transform 0.3s; }
+    .btn-filled:hover { opacity: 0.85; transform: translateY(-2px); }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="../index.html" class="nav-brand">
-      <img src="../imagenes/myndlifelogo.jpg" alt="MyndLife Logo" class="nav-logo-img">
-      <div class="nav-logo">MYNDLIFE</div>
-    </a>
-    <a href="../blog.html" class="nav-back">← Volver al Blog</a>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">
+        <img src="../publico/imagenes/logo.jpg" alt="MyndLife" />
+        <span class="nav-logo-text">MyndLife</span>
+      </a>
+      <a href="../blog.html" class="nav-back">← Volver al Blog</a>
+    </div>
   </nav>
 
-  <article class="article-container">
-    
-    <header class="article-header">
+  <article class="article-wrap">
+    <header>
       <div class="article-date">15 Enero 2025</div>
       <h1 class="article-title">Claridad Mental: El Primer Paso Hacia el Control</h1>
       <p class="article-excerpt">No puedes cambiar lo que no puedes ver. La claridad mental no es un lujo, es el fundamento de toda transformación real.</p>
     </header>
-
-    <div class="article-content">
-      
+    <div class="article-body">
       <p>Vivimos rodeados de ruido. Notificaciones, opiniones, expectativas ajenas, decisiones pendientes. La mente moderna no descansa, y en esa saturación constante, perdemos algo esencial: <strong>la capacidad de ver con claridad.</strong></p>
-
       <p>Sin claridad mental, no hay transformación posible. Puedes leer todos los libros, seguir todos los consejos, pero si no sabes qué es lo que realmente importa para ti, solo estarás ejecutando el plan de otro.</p>
-
       <h2>¿Qué es la claridad mental?</h2>
       <p>No es estar en blanco. No es meditar 2 horas al día ni retirarte a una montaña.</p>
-
       <p>La claridad mental es <em>la capacidad de identificar lo que importa y descartar lo que no.</em> Es saber qué quieres, por qué lo quieres, y qué estás dispuesto a sacrificar para conseguirlo.</p>
       <p>Es poder observar tus pensamientos sin que te controlen. Es distinguir entre lo urgente y lo importante. Es tomar decisiones sin dudar durante semanas.</p>
-
-  <blockquote>
-    "La mente confusa toma decisiones confusas. La mente clara construye una vida clara."
-  </blockquote>
-
-  <h2>Por qué no la tienes (todavía)</h2>
-  
-  <p>La mayoría de personas no tienen claridad mental porque nunca se han detenido a crearla. Están ocupadas reaccionando a la vida en lugar de diseñarla.</p>
-
-  <h3>Las tres causas principales:</h3>
-
-  <ul>
-    <li><strong>Sobrecarga de información:</strong> Consumimos más contenido en un día que nuestros abuelos en un año. El cerebro no procesa, solo acumula.</li>
-    <li><strong>Falta de introspección:</strong> No hay tiempo para pensar. Siempre hay algo que hacer, algo que ver, alguien que responder.</li>
-    <li><strong>Decisiones pendientes:</strong> Cada decisión que no tomas ocupa espacio mental. Y ese espacio se acumula.</li>
-  </ul>
-
-  <h2>Cómo construir claridad mental</h2>
-
-  <p>La claridad no aparece sola. Se construye con disciplina, con sistemas, con intención.</p>
-
-  <h3>1. Elimina antes de añadir</h3>
-  <p>Antes de buscar más información, elimina la que no necesitas. Deja de seguir cuentas que no te aportan. Deja de consumir contenido que no te hace pensar.</p>
-
-  <h3>2. Escribe para pensar</h3>
-  <p>No puedes ordenar ideas que solo existen en tu cabeza. Escribe. No para publicar, no para que otros lean. Para ti. Para ver qué piensas realmente.</p>
-
-  <h3>3. Define tus no negociables</h3>
-  <p>¿Qué es lo que nunca vas a sacrificar? ¿Qué valores definen quién eres? Si no lo tienes claro, cualquier cosa te moverá de sitio.</p>
-
-  <h3>4. Toma decisiones rápido en lo irrelevante</h3>
-  <p>No gastes energía mental en decisiones que no importan. Qué comer, qué ropa ponerte, qué serie ver. Automatiza, delega o decide en 10 segundos.</p>
-
-  <h2>El resultado de la claridad</h2>
-
-  <p>Cuando tienes claridad mental:</p>
-
-  <ul>
-    <li>Tomas decisiones sin dudar.</li>
-    <li>Sabes decir que no sin culpa.</li>
-    <li>Avanzas hacia lo que importa, no hacia lo que grita más fuerte.</li>
-    <li>Dejas de vivir en piloto automático.</li>
-  </ul>
-
-  <p>La claridad no es el destino. Es el punto de partida. Sin ella, todo lo demás es ruido.</p>
-
-</div>
-
-<footer class="article-footer">
-  <p class="article-footer-text">¿Listo para construir claridad en tu vida?</p>
-  <a href="../index.html#pillars" class="article-cta">Explorar MyndLife</a>
-</footer>
+      <blockquote>"La mente confusa toma decisiones confusas. La mente clara construye una vida clara."</blockquote>
+      <h2>Por qué no la tienes (todavía)</h2>
+      <p>La mayoría de personas no tienen claridad mental porque nunca se han detenido a crearla. Están ocupadas reaccionando a la vida en lugar de diseñarla.</p>
+      <h3>Las tres causas principales:</h3>
+      <ul>
+        <li><strong>Sobrecarga de información:</strong> Consumimos más contenido en un día que nuestros abuelos en un año. El cerebro no procesa, solo acumula.</li>
+        <li><strong>Falta de introspección:</strong> No hay tiempo para pensar. Siempre hay algo que hacer, algo que ver, alguien que responder.</li>
+        <li><strong>Decisiones pendientes:</strong> Cada decisión que no tomas ocupa espacio mental. Y ese espacio se acumula.</li>
+      </ul>
+      <h2>Cómo construir claridad mental</h2>
+      <p>La claridad no aparece sola. Se construye con disciplina, con sistemas, con intención.</p>
+      <h3>1. Elimina antes de añadir</h3>
+      <p>Antes de buscar más información, elimina la que no necesitas. Deja de seguir cuentas que no te aportan. Deja de consumir contenido que no te hace pensar.</p>
+      <h3>2. Escribe para pensar</h3>
+      <p>No puedes ordenar ideas que solo existen en tu cabeza. Escribe. No para publicar, no para que otros lean. Para ti. Para ver qué piensas realmente.</p>
+      <h3>3. Define tus no negociables</h3>
+      <p>¿Qué es lo que nunca vas a sacrificar? ¿Qué valores definen quién eres? Si no lo tienes claro, cualquier cosa te moverá de sitio.</p>
+      <h3>4. Toma decisiones rápido en lo irrelevante</h3>
+      <p>No gastes energía mental en decisiones que no importan. Qué comer, qué ropa ponerte, qué serie ver. Automatiza, delega o decide en 10 segundos.</p>
+      <h2>El resultado de la claridad</h2>
+      <p>Cuando tienes claridad mental:</p>
+      <ul>
+        <li>Tomas decisiones sin dudar.</li>
+        <li>Sabes decir que no sin culpa.</li>
+        <li>Avanzas hacia lo que importa, no hacia lo que grita más fuerte.</li>
+        <li>Dejas de vivir en piloto automático.</li>
+      </ul>
+      <p>La claridad no es el destino. Es el punto de partida. Sin ella, todo lo demás es ruido.</p>
+    </div>
+    <footer class="article-footer">
+      <p>¿Listo para construir claridad en tu vida?</p>
+      <a href="../index.html#pillars" class="btn-filled">Explorar MyndLife</a>
+    </footer>
+  </article>
+</body>
+</html>
